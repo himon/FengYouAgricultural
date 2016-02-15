@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_confirm_order_pic" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_img"
+        android:maxLines="2"
+        android:text="丰友农贸加入液体肥料产业技术创新"
+        android:textColor="@color/home_tab_font_black"
+        android:textSize="@dimen/font_size_18" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/iv_img"
+        android:maxLines="2"
+        android:text="1月19日，液体肥料产业技术创新联盟成立大会在四川眉山召开，四川..."
+        android:textColor="@color/main_search_font_gray" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/button_yellow_bg"
+        android:gravity="center"
+        android:paddingBottom="1dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="1dp"
+        android:text="今天"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/font_size_12" />
+
+</RelativeLayout>

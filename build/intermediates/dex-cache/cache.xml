@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\okio-1.6.0-c410569bd3ae660f2a7eceb3af69efc833b46b70.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\in.srain.cube\ultra-ptr\1.0.7\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e693fc7ab1f9383eec91f1b75604b4e263946652">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\classes-d4a02096e4c0511528d06a704548b54460004dd5.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\com.squareup.leakcanary\leakcanary-android-no-op\1.3.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f12b73a85d00136c8180f7763334beb9cb3f4d49">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\classes-ecab19df267bc0d886308d2bec49751432f6b55a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\gson-2.3.1-3d67bc6296728dce11d45e3fe02a4d0f0bf336e9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\7.0.1\d5d13ea991eab0252e3710e5df3d6a9d4b21d461\butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\butterknife-7.0.1-fc861cbde294a7e4a9efd57936d766cb077b60e2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.facebook.stetho\stetho\1.3.0\87e6bfd8d961a57cf8cbecebcbd68489d41bd4fc\stetho-1.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="87e6bfd8d961a57cf8cbecebcbd68489d41bd4fc">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\stetho-1.3.0-9b84a0cbe67061220ab58a3db9e322971edb32ee.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\classes-f233322a97b38cebc6ef7bf1ead13affec9f26e4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.0.1\b34c1f2d993044656e87f88970b6818e99e886ba\okhttp-3.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\okhttp-3.0.1-6c4a13f1ae29fbf79d4daae798a189678a938639.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\com.zhy\autolayout\1.3.6\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="018cb0b432fb3c9de71267c12ee223d93e90979c">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\debug\classes-78c51d091e92f0ca147f0168319dea22b20a34a7.jar" />
+    </item>
+    <item
+        jar="E:\Users\Administrator\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\support-annotations-23.1.1-dc014441fd0971e34d42022d9dbead6f455c207f.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\internal_impl-23.1.1-539fb13ef3f56bcb8cdef509beb7aff16874f14f.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\classes-d48e0c2fdb06088c812371bbde8c7c556e880802.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.facebook.stetho\stetho-okhttp3\1.3.0\a4a4b2770ad38d26c7ffe10c989e555e635669e5\stetho-okhttp3-1.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4a4b2770ad38d26c7ffe10c989e555e635669e5">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\stetho-okhttp3-1.3.0-1ed32719b7d0c44102371ba7c549d002a8c08952.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\com.zhy\okhttputils\2.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="eaec65733dbdcf17581e2e436dfd851c6f594b19">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\classes-e86d4c54097a5e5313eaaf6f66a26c37483edffb.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\commons-cli\commons-cli\1.2\2bf96b7aa8b611c177d329452af1dc933e14501c\commons-cli-1.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2bf96b7aa8b611c177d329452af1dc933e14501c">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\commons-cli-1.2-7ed28277f6d87070a38e23576b9febb034c7338a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\2.0.1\516c03b21d50a644d538de0f0369c620989cd8f0\jsr305-2.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\jsr305-2.0.1-69d0b6c8ffa05193b3c0ebfa1d1d218ee290f911.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.nostra13.universalimageloader\universal-image-loader\1.9.3\a85588bec3e2c4584d593d3f15df1677321bca72\universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\universal-image-loader-1.9.3-7663f8faae3d90805b2c7e72235949f4ecf3a339.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\com.commit451\PhotoView\1.2.4\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="890be6e1e56a883c9b407a11e067a61886dec123">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\classes-167c2e5ca43f19d447477eb31255c00f40593197.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\classes-fa7c4d13dff188a2cb1b1f045f66cbdf7d9caf77.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.5.0\4de2b4ed3445c37ec1720a7d214712e845a24636\okhttp-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\okhttp-2.5.0-c5a573687790528960a2cdb5042d396490d51899.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\classes-d305d3d0be02fcd7b48b7787b1c1c522a397867d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\de.greenrobot\eventbus\2.4.0\ddd166d01b3158d1c00576d29f7ed15c030df719\eventbus-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ddd166d01b3158d1c00576d29f7ed15c030df719">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\eventbus-2.4.0-03e25c6b3178abc8ecb48b05be1f281aa0724b29.jar" />
+    </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\FengYouAgricultural\viewPagerlibrary\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1a39c607d4f4e3248fdf68c0765f67c244f78aed">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\debug\classes-9edec502497667b4368cbd63d00956d1e768ffbd.jar" />
+    </item>
+
+</items>

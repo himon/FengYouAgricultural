@@ -1,0 +1,807 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:scrollbars="none"
+    tools:context="com.louis.agricultural.ui.fragment.tab.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        tools:context="com.louis.agricultural.ui.fragment.tab.HomeFragment">
+
+        <include layout="@layout/layout_main_title_bar" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:id="@+id/ll_brand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/img_brand_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="品牌"
+                    android:textColor="@color/font_gray" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_announcement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/img_announcement_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="公告"
+                    android:textColor="@color/font_gray" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_news"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/img_news_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="新闻"
+                    android:textColor="@color/font_gray" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_distribution"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/img_dispatching_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="配送"
+                    android:textColor="@color/font_gray" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/home_tab_gray_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="丰友"
+                android:textColor="@color/home_tab_font_black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/home_tab_red_bg"
+                android:text="头条"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/home_tab_gray_bg" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="红日阿康有机肥料10元/5斤包邮!"
+                android:textColor="@color/home_tab_font_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更多"
+                android:textColor="@color/main_search_font_gray" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/img_right_arrow" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/home_tab_gray_bg" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/home_tab_gray_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/home_tab_red_bg" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="精品推荐"
+                android:textColor="@color/home_tab_font_black"
+                android:textSize="@dimen/font_size_20" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更多"
+                android:textColor="@color/main_search_font_gray" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/img_right_arrow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_recommend1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_name1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="掺混肥料"
+                    android:textColor="@color/home_tab_red_bg" />
+
+                <TextView
+                    android:id="@+id/tv_desc1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_name1"
+                    android:text="国际农林博览会推荐"
+                    android:textColor="@color/main_search_font_gray"
+                    android:textSize="@dimen/font_size_12" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_desc1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_home_ring_stroke_red_price">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="3"
+                            android:text="$188"
+                            android:gravity="bottom"
+                            android:textColor="@color/home_tab_red_bg"
+                            android:textSize="@dimen/font_size_14" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:text="包邮"
+                            android:textSize="@dimen/font_size_10"
+                            android:textColor="@color/home_tab_red_bg" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="95dp"
+                    android:layout_height="105dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/img_home_goods1" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/home_tab_gray_bg" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="掺混肥料"
+                    android:textColor="@color/home_tab_red_bg" />
+
+                <TextView
+                    android:id="@+id/tv_desc2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_name2"
+                    android:text="国际农林博览会推荐"
+                    android:textColor="@color/main_search_font_gray"
+                    android:textSize="@dimen/font_size_12" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_desc2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:text="$188"
+                        android:textColor="@color/home_tab_red_bg" />
+
+                    <ImageView
+                        android:layout_width="47dp"
+                        android:layout_height="78dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/img_home_goods2" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/home_tab_gray_bg" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_name3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="掺混肥料"
+                    android:textColor="@color/home_tab_red_bg" />
+
+                <TextView
+                    android:id="@+id/tv_desc3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_name3"
+                    android:text="国际农林博览会推荐"
+                    android:textColor="@color/main_search_font_gray"
+                    android:textSize="@dimen/font_size_12" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_desc3">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:text="$188"
+                        android:textColor="@color/home_tab_red_bg" />
+
+                    <ImageView
+                        android:layout_width="47dp"
+                        android:layout_height="78dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/img_home_goods2" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/home_tab_gray_bg" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_name4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="掺混肥料"
+                    android:textColor="@color/home_tab_red_bg" />
+
+                <TextView
+                    android:id="@+id/tv_desc4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_name4"
+                    android:text="国际农林博览会推荐"
+                    android:textColor="@color/main_search_font_gray"
+                    android:textSize="@dimen/font_size_12" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_desc4">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:text="$188"
+                        android:textColor="@color/home_tab_red_bg" />
+
+                    <ImageView
+                        android:layout_width="47dp"
+                        android:layout_height="78dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/img_home_goods2" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/home_tab_gray_bg" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_name5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="掺混肥料"
+                    android:textColor="@color/home_tab_red_bg" />
+
+                <TextView
+                    android:id="@+id/tv_desc5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_name5"
+                    android:text="国际农林博览会推荐"
+                    android:textColor="@color/main_search_font_gray"
+                    android:textSize="@dimen/font_size_12" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_desc5">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:text="$188"
+                        android:textColor="@color/home_tab_red_bg" />
+
+                    <ImageView
+                        android:layout_width="47dp"
+                        android:layout_height="78dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/img_home_goods2" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/home_tab_gray_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/home_tab_red_bg" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="热销排行"
+                android:textColor="@color/home_tab_font_black"
+                android:textSize="@dimen/font_size_20" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更多"
+                android:textColor="@color/main_search_font_gray" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/img_right_arrow" />
+
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/iv_order_img1"
+                        android:layout_width="45dp"
+                        android:layout_height="75dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/img_home_order_goods1" />
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/home_tab_gray_bg" />
+
+                    <TextView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="0.5dp"
+                        android:background="@drawable/shape_home_left_radius_order"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_order_name1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_order_img1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="鲁西 复合肥料"
+                        android:textColor="@color/home_tab_font_black"
+                        android:textSize="@dimen/font_size_12" />
+
+                    <TextView
+                        android:id="@+id/tv_order_price1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_order_name1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="$188"
+                        android:textColor="@color/home_tab_red_bg" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_order_price1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="$299"
+                        android:textColor="@color/main_search_font_gray"
+                        android:textSize="@dimen/font_size_10" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/iv_order_img2"
+                        android:layout_width="45dp"
+                        android:layout_height="75dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/img_home_order_goods1" />
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/home_tab_gray_bg" />
+
+                    <TextView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="0.5dp"
+                        android:background="@drawable/shape_home_left_radius_order"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_order_name2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_order_img2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="鲁西 复合肥料"
+                        android:textColor="@color/home_tab_font_black"
+                        android:textSize="@dimen/font_size_12" />
+
+                    <TextView
+                        android:id="@+id/tv_order_price2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_order_name2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="$188"
+                        android:textColor="@color/home_tab_red_bg" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_order_price2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="$299"
+                        android:textColor="@color/main_search_font_gray"
+                        android:textSize="@dimen/font_size_10" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/iv_order_img3"
+                        android:layout_width="45dp"
+                        android:layout_height="75dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/img_home_order_goods1" />
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/home_tab_gray_bg" />
+
+                    <TextView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="0.5dp"
+                        android:background="@drawable/shape_home_left_radius_order"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_order_name3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_order_img3"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="鲁西 复合肥料"
+                        android:textColor="@color/home_tab_font_black"
+                        android:textSize="@dimen/font_size_12" />
+
+                    <TextView
+                        android:id="@+id/tv_order_price3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_order_name3"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="$188"
+                        android:textColor="@color/home_tab_red_bg" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_order_price3"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="$299"
+                        android:textColor="@color/main_search_font_gray"
+                        android:textSize="@dimen/font_size_10" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/iv_order_img4"
+                        android:layout_width="45dp"
+                        android:layout_height="75dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/img_home_order_goods1" />
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="75dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/home_tab_gray_bg" />
+
+                    <TextView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="0.5dp"
+                        android:background="@drawable/shape_home_left_radius_order"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_order_name4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_order_img4"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="鲁西 复合肥料"
+                        android:textColor="@color/home_tab_font_black"
+                        android:textSize="@dimen/font_size_12" />
+
+                    <TextView
+                        android:id="@+id/tv_order_price4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_order_name4"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="$188"
+                        android:textColor="@color/home_tab_red_bg" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_order_price4"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="$299"
+                        android:textColor="@color/main_search_font_gray"
+                        android:textSize="@dimen/font_size_10" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+</ScrollView>

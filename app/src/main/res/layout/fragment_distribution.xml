@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.louis.agricultural.ui.fragment.message.DistributionFragment">
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+        android:id="@+id/ptr_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.louis.agricultural.view.GetMoreListView
+            android:id="@+id/gmlv_main"
+            android:layout_width="match_parent"
+            android:dividerHeight="1dp"
+            android:divider="@color/gray_line5"
+            android:layout_height="match_parent" />
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
+</FrameLayout>

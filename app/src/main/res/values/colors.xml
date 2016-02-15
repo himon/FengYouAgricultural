@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="main_tools_bg">#FCBA2C</color>
+    <color name="main_search_bg">#FDDF8F</color>
+    <color name="home_tab_red_bg">#FF4F01</color>
+    <color name="home_tab_gray_bg">#EEEEEE</color>
+    <color name="tools_bg">#F9F9F9</color>
+    <color name="login_btn_bg">#88C329</color>
+    <color name="button_red_bg">#FF4F00</color>
+    <color name="button_yellow_bg">#FFBA01</color>
+    <color name="product_gray_bg">#EDEEEF</color>
+    <color name="me_tab_yellow_bg">#FDBA2C</color>
+    <color name="pwd_button_yellow_bg">#F9D984</color>
+    <color name="address_button_green">#87C328</color>
+    <color name="textview_orange_bg">#FF7901</color>
+    <color name="radio_group_gray_bg">#cccccc</color>
+
+    <color name="gray_line">#AAAAAA</color>
+    <color name="gray_line2">#DBDBDC</color>
+    <color name="gray_line3">#F2F2F2</color>
+    <color name="gray_line4">#c8c8c8</color>
+    <color name="gray_line5">#d8d8d8</color>
+    <color name="orange">#FC7A24</color>
+    <color name="yellow">#FCBA2C</color>
+
+    <color name="font_red">#FB4F1B</color>
+    <color name="main_tab_font_gray">#666768</color>
+    <color name="main_search_font_gray">#999999</color>
+    <color name="font_gray">#666666</color>
+    <color name="home_tab_font_black">#333333</color>
+
+
+</resources>
