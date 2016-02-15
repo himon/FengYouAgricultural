@@ -17,7 +17,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="120dp" />
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_home_banne" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -178,7 +180,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_home_ad" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -249,23 +253,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/tv_desc1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:orientation="vertical"
-                        android:gravity="center_horizontal"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/shape_home_ring_stroke_red_price">
+                        android:background="@drawable/shape_home_ring_stroke_red_price"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
                             android:layout_weight="3"
-                            android:text="$188"
                             android:gravity="bottom"
+                            android:text="$188"
                             android:textColor="@color/home_tab_red_bg"
                             android:textSize="@dimen/font_size_14" />
 
@@ -274,8 +278,8 @@
                             android:layout_height="0dp"
                             android:layout_weight="2"
                             android:text="包邮"
-                            android:textSize="@dimen/font_size_10"
-                            android:textColor="@color/home_tab_red_bg" />
+                            android:textColor="@color/home_tab_red_bg"
+                            android:textSize="@dimen/font_size_10" />
 
                     </LinearLayout>
                 </LinearLayout>
