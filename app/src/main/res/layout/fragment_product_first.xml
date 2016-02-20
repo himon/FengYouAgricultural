@@ -1,4 +1,4 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.louis.agricultural.view.CustScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -364,4 +364,4 @@
     </LinearLayout>
 
 
-</ScrollView>
+</com.louis.agricultural.view.CustScrollView>

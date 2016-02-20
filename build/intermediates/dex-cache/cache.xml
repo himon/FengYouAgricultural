@@ -8,5 +8,12 @@
         sha1="1a39c607d4f4e3248fdf68c0765f67c244f78aed">
         <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\release\classes-9edec502497667b4368cbd63d00956d1e768ffbd.jar" />
     </item>
+    <item
+        jar="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\exploded-aar\FengYouAgricultural\library\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1e2be42f046e7c4d94a0aab087387661c97cdd2a">
+        <dex dex="D:\Documents\GitHub\FengYouAgricultural\app\build\intermediates\pre-dexed\debug\classes-29adf81d177a3e04ce4f4e9646df209dc89c2c52.jar" />
+    </item>
 
 </items>

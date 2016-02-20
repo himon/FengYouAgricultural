@@ -69,6 +69,10 @@
             android:name=".ui.activity.me.PayActivity"
             android:label="@string/title_activity_pay" >
         </activity>
+        <activity
+            android:name=".ui.activity.SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
     </application>
 
 </manifest>

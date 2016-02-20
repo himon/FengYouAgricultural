@@ -21,6 +21,7 @@
     <color name="gray_line3">#F2F2F2</color>
     <color name="gray_line4">#c8c8c8</color>
     <color name="gray_line5">#d8d8d8</color>
+    <color name="classify_seach_gray_line">#FFDF89</color>
     <color name="orange">#FC7A24</color>
     <color name="yellow">#FCBA2C</color>
 

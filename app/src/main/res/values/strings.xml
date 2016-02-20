@@ -18,4 +18,5 @@
     <string name="title_activity_forget_password">ForgetPasswordActivity</string>
     <string name="title_activity_message">MessageActivity</string>
     <string name="title_activity_pay">PayActivity</string>
+    <string name="title_activity_search">SearchActivity</string>
 </resources>

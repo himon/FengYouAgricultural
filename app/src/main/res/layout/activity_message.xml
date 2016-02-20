@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,15 +17,17 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tv_announcement"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:padding="10dp"
             android:text="公告"
-            android:textColor="@color/main_search_font_gray" />
+            android:textColor="@color/home_tab_red_bg" />
 
         <TextView
+            android:id="@+id/tv_news"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -34,6 +37,7 @@
             android:textColor="@color/main_search_font_gray" />
 
         <TextView
+            android:id="@+id/tv_distribution"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -43,6 +47,12 @@
             android:textColor="@color/main_search_font_gray" />
 
     </LinearLayout>
+
+    <com.viewpagerindicator.UnderlinePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        app:selectedColor="@color/home_tab_red_bg" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_viewpager"

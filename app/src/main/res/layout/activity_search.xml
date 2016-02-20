@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.louis.agricultural.ui.activity.SearchActivity">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <include layout="@layout/layout_classify_title_bar" />
+
+    <include layout="@layout/layout_gray_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:padding="6dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="销量排序"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_size_18"/>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/img_search_down_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:padding="6dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="价格排序"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_size_18"/>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/img_search_up_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:padding="6dp"
+            android:gravity="center">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="促销"
+                android:textColor="@color/font_red"
+                android:textSize="@dimen/font_size_18"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_gray_line" />
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+        android:id="@+id/ptr_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.louis.agricultural.view.GetMoreListView
+            android:id="@+id/gmlv_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
+</LinearLayout>
