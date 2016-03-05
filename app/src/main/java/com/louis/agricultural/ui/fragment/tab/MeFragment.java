@@ -11,7 +11,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.louis.agricultural.R;
+import com.louis.agricultural.base.app.Constants;
+import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.base.fragment.BaseFragment;
+import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.ui.activity.me.CommentActivity;
 import com.louis.agricultural.ui.activity.me.ConfirmOrderActivity;
 import com.louis.agricultural.ui.activity.me.MyOrderActivity;
@@ -20,6 +23,7 @@ import com.louis.agricultural.ui.activity.me.UserInfoActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import me.iwf.photopicker.utils.PhotoPickerIntent;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +32,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
 
     @Bind(R.id.tv_setting)
     TextView mTvSetting;
+    @Bind(R.id.tv_username)
+    TextView mTvUserName;
     @Bind(R.id.tv_user_info)
     TextView mTvUserInfo;
     @Bind(R.id.tv_see_order)
@@ -66,7 +72,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void initData() {
-
+        UserEntity.ResultEntity user = FYApplication.getContext().getUserEntity().getResult();
+        mTvUserName.setText(user.get_user_name());
     }
 
     @Override

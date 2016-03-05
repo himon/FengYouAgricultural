@@ -20,6 +20,7 @@
         android:padding="15dp">
 
         <EditText
+            android:id="@+id/et_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -28,19 +29,20 @@
             android:textColorHint="@color/radio_group_gray_bg" />
 
         <ImageView
+            android:id="@+id/iv_name"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/img_check_mark" />
+            android:src="@drawable/img_no_check_mark" />
 
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_name_error_prompt"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="right|center_vertical"
-        android:text="此用户名已存在,请重新输入"
         android:textColor="@color/home_tab_red_bg" />
 
     <LinearLayout
@@ -54,6 +56,7 @@
         android:padding="15dp">
 
         <EditText
+            android:id="@+id/et_mobile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -62,6 +65,7 @@
             android:textColorHint="@color/radio_group_gray_bg" />
 
         <ImageView
+            android:id="@+id/iv_mobile"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/img_no_check_mark" />
@@ -69,12 +73,12 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_mobile_error_prompt"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="right|center_vertical"
-        android:text="手机号码已被注册,请重新输入"
         android:textColor="@color/home_tab_red_bg" />
 
 
@@ -89,6 +93,7 @@
         android:padding="15dp">
 
         <EditText
+            android:id="@+id/et_code"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -97,6 +102,7 @@
             android:textColorHint="@color/radio_group_gray_bg" />
 
         <ImageView
+            android:id="@+id/iv_code"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/img_no_check_mark" />
@@ -104,12 +110,12 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_code_error_prompt"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="right|center_vertical"
-        android:text="此推荐码不存在,请重新输入"
         android:textColor="@color/home_tab_red_bg" />
 
 
@@ -124,6 +130,7 @@
         android:padding="15dp">
 
         <EditText
+            android:id="@+id/et_pwd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -132,6 +139,7 @@
             android:textColorHint="@color/radio_group_gray_bg" />
 
         <ImageView
+            android:id="@+id/iv_pwd"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/img_no_check_mark" />
@@ -139,12 +147,12 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_pwd_error_prompt"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="right|center_vertical"
-        android:text="密码太短,应为6-12位"
         android:textColor="@color/home_tab_red_bg" />
 
     <LinearLayout
@@ -158,6 +166,7 @@
         android:padding="15dp">
 
         <EditText
+            android:id="@+id/et_repwd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -166,6 +175,7 @@
             android:textColorHint="@color/radio_group_gray_bg" />
 
         <ImageView
+            android:id="@+id/iv_repwd"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/img_no_check_mark" />
@@ -173,12 +183,12 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_repwd_error_prompt"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="right|center_vertical"
-        android:text="两次密码不一致,请重新输入"
         android:textColor="@color/home_tab_red_bg" />
 
     <Button

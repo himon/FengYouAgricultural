@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
-import com.louis.agricultural.entities.OrderEntity;
+import com.louis.agricultural.model.entities.OrderEntity;
 import com.louis.agricultural.ui.adapter.ConfirmOrderAdapter;
 import com.louis.agricultural.view.MyListView;
 

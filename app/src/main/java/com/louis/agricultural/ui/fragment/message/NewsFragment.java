@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.fragment.BaseFragment;
-import com.louis.agricultural.entities.NewsEntity;
+import com.louis.agricultural.model.entities.NewsEntity;
 import com.louis.agricultural.ui.adapter.NewsAdapter;
 import com.louis.agricultural.view.GetMoreListView;
 

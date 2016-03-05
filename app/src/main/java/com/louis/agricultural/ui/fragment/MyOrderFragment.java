@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.fragment.BaseFragment;
-import com.louis.agricultural.entities.OrderEntity;
+import com.louis.agricultural.model.entities.OrderEntity;
 import com.louis.agricultural.ui.adapter.MyOrderAdapter;
 import com.louis.agricultural.view.GetMoreListView;
 
@@ -99,7 +99,7 @@ public class MyOrderFragment extends BaseFragment {
 
     private void getData() {
         for (int i = 0; i < 5; i++) {
-            com.louis.agricultural.entities.OrderEntity entity = new com.louis.agricultural.entities.OrderEntity();
+            com.louis.agricultural.model.entities.OrderEntity entity = new com.louis.agricultural.model.entities.OrderEntity();
             entity.setOrderId("617885566");
             entity.setType(1);
             entity.setTitle("鲁西 高塔尿基 40kg 复合肥料 总养分 >45%");

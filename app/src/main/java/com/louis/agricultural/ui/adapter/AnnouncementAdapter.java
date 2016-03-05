@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.louis.agricultural.base.adapter.CommonAdapter;
 import com.louis.agricultural.base.adapter.ViewHolder;
-import com.louis.agricultural.entities.AnnouncementEntity;
+import com.louis.agricultural.model.entities.AnnouncementEntity;
 
 import java.util.List;
 

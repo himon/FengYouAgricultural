@@ -3,7 +3,7 @@ package com.louis.agricultural.utils;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.louis.agricultural.constants.Constants;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.callback.LoadFinishCallBack;
 import com.nostra13.universalimageloader.core.ImageLoader;
 

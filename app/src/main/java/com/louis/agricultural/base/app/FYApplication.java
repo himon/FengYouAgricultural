@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.facebook.stetho.Stetho;
 import com.louis.agricultural.BuildConfig;
+import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.utils.StrictModeUtil;
 import com.louis.agricultural.utils.logger.LogLevel;
 import com.louis.agricultural.utils.logger.Logger;
@@ -20,12 +21,22 @@ import com.squareup.leakcanary.RefWatcher;
  */
 public class FYApplication extends Application {
 
-    private static Context mContext;
+    private static FYApplication mContext;
+
+    private UserEntity mUserEntity;
 
     private RefWatcher refWatcher;
 
-    public static Context getContext() {
+    public static FYApplication getContext() {
         return mContext;
+    }
+
+    public UserEntity getUserEntity() {
+        return mUserEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        mUserEntity = userEntity;
     }
 
     public static RefWatcher getRefWatcher(Context context) {

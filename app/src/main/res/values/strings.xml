@@ -1,22 +1,15 @@
 <resources>
     <string name="app_name">FengYouAgricultural</string>
+    <string name="title_activity_login">title_activity_login</string>
+    <string name="title_activity_product_details">title_activity_product_details</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="title_activity_product_details">ProductDetailsActivity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_user_info">UserInfoActivity</string>
-    <string name="title_activity_setting">SettingActivity</string>
-    <string name="title_activity_update_password">UpdatePasswordActivity</string>
-    <string name="title_activity_my_order">MyOrderActivity</string>
-    <string name="title_activity_shipping_address">ShippingAddressActivity</string>
-    <string name="title_activity_add_shipping_address">AddShippingAddressActivity</string>
-    <string name="title_activity_confirm_order">ConfirmOrderActivity</string>
-    <string name="title_activity_forget_password">ForgetPasswordActivity</string>
-    <string name="title_activity_message">MessageActivity</string>
-    <string name="title_activity_pay">PayActivity</string>
-    <string name="title_activity_search">SearchActivity</string>
+    <string name="register_name_error_prompt">此用户名已存在,请重新输入</string>
+    <string name="register_mobile_error_prompt">手机号码已被注册,请重新输入</string>
+    <string name="register_mobile_num_error_prompt">手机号码不正确,请输入正确的手机号码</string>
+    <string name="register_code_error_prompt">此推荐码不存在,请重新输入</string>
+    <string name="register_pwd_error_prompt">密码太短,应为6-12位</string>
+    <string name="register_repwd_error_prompt">两次密码不一致,请重新输入</string>
+
+
 </resources>

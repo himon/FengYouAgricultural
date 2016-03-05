@@ -1,5 +1,6 @@
 package com.louis.agricultural.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -10,6 +11,11 @@ import android.view.View;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BasicActivity;
+import com.louis.agricultural.base.app.Constants;
+import com.louis.agricultural.base.app.FYApplication;
+import com.louis.agricultural.model.entities.UserEntity;
+import com.louis.agricultural.model.event.LoginResultEvent;
+import com.louis.agricultural.ui.activity.account.LoginActivity;
 import com.louis.agricultural.ui.fragment.tab.ClassifyFragment;
 import com.louis.agricultural.ui.fragment.tab.HomeFragment;
 import com.louis.agricultural.ui.fragment.tab.MeFragment;
@@ -20,6 +26,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 
 public class MainActivity extends BasicActivity {
 
@@ -53,6 +60,7 @@ public class MainActivity extends BasicActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         initView();
         initData();
     }
@@ -133,10 +141,21 @@ public class MainActivity extends BasicActivity {
                 mViewPager.setCurrentItem(2, false);
                 break;
             case R.id.indicator_me:
-                mViewPager.setCurrentItem(3
-                        , false);
+                UserEntity userEntity = FYApplication.getContext().getUserEntity();
+                if(userEntity != null) {
+                    mViewPager.setCurrentItem(3
+                            , false);
+                }else{
+                    toLogin(Constants.LOGIN_FROM_ME);
+                }
                 break;
         }
+    }
+
+    private void toLogin(String from) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, from);
+        startActivity(intent);
     }
 
     private void initEvent() {
@@ -171,5 +190,17 @@ public class MainActivity extends BasicActivity {
         for (int i = 0; i < mTabIndicators.size(); i++) {
             mTabIndicators.get(i).setmIcon(bitmaps.get(i), mUnSelectedColor);
         }
+    }
+
+    public void onEvent(LoginResultEvent event) {
+        if(Constants.LOGIN_FROM_ME.equals(event.getMsg())){
+            mViewPager.setCurrentItem(3, false);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

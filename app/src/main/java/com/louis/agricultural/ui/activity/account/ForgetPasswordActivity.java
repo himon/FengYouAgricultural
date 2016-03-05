@@ -15,6 +15,9 @@ import com.louis.agricultural.base.activity.BaseActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * 找回密码
+ */
 public class ForgetPasswordActivity extends BaseActivity {
 
     @Bind(R.id.btn_next_step)
@@ -31,6 +34,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        initTitle("找回密码");
         initEvent();
     }
 
@@ -46,7 +50,7 @@ public class ForgetPasswordActivity extends BaseActivity {
     @Override
     protected void click(View view) {
 
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_next_step:
                 next();
                 break;

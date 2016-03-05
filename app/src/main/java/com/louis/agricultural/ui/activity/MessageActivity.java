@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
-import com.louis.agricultural.constants.Constants;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.ui.fragment.message.AnnouncementFragment;
 import com.louis.agricultural.ui.fragment.message.DistributionFragment;
 import com.louis.agricultural.ui.fragment.message.NewsFragment;

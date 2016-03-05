@@ -5,6 +5,8 @@
       <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/in.srain.cube/ultra-ptr/1.0.7/res" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/in.srain.cube/ultra-ptr/1.0.7/31464c74c9281ca23942bff778f6a3824dac044/ultra-ptr-1.0.7-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

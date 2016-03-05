@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
-import com.louis.agricultural.entities.ProductEntity;
+import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.ui.adapter.SearchAdapter;
 import com.louis.agricultural.view.GetMoreListView;
 

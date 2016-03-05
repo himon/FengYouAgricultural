@@ -18,6 +18,7 @@
         android:id="@+id/tv_nav_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/font_size_18"
         android:layout_centerInParent="true" />
 
     <ImageView
@@ -26,5 +27,6 @@
         android:layout_height="20dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/img_detail" />
+        android:src="@drawable/img_detail"
+        android:visibility="gone"/>
 </RelativeLayout>

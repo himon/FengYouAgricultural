@@ -1,5 +1,8 @@
 package com.louis.agricultural.ui.view;
 
+import com.louis.agricultural.model.entities.BaseEntity;
+import com.louis.agricultural.model.entities.UserEntity;
+
 /**
  * @author Administrator
  * @version $Rev$
@@ -7,4 +10,5 @@ package com.louis.agricultural.ui.view;
  * @des
  */
 public interface ILoginView {
+    void loginSuccess(UserEntity data);
 }

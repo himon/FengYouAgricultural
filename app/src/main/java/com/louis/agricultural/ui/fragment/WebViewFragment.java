@@ -12,8 +12,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.louis.agricultural.R;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.fragment.BaseFragment;
-import com.louis.agricultural.constants.Constants;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

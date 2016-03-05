@@ -31,5 +31,8 @@
     <color name="font_gray">#666666</color>
     <color name="home_tab_font_black">#333333</color>
 
+    <!-- clip -->
+    <color name="clip_picture_gray">#905A5A5A</color>
+
 
 </resources>

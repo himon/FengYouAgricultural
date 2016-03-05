@@ -8,7 +8,7 @@ import android.widget.ListView;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
-import com.louis.agricultural.entities.ShippingAddressEntity;
+import com.louis.agricultural.model.entities.ShippingAddressEntity;
 import com.louis.agricultural.ui.adapter.ShippingAddressAdapter;
 
 import java.util.ArrayList;
