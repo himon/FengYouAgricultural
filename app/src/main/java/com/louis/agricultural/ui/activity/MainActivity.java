@@ -130,6 +130,9 @@ public class MainActivity extends BasicActivity {
     }
 
     private void clickTab(View view) {
+
+        UserEntity userEntity;
+
         switch (view.getId()) {
             case R.id.indicator_home:
                 mViewPager.setCurrentItem(0, false);
@@ -138,10 +141,16 @@ public class MainActivity extends BasicActivity {
                 mViewPager.setCurrentItem(1, false);
                 break;
             case R.id.indicator_shopping_cart:
-                mViewPager.setCurrentItem(2, false);
+                userEntity = FYApplication.getContext().getUserEntity();
+                if(userEntity != null) {
+                    mViewPager.setCurrentItem(2
+                            , false);
+                }else{
+                    toLogin(Constants.LOGIN_FROM_SHOPPINGCART);
+                }
                 break;
             case R.id.indicator_me:
-                UserEntity userEntity = FYApplication.getContext().getUserEntity();
+                userEntity = FYApplication.getContext().getUserEntity();
                 if(userEntity != null) {
                     mViewPager.setCurrentItem(3
                             , false);
@@ -188,13 +197,20 @@ public class MainActivity extends BasicActivity {
      */
     private void resetOtherTabs() {
         for (int i = 0; i < mTabIndicators.size(); i++) {
-            mTabIndicators.get(i).setmIcon(bitmaps.get(i), mUnSelectedColor);
+            ChangeColorIconWithText changeColorIconWithText = mTabIndicators.get(i);
+            changeColorIconWithText.setmIcon(bitmaps.get(i), mUnSelectedColor);
         }
     }
 
     public void onEvent(LoginResultEvent event) {
         if(Constants.LOGIN_FROM_ME.equals(event.getMsg())){
             mViewPager.setCurrentItem(3, false);
+            mMeFragment.refresh();
+            mShoppingCartFragment.refresh();
+        }else if(Constants.LOGIN_FROM_SHOPPINGCART.equals(event.getMsg())){
+            mViewPager.setCurrentItem(2, false);
+            mMeFragment.refresh();
+            mShoppingCartFragment.refresh();
         }
     }
 

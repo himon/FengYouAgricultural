@@ -31,6 +31,7 @@ public class UserInfoActivityPresenter extends UserLosePresenter<IUserInfoView> 
     @Override
     public void onSuccess(int event_tag, BaseEntity data) {
 
+
     }
 
     public void getUserInfomation(String id) {

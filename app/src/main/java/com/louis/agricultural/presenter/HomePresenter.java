@@ -7,7 +7,7 @@ import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.presenter.UserLosePresenter;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
 import com.louis.agricultural.model.entities.BaseEntity;
-import com.louis.agricultural.model.entities.FytjEntity;
+import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.model.entities.FyttEntity;
 import com.louis.agricultural.model.entities.HomeAdImageEntity;
 import com.louis.agricultural.model.mode.HomeFragmentMode;
@@ -48,10 +48,10 @@ public class HomePresenter extends UserLosePresenter<IHomeView> implements UserL
                 mIHomeView.setFytt((FyttEntity) data);
                 break;
             case Constants.GET_INDEX_JPTJ_LISTENER:
-                mIHomeView.setFytj((FytjEntity) data);
+                mIHomeView.setFytj((ProductEntity) data);
                 break;
             case Constants.GET_INDEX_RMTJ_LISTENER:
-                mIHomeView.setRmtj((FytjEntity)data);
+                mIHomeView.setRmtj((ProductEntity)data);
                 break;
         }
     }

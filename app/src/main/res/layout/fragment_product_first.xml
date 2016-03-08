@@ -17,7 +17,8 @@
             <ImageView
                 android:id="@+id/iv_product_imgs"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"/>
 
             <ImageView
                 android:id="@+id/iv_back"
@@ -62,6 +63,7 @@
                 android:textColor="@android:color/white" />
 
             <TextView
+                android:id="@+id/tv_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -90,17 +92,18 @@
             android:padding="8dp">
 
             <TextView
+                android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:text="$188.00"
+                android:text="￥188.00"
                 android:textColor="@color/font_red"
                 android:textSize="@dimen/font_size_24" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$299.00" />
+                android:text="￥299.00" />
 
         </LinearLayout>
 

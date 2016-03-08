@@ -42,9 +42,9 @@
         <activity
             android:name=".ui.activity.me.MyOrderActivity"/>
         <activity
-            android:name=".ui.activity.me.ShippingAddressActivity"/>
+            android:name=".ui.activity.me.ShoppingAddressActivity"/>
         <activity
-            android:name=".ui.activity.me.AddShippingAddressActivity"/>
+            android:name=".ui.activity.me.AddShoppingAddressActivity"/>
         <activity
             android:name=".ui.activity.me.ConfirmOrderActivity"/>
         <activity

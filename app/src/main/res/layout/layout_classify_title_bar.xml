@@ -8,7 +8,7 @@
     android:padding="5dp">
 
     <ImageView
-        android:id="@+id/iv_nav_left"
+        android:id="@+id/iv_classify_left"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:src="@drawable/img_back" />
@@ -24,6 +24,7 @@
         android:padding="10dp">
 
         <ImageView
+            android:id="@+id/iv_search"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="5dp"

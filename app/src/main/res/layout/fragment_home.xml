@@ -328,6 +328,7 @@
                     android:layout_below="@+id/tv_desc2">
 
                     <TextView
+                        android:id="@+id/tv_price2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -336,6 +337,7 @@
                         android:textColor="@color/home_tab_red_bg" />
 
                     <ImageView
+                        android:id="@+id/iv_img2"
                         android:layout_width="47dp"
                         android:layout_height="78dp"
                         android:layout_alignParentRight="true"
@@ -387,6 +389,7 @@
                     android:layout_below="@+id/tv_desc3">
 
                     <TextView
+                        android:id="@+id/tv_price3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -395,6 +398,7 @@
                         android:textColor="@color/home_tab_red_bg" />
 
                     <ImageView
+                        android:id="@+id/iv_img3"
                         android:layout_width="47dp"
                         android:layout_height="78dp"
                         android:layout_alignParentRight="true"
@@ -438,6 +442,7 @@
                     android:layout_below="@+id/tv_desc4">
 
                     <TextView
+                        android:id="@+id/tv_price4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -446,6 +451,7 @@
                         android:textColor="@color/home_tab_red_bg" />
 
                     <ImageView
+                        android:id="@+id/iv_img4"
                         android:layout_width="47dp"
                         android:layout_height="78dp"
                         android:layout_alignParentRight="true"
@@ -489,6 +495,7 @@
                     android:layout_below="@+id/tv_desc5">
 
                     <TextView
+                        android:id="@+id/tv_price5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -497,6 +504,7 @@
                         android:textColor="@color/home_tab_red_bg" />
 
                     <ImageView
+                        android:id="@+id/iv_img5"
                         android:layout_width="47dp"
                         android:layout_height="78dp"
                         android:layout_alignParentRight="true"
@@ -670,6 +678,7 @@
                         android:textColor="@color/home_tab_red_bg" />
 
                     <TextView
+                        android:id="@+id/tv_order_old_price2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_order_price2"
@@ -732,6 +741,7 @@
                         android:textColor="@color/home_tab_red_bg" />
 
                     <TextView
+                        android:id="@+id/tv_order_old_price3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_order_price3"
@@ -794,6 +804,7 @@
                         android:textColor="@color/home_tab_red_bg" />
 
                     <TextView
+                        android:id="@+id/tv_order_old_price4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_order_price4"

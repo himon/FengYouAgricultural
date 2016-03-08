@@ -2,6 +2,7 @@ package com.louis.agricultural.ui.activity.account;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.ui.view.ILoginView;
 import com.louis.agricultural.utils.ShowToast;
+import com.louis.agricultural.utils.TextUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -25,7 +27,7 @@ import de.greenrobot.event.EventBus;
 /**
  * 登录
  */
-public class LoginActivity extends MVPBaseActivity<ILoginView, LoginPresenter> implements ILoginView{
+public class LoginActivity extends MVPBaseActivity<ILoginView, LoginPresenter> implements ILoginView {
 
     @Bind(R.id.et_name)
     EditText mEtName;
@@ -71,14 +73,14 @@ public class LoginActivity extends MVPBaseActivity<ILoginView, LoginPresenter> i
     @Override
     protected void initData() {
         Intent intent = getIntent();
-        if(intent != null){
+        if (intent != null) {
             mFrom = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY);
         }
     }
 
     @Override
     protected void click(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.tv_register:
                 toRegister();
                 break;
@@ -107,7 +109,9 @@ public class LoginActivity extends MVPBaseActivity<ILoginView, LoginPresenter> i
     public void loginSuccess(UserEntity data) {
         ShowToast.Short(data.getMessage());
         FYApplication.getContext().setUserEntity(data);
-        EventBus.getDefault().post(new LoginResultEvent(mFrom));
+        if (!TextUtils.isEmpty(mFrom)) {
+            EventBus.getDefault().post(new LoginResultEvent(mFrom));
+        }
         back();
     }
 }

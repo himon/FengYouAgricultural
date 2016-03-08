@@ -1,18 +1,27 @@
 package com.louis.agricultural.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
+import com.louis.agricultural.base.activity.MVPBaseActivity;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.model.entities.ProductEntity;
+import com.louis.agricultural.presenter.SearchActivityPresenter;
 import com.louis.agricultural.ui.adapter.SearchAdapter;
+import com.louis.agricultural.ui.view.ISearchView;
 import com.louis.agricultural.view.GetMoreListView;
 
 import java.util.ArrayList;
@@ -24,10 +33,18 @@ import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
-public class SearchActivity extends BaseActivity {
+public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityPresenter> implements ISearchView {
 
     @Bind(R.id.tools_bar)
     RelativeLayout mToolsBar;
+    @Bind(R.id.iv_classify_left)
+    ImageView mIvBack;
+    @Bind(R.id.ll_sum)
+    LinearLayout mLLSum;
+    @Bind(R.id.ll_price)
+    LinearLayout mLLPrice;
+    @Bind(R.id.cb_hot)
+    CheckBox mCbHot;
     @Bind(R.id.ptr_main)
     PtrClassicFrameLayout mPtr;
     @Bind(R.id.gmlv_main)
@@ -35,18 +52,29 @@ public class SearchActivity extends BaseActivity {
     @Bind(R.id.et_search)
     EditText mEtSearch;
 
+    //排序
+    private String mOrder = "id";
+    private SearchActivityPresenter mPresenter;
+
     //是否是下拉刷新
     private boolean isRefresh;
-    private List<ProductEntity> mList = new ArrayList<>();
+    private List<ProductEntity.ResultEntity> mProductList = new ArrayList<>();
     private SearchAdapter mAdapter;
+    private String mSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
+        mPresenter = mMPresenter;
         initView();
         initData();
+    }
+
+    @Override
+    protected SearchActivityPresenter createPresenter() {
+        return new SearchActivityPresenter(this);
     }
 
     @Override
@@ -61,7 +89,7 @@ public class SearchActivity extends BaseActivity {
             }
         });
 
-        mAdapter = new SearchAdapter(this, mList, R.layout.adapter_search);
+        mAdapter = new SearchAdapter(this, mProductList, R.layout.adapter_search);
         mListView.setAdapter(mAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -88,7 +116,16 @@ public class SearchActivity extends BaseActivity {
         initEvent();
     }
 
+    private void getData() {
+        mPresenter.getSearchGoods("0", "生物", mOrder);
+    }
+
     private void initEvent() {
+
+        mIvBack.setOnClickListener(this);
+        mLLSum.setOnClickListener(this);
+        mLLPrice.setOnClickListener(this);
+
         mEtSearch.setOnKeyListener(new View.OnKeyListener() {//输入完后按键盘上的搜索键【回车键改为了搜索键】
 
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -106,33 +143,53 @@ public class SearchActivity extends BaseActivity {
                 return false;
             }
         });
+
+        mCbHot.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    mOrder = "is_hot";
+                    mPresenter.getSearchGoods("0", "生物", mOrder);
+                }else{
+                    mOrder = "id";
+                    mPresenter.getSearchGoods("0", "生物", mOrder);
+                }
+            }
+        });
     }
 
     @Override
     protected void initData() {
-
+        Intent intent = getIntent();
+        if (intent != null) {
+            mSearch = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY);
+        }
     }
 
     @Override
     protected void click(View view) {
-
-    }
-
-    private void getData() {
-        for (int i = 0; i < 7; i++) {
-            ProductEntity entity = new ProductEntity();
-            entity.setTitle("鲁西 高塔尿基 40kg 复合肥料 总养分 >45%");
-            entity.setPrice("￥188.00");
-            mList.add(entity);
+        switch (view.getId()) {
+            case R.id.iv_classify_left:
+                back();
+                break;
+            case R.id.ll_sum:
+                mOrder = "sum";
+                mPresenter.getSearchGoods("0", "生物", mOrder);
+                break;
+            case R.id.ll_price:
+                mOrder = "sell_price";
+                mPresenter.getSearchGoods("0", "生物", mOrder);
+                break;
         }
-        setData();
     }
 
-    private void setData() {
+    @Override
+    public void setProducts(ProductEntity data) {
+        mProductList = data.getResult();
+        mAdapter.setmDatas(mProductList);
         mListView.setNoMore();
         mAdapter.notifyDataSetChanged();
         mListView.getMoreComplete();
         mPtr.refreshComplete();
     }
-
 }

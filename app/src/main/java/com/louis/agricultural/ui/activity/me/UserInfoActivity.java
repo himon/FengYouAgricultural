@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.louis.agricultural.R;
-import com.louis.agricultural.base.activity.BaseActivity;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.app.FYApplication;
@@ -91,7 +89,7 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
     }
 
     private void toShippingAddress() {
-        Intent intent = new Intent(this, ShippingAddressActivity.class);
+        Intent intent = new Intent(this, ShoppingAddressActivity.class);
         startActivity(intent);
     }
 

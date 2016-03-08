@@ -18,14 +18,20 @@
             android:id="@+id/listview"
             android:layout_width="0dp"
             android:divider="@null"
+            android:background="@color/home_tab_gray_bg"
             android:layout_height="match_parent"
             android:layout_weight="1"></ListView>
 
         <GridView
             android:id="@+id/gridview"
             android:layout_width="0dp"
+            android:background="@color/home_tab_gray_bg"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:columnWidth="90dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="1dp"
+            android:horizontalSpacing="1dp"
             android:numColumns="3"></GridView>
     </LinearLayout>
 </LinearLayout>

@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@android:color/white"
-    android:orientation="horizontal"
-    android:padding="12dp">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/white"
+              android:orientation="horizontal"
+              android:padding="12dp">
 
     <ImageView
+        android:id="@+id/iv_img"
         android:layout_width="70dp"
         android:layout_height="100dp"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         android:src="@drawable/img_confirm_order_pic"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp">
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="3"
             android:ellipsize="end"
-            android:textColor="@color/home_tab_font_black"
-            android:text="鲁西 高塔尿基 40kg 复合肥料 总养分 >45%"/>
+            android:maxLines="3"
+            android:text="鲁西 高塔尿基 40kg 复合肥料 总养分 >45%"
+            android:textColor="@color/home_tab_font_black"/>
 
         <TextView
+            android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="￥188.00"
             android:layout_alignParentBottom="true"
-            android:textSize="@dimen/font_size_18"
-            android:textColor="@color/button_red_bg"/>
+            android:text="￥188.00"
+            android:textColor="@color/button_red_bg"
+            android:textSize="@dimen/font_size_18"/>
 
         <TextView
+            android:id="@+id/tv_good_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="98.0%"
-            android:layout_marginRight="35dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:textColor="@color/button_red_bg"/>
+            android:layout_marginRight="35dp"
+            android:text="98.0%"
+            android:textColor="@color/button_red_bg"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="35dp"
             android:layout_height="wrap_content"
-            android:text="好评"
-            android:gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:textColor="@color/main_search_font_gray"/>
+            android:gravity="center"
+            android:text="好评"
+            android:textColor="@color/main_search_font_gray"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 

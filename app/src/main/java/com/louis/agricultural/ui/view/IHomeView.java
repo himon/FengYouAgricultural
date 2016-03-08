@@ -1,7 +1,6 @@
 package com.louis.agricultural.ui.view;
 
-import com.louis.agricultural.model.entities.BaseEntity;
-import com.louis.agricultural.model.entities.FytjEntity;
+import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.model.entities.FyttEntity;
 import com.louis.agricultural.model.entities.HomeAdImageEntity;
 
@@ -26,11 +25,11 @@ public interface IHomeView {
      * 首页推荐
      * @param data
      */
-    void setFytj(FytjEntity data);
+    void setFytj(ProductEntity data);
 
     /**
      * 首页热销排行
      * @param data
      */
-    void setRmtj(FytjEntity data);
+    void setRmtj(ProductEntity data);
 }

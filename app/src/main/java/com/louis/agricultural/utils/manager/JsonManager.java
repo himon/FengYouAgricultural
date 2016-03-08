@@ -131,4 +131,108 @@ public class JsonManager {
         }
         return object.toString();
     }
+
+    /**
+     * 丰友商品分类
+     *
+     * @param category_parentid
+     * @return
+     */
+    public static String getCategory(String category_parentid) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("category_parentid", category_parentid);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 根据类别和搜索查询商品
+     *
+     * @param category_id
+     * @param search
+     * @param paixu
+     * @return
+     */
+    public static String getSearchGoods(String category_id, String search, String paixu) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("category_id", category_id);
+            object.put("search", search);
+            object.put("paixu", paixu);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 商品信息
+     *
+     * @param article_id
+     * @return
+     */
+    public static String getGoodsShow(String article_id) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("article_id", article_id);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 加入购物车
+     *
+     * @param user_id
+     * @param goods_id
+     * @param sum
+     * @return
+     */
+    public static String getAddGoodscart(String user_id, String goods_id, int sum) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("user_id", user_id);
+            object.put("goods_id", goods_id);
+            object.put("sum", sum);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 添加收货地址
+     *
+     * @param user_id
+     * @param sheng
+     * @param shi
+     * @param qu
+     * @param xiangxi
+     * @param code
+     * @param shr
+     * @param phone
+     * @param status
+     * @return
+     */
+    public static String getAddAddress(String user_id, String sheng, String shi, String qu, String xiangxi, String code, String shr, String phone, String status) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("user_id", user_id);
+            object.put("sheng", sheng);
+            object.put("shi", shi);
+            object.put("qu", qu);
+            object.put("xiangxi", xiangxi);
+            object.put("code", code);
+            object.put("shr", shr);
+            object.put("phone", phone);
+            object.put("status", status);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
 }

@@ -24,7 +24,9 @@ public abstract class BaseActivity extends AutoLayoutActivity implements View.On
     @Bind(R.id.iv_nav_left)
     protected ImageView mNavLeft;
     @Bind(R.id.iv_nav_right)
-    protected ImageView mNavRight;
+    protected ImageView mIvNavRight;
+    @Bind(R.id.tv_nav_right)
+    protected TextView mTvNavRight;
     @Bind(R.id.tv_nav_title)
     protected TextView mNavTitle;
 

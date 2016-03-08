@@ -226,6 +226,7 @@ public interface Constants {
     String MESSAGE_EXTRA_KEY2 = "message_extra_key2";
 
     String LOGIN_FROM_ME = "login_from_me";
+    String LOGIN_FROM_SHOPPINGCART = "login_from_shoppingcart";
 
     String DATA_IS_SIAMLL_PIC = "isSmallPic";
     String DATA_FILE_PATH = "file_path";

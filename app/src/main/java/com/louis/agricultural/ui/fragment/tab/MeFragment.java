@@ -53,8 +53,13 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_me, container, false);
         ButterKnife.bind(this, view);
 
-        initEvent();
+        initView();
+        initData();
         return view;
+    }
+
+    public void refresh() {
+        initData();
     }
 
     private void initEvent() {
@@ -67,13 +72,15 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void initView() {
-
+        initEvent();
     }
 
     @Override
     protected void initData() {
-        UserEntity.ResultEntity user = FYApplication.getContext().getUserEntity().getResult();
-        mTvUserName.setText(user.get_user_name());
+        UserEntity user = FYApplication.getContext().getUserEntity();
+        if (user != null) {
+            mTvUserName.setText(user.getResult().get_user_name());
+        }
     }
 
     @Override

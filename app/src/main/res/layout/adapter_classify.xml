@@ -3,17 +3,19 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:background="@color/home_tab_gray_bg"
     android:gravity="center_horizontal">
 
     <TextView
+        android:id="@+id/tv_classify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="热销产品"
         android:layout_marginTop="15dp"
+        android:textColor="@color/main_search_font_gray"
         android:layout_marginBottom="15dp"/>
 
     <View
+        android:id="@+id/view_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_margin="8dp"

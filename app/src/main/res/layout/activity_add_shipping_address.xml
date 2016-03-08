@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context="com.louis.agricultural.ui.activity.me.AddShippingAddressActivity">
+    tools:context=".ui.activity.me.AddShoppingAddressActivity">
 
     <include layout="@layout/layout_title_bar" />
 
@@ -23,6 +23,7 @@
             android:textColor="@color/home_tab_font_black" />
 
         <EditText
+            android:id="@+id/et_consignee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent" />
@@ -44,6 +45,7 @@
             android:textColor="@color/home_tab_font_black" />
 
         <EditText
+            android:id="@+id/et_mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent" />
@@ -53,6 +55,7 @@
     <include layout="@layout/layout_gray_line" />
 
     <LinearLayout
+        android:id="@+id/ll_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -64,7 +67,8 @@
             android:text="所在地区："
             android:textColor="@color/home_tab_font_black" />
 
-        <EditText
+        <TextView
+            android:id="@+id/tv_area"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -92,6 +96,29 @@
             android:textColor="@color/home_tab_font_black" />
 
         <EditText
+            android:id="@+id/et_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_gray_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邮编："
+            android:textColor="@color/home_tab_font_black" />
+
+        <EditText
+            android:id="@+id/et_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent" />
@@ -114,6 +141,7 @@
             android:textColor="@color/home_tab_font_black" />
 
         <CheckBox
+            android:id="@+id/eb_check"
             android:layout_width="25dp"
             android:layout_height="25dp" />
 
