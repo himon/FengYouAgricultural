@@ -1,14 +1,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical"
-    tools:context="com.louis.agricultural.ui.activity.me.ConfirmOrderActivity">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical"
+              tools:context="com.louis.agricultural.ui.activity.me.ConfirmOrderActivity">
 
-    <include layout="@layout/layout_title_bar" />
+    <include layout="@layout/layout_title_bar"/>
 
-    <include layout="@layout/layout_gray_line" />
+    <include layout="@layout/layout_gray_line"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,6 +21,7 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/rl_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp">
@@ -29,7 +30,7 @@
                     android:id="@+id/iv_head"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/img_confirm_order_head" />
+                    android:src="@drawable/img_confirm_order_head"/>
 
                 <TextView
                     android:id="@+id/tv_name"
@@ -39,7 +40,7 @@
                     android:layout_marginLeft="6dp"
                     android:layout_toRightOf="@+id/iv_head"
                     android:text="欧阳慧"
-                    android:textColor="@color/home_tab_font_black" />
+                    android:textColor="@color/home_tab_font_black"/>
 
                 <ImageView
                     android:id="@+id/iv_mobile"
@@ -47,7 +48,7 @@
                     android:layout_height="20dp"
                     android:layout_marginLeft="40dp"
                     android:layout_toRightOf="@+id/tv_name"
-                    android:src="@drawable/img_confirm_order_mobile" />
+                    android:src="@drawable/img_confirm_order_mobile"/>
 
                 <TextView
                     android:id="@+id/tv_mobile"
@@ -57,7 +58,7 @@
                     android:layout_marginLeft="6dp"
                     android:layout_toRightOf="@+id/iv_mobile"
                     android:text="15844556677"
-                    android:textColor="@color/home_tab_font_black" />
+                    android:textColor="@color/home_tab_font_black"/>
 
                 <TextView
                     android:id="@+id/tv_type"
@@ -72,9 +73,10 @@
                     android:paddingTop="3dp"
                     android:text="默认"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/font_size_12" />
+                    android:textSize="@dimen/font_size_12"/>
 
                 <TextView
+                    android:id="@+id/tv_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/tv_type"
@@ -86,26 +88,26 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="上海市浦东区长青路578弄6号602室"
-                    android:textColor="@color/main_search_font_gray" />
+                    android:textColor="@color/main_search_font_gray"/>
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/img_right_arrow" />
+                    android:src="@drawable/img_right_arrow"/>
 
             </RelativeLayout>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:src="@drawable/img_confirm_order_line" />
+                android:src="@drawable/img_confirm_order_line"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:background="@color/home_tab_gray_bg" />
+                android:background="@color/home_tab_gray_bg"/>
 
             <com.louis.agricultural.view.MyListView
                 android:id="@+id/listview"
@@ -119,7 +121,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:background="@color/home_tab_gray_bg" />
+                android:background="@color/home_tab_gray_bg"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:text="支付方式"
                     android:textColor="@color/home_tab_font_black"
-                    android:textSize="@dimen/font_size_18" />
+                    android:textSize="@dimen/font_size_18"/>
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -150,10 +152,9 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/selector_confirm_order_radio_group"
                         android:button="@null"
-                        android:checked="true"
                         android:padding="6dp"
                         android:text="在线支付"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"/>
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -163,146 +164,23 @@
                         android:button="@null"
                         android:padding="6dp"
                         android:text="货到付款"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"/>
 
                 </RadioGroup>
 
             </LinearLayout>
 
-            <include layout="@layout/layout_gray_line" />
-
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp">
+                android:layout_height="20dp"
+                android:background="@color/home_tab_gray_bg"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="配送方式"
-                    android:textColor="@color/home_tab_font_black"
-                    android:textSize="@dimen/font_size_18" />
-
-                <RadioGroup
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="50dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/selector_confirm_order_radio_group"
-                        android:button="@null"
-                        android:checked="true"
-                        android:padding="6dp"
-                        android:text="快递"
-                        android:textColor="@android:color/white" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
-                        android:background="@drawable/selector_confirm_order_radio_group"
-                        android:button="@null"
-                        android:padding="6dp"
-                        android:text="平邮"
-                        android:textColor="@android:color/white" />
-
-                </RadioGroup>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="￥10"
-                    android:textColor="@color/home_tab_red_bg" />
-
-            </LinearLayout>
-
-            <include layout="@layout/layout_gray_line" />
-
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp">
+                android:layout_height="140dp"
+                android:background="@android:color/white"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="优惠券"
-                    android:textColor="@color/home_tab_font_black"
-                    android:textSize="@dimen/font_size_18" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:background="@color/textview_orange_bg"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="6dp"
-                    android:paddingRight="6dp"
-                    android:paddingTop="3dp"
-                    android:text="2 张可用"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/font_size_12" />
-
-            </LinearLayout>
-
-            <include layout="@layout/layout_gray_line" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp">
-
-                <CheckBox
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:checked="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:background="@color/home_tab_red_bg"
-                    android:padding="6dp"
-                    android:text="满 100 减 5"
-                    android:textColor="@android:color/white" />
-
-                <CheckBox
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="25dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:background="@color/radio_group_gray_bg"
-                    android:padding="6dp"
-                    android:text="满 100 减 3"
-                    android:textColor="@android:color/white" />
-
-            </LinearLayout>
-
-            <include layout="@layout/layout_gray_line" />
+            <include layout="@layout/layout_gray_line"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -315,7 +193,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="还需支付：￥569.00"
-                    android:textColor="@color/home_tab_red_bg" />
+                    android:textColor="@color/home_tab_red_bg"/>
 
                 <Button
                     android:id="@+id/btn_buy"
@@ -326,7 +204,7 @@
                     android:gravity="center"
                     android:text="立即购买"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/font_size_14" />
+                    android:textSize="@dimen/font_size_14"/>
 
             </RelativeLayout>
 

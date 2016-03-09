@@ -45,6 +45,7 @@ public class ShoppingAddressEntity extends BaseEntity {
         private String code;
         private String phone;
         private String status;
+        private boolean check;
 
         public void setId(String id) {
             this.id = id;
@@ -124,6 +125,14 @@ public class ShoppingAddressEntity extends BaseEntity {
 
         public String getStatus() {
             return status;
+        }
+
+        public boolean isCheck() {
+            return check;
+        }
+
+        public void setCheck(boolean check) {
+            this.check = check;
         }
     }
 }

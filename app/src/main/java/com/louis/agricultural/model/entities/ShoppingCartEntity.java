@@ -1,5 +1,8 @@
 package com.louis.agricultural.model.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -28,7 +31,7 @@ public class ShoppingCartEntity extends BaseEntity {
         return result;
     }
 
-    public static class ResultEntity {
+    public static class ResultEntity implements Parcelable {
         private String id;
         private String user_id;
         private String goods_id;
@@ -93,5 +96,44 @@ public class ShoppingCartEntity extends BaseEntity {
         public void setCheck(boolean check) {
             this.check = check;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.id);
+            dest.writeString(this.user_id);
+            dest.writeString(this.goods_id);
+            dest.writeString(this.sum);
+            dest.writeString(this.title);
+            dest.writeSerializable(this.sell_price);
+            dest.writeByte(check ? (byte) 1 : (byte) 0);
+        }
+
+        public ResultEntity() {
+        }
+
+        protected ResultEntity(Parcel in) {
+            this.id = in.readString();
+            this.user_id = in.readString();
+            this.goods_id = in.readString();
+            this.sum = in.readString();
+            this.title = in.readString();
+            this.sell_price = (BigDecimal) in.readSerializable();
+            this.check = in.readByte() != 0;
+        }
+
+        public static final Parcelable.Creator<ResultEntity> CREATOR = new Parcelable.Creator<ResultEntity>() {
+            public ResultEntity createFromParcel(Parcel source) {
+                return new ResultEntity(source);
+            }
+
+            public ResultEntity[] newArray(int size) {
+                return new ResultEntity[size];
+            }
+        };
     }
 }

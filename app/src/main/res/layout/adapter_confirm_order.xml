@@ -18,6 +18,7 @@
         android:src="@drawable/img_confirm_order_pic" />
 
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -35,12 +36,14 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="￥188.00"
             android:textColor="@color/home_tab_font_black" />
 
         <TextView
+            android:id="@+id/tv_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="x1"

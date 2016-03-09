@@ -12,6 +12,7 @@ import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.model.entities.ShoppingAddressEntity;
 import com.louis.agricultural.model.entities.UserEntity;
+import com.louis.agricultural.model.event.ConfirmOrderEvent;
 import com.louis.agricultural.model.event.LoginResultEvent;
 import com.louis.agricultural.model.event.ShoppingAddressEvent;
 import com.louis.agricultural.presenter.ShoppingAddressActivityPresenter;
@@ -99,13 +100,29 @@ public class ShoppingAddressActivity extends MVPBaseActivity<IShoppingAddressVie
     @Override
     public void setShoppingAddressData(ShoppingAddressEntity data) {
         mList = data.getResult();
+        for (ShoppingAddressEntity.ResultEntity item : mList) {
+            if ("1".equals(item.getStatus())) {
+                item.setCheck(true);
+            }
+        }
         mAdapter.setmDatas(mList);
         mAdapter.notifyDataSetChanged();
     }
 
     public void onEvent(ShoppingAddressEvent event) {
-        if("refresh".equals(event.getMsg())){
+        if ("refresh".equals(event.getMsg())) {
             getData();
+        }else if("select".equals(event.getMsg())){
+            for (ShoppingAddressEntity.ResultEntity item : mList) {
+                if (item.isCheck()) {
+                    ConfirmOrderEvent selected = new ConfirmOrderEvent("selected");
+                    selected.setAddressId(item.getId());
+                    selected.setAddress(item.getSheng() + item.getShi() + item.getQu() + item.getXiangxi());
+                    selected.setStatus(item.getStatus());
+                    EventBus.getDefault().post(selected);
+                    back();
+                }
+            }
         }
     }
 

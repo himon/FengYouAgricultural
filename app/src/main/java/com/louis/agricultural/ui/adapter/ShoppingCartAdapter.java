@@ -49,6 +49,7 @@ public class ShoppingCartAdapter extends CommonAdapter<ShoppingCartEntity.Result
                     num--;
                 }
                 etNum.setText(num + "");
+                productEntity.setSum(num + "");
             }
         });
         ivAdd.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +59,7 @@ public class ShoppingCartAdapter extends CommonAdapter<ShoppingCartEntity.Result
                 int num = Integer.parseInt(etNum.getText().toString().trim());
                 num++;
                 etNum.setText(num + "");
+                productEntity.setSum(num + "");
             }
         });
 

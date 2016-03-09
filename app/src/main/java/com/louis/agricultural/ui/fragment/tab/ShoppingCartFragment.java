@@ -1,6 +1,7 @@
 package com.louis.agricultural.ui.fragment.tab;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.louis.agricultural.R;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.base.fragment.BaseFragment;
 import com.louis.agricultural.base.fragment.MVPBaseFragment;
@@ -24,8 +26,10 @@ import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.event.LoginResultEvent;
 import com.louis.agricultural.model.event.ShoppingCartEvent;
 import com.louis.agricultural.presenter.ShoppingCartFragmentPresenter;
+import com.louis.agricultural.ui.activity.me.ConfirmOrderActivity;
 import com.louis.agricultural.ui.adapter.ShoppingCartAdapter;
 import com.louis.agricultural.ui.view.IShoppingCartView;
+import com.louis.agricultural.utils.ShowToast;
 import com.louis.agricultural.view.GetMoreListView;
 
 import java.math.BigDecimal;
@@ -147,6 +151,7 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
 
     private void initEvent() {
         mTvNavRight.setOnClickListener(this);
+        mBtnCalc.setOnClickListener(this);
         mCbAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -175,8 +180,30 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
         switch (v.getId()) {
             case R.id.tv_nav_right:
                 break;
+            case R.id.btn_calc:
+                toConfirmOrder();
+                break;
 
         }
+    }
+
+    private void toConfirmOrder() {
+
+        ArrayList<ShoppingCartEntity.ResultEntity> list = new ArrayList<>();
+        for(ShoppingCartEntity.ResultEntity item : mList){
+            if(item.isCheck()){
+                list.add(item);
+            }
+        }
+
+        if(list.size() == 0){
+            ShowToast.Short("请选择要结算的商品!");
+            return;
+        }
+
+        Intent intent = new Intent(getActivity(), ConfirmOrderActivity.class);
+        intent.putParcelableArrayListExtra(Constants.MESSAGE_EXTRA_KEY, list);
+        startActivity(intent);
     }
 
 
