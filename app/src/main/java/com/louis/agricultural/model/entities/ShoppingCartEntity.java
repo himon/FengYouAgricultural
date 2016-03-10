@@ -38,6 +38,8 @@ public class ShoppingCartEntity extends BaseEntity {
         private String sum;
         private String title;
         private BigDecimal sell_price;
+        private String img_url;
+        private String goods_no;
         private boolean check;
 
         public void setId(String id) {
@@ -97,6 +99,22 @@ public class ShoppingCartEntity extends BaseEntity {
             this.check = check;
         }
 
+        public String getImg_url() {
+            return img_url;
+        }
+
+        public void setImg_url(String img_url) {
+            this.img_url = img_url;
+        }
+
+        public String getGoods_no() {
+            return goods_no;
+        }
+
+        public void setGoods_no(String goods_no) {
+            this.goods_no = goods_no;
+        }
+
         @Override
         public int describeContents() {
             return 0;
@@ -110,6 +128,8 @@ public class ShoppingCartEntity extends BaseEntity {
             dest.writeString(this.sum);
             dest.writeString(this.title);
             dest.writeSerializable(this.sell_price);
+            dest.writeString(this.img_url);
+            dest.writeString(this.goods_no);
             dest.writeByte(check ? (byte) 1 : (byte) 0);
         }
 
@@ -123,6 +143,8 @@ public class ShoppingCartEntity extends BaseEntity {
             this.sum = in.readString();
             this.title = in.readString();
             this.sell_price = (BigDecimal) in.readSerializable();
+            this.img_url = in.readString();
+            this.goods_no = in.readString();
             this.check = in.readByte() != 0;
         }
 

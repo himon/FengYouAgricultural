@@ -155,7 +155,7 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
         mCbAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                for (ShoppingCartEntity.ResultEntity item : mList){
+                for (ShoppingCartEntity.ResultEntity item : mList) {
                     item.setCheck(isChecked);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -190,19 +190,20 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
     private void toConfirmOrder() {
 
         ArrayList<ShoppingCartEntity.ResultEntity> list = new ArrayList<>();
-        for(ShoppingCartEntity.ResultEntity item : mList){
-            if(item.isCheck()){
+        for (ShoppingCartEntity.ResultEntity item : mList) {
+            if (item.isCheck()) {
                 list.add(item);
             }
         }
 
-        if(list.size() == 0){
+        if (list.size() == 0) {
             ShowToast.Short("请选择要结算的商品!");
             return;
         }
 
         Intent intent = new Intent(getActivity(), ConfirmOrderActivity.class);
         intent.putParcelableArrayListExtra(Constants.MESSAGE_EXTRA_KEY, list);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY2, mTvTotalPrice.getText().toString().trim());
         startActivity(intent);
     }
 
@@ -228,24 +229,24 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
     }
 
     public void onEvent(ShoppingCartEvent event) {
-        if("refresh".equals(event.getMsg())){
+        if ("refresh".equals(event.getMsg())) {
             refresh();
-        }else if("check".equals(event.getMsg())){
+        } else if ("check".equals(event.getMsg())) {
             check();
         }
     }
 
     private void check() {
         int count = 0;
-        for (ShoppingCartEntity.ResultEntity item : mList){
-            if(item.isCheck()){
+        for (ShoppingCartEntity.ResultEntity item : mList) {
+            if (item.isCheck()) {
                 count++;
             }
         }
 
-        if(mList.size() == count){
+        if (mList.size() == count) {
             mCbAll.setChecked(true);
-        }else{
+        } else {
             mCbAll.setChecked(false);
         }
     }

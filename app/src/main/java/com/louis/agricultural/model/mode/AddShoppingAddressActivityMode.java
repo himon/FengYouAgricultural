@@ -8,4 +8,8 @@ import com.louis.agricultural.presenter.AddShoppingAddressPresenter;
  */
 public interface AddShoppingAddressActivityMode {
     void getAddAddress(String user_id, String sheng, String shi, String qu, String xiangxi, String code, String shr, String phone, String status, UserLoseMultiLoadedListener listener);
+
+    void getAdressShow(String adress_id, UserLoseMultiLoadedListener listener);
+
+    void updateAdress(String adress_id, String user_id, String sheng, String shi, String qu, String xiangxi, String code, String shr, String phone, String status, UserLoseMultiLoadedListener listener);
 }

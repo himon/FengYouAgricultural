@@ -21,4 +21,14 @@ public class AddShoppingAddressActivityModeImpl extends BaseMode implements AddS
     public void getAddAddress(String user_id, String sheng, String shi, String qu, String xiangxi, String code, String shr, String phone, String status, UserLoseMultiLoadedListener listener) {
         mManager.getAddAddress(user_id, sheng, shi, qu, xiangxi, code, shr, phone, status, listener, mActivity);
     }
+
+    @Override
+    public void getAdressShow(String adress_id, UserLoseMultiLoadedListener listener) {
+        mManager.getAdressShow(adress_id, listener, mActivity);
+    }
+
+    @Override
+    public void updateAdress(String adress_id, String user_id, String sheng, String shi, String qu, String xiangxi, String code, String shr, String phone, String status, UserLoseMultiLoadedListener listener) {
+        mManager.updateAdress(adress_id, user_id, sheng, shi, qu, xiangxi, code, shr, phone, status, listener, mActivity);
+    }
 }

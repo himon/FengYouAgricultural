@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.ui.adapter.TabAdapter;
 import com.louis.agricultural.ui.fragment.MyOrderFragment;
 import com.viewpagerindicator.UnderlinePageIndicator;
@@ -43,11 +44,34 @@ public class MyOrderActivity extends BaseActivity {
     @Override
     protected void initView() {
 
+        initTitle("我的订单");
+
         MyOrderFragment fragment1 = new MyOrderFragment();
         MyOrderFragment fragment2 = new MyOrderFragment();
         MyOrderFragment fragment3 = new MyOrderFragment();
         MyOrderFragment fragment4 = new MyOrderFragment();
         MyOrderFragment fragment5 = new MyOrderFragment();
+
+        Bundle bundle1 = new Bundle();
+        bundle1.putString(Constants.MESSAGE_EXTRA_KEY, "0");
+        fragment1.setArguments(bundle1);
+
+        Bundle bundle2 = new Bundle();
+        bundle2.putString(Constants.MESSAGE_EXTRA_KEY, "0");
+        fragment2.setArguments(bundle2);
+
+        Bundle bundle3 = new Bundle();
+        bundle3.putString(Constants.MESSAGE_EXTRA_KEY, "0");
+        fragment3.setArguments(bundle3);
+
+        Bundle bundle4 = new Bundle();
+        bundle4.putString(Constants.MESSAGE_EXTRA_KEY, "0");
+        fragment4.setArguments(bundle4);
+
+        Bundle bundle5 = new Bundle();
+        bundle5.putString(Constants.MESSAGE_EXTRA_KEY, "0");
+        fragment5.setArguments(bundle5);
+
         mFragments.add(fragment1);
         mFragments.add(fragment2);
         mFragments.add(fragment3);

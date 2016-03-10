@@ -241,7 +241,9 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
 
     @Override
     public void setFytt(FyttEntity data) {
-        mTvTitle.setText(data.getResult().get(0).getTitle());
+        if (data.getResult() != null) {
+            mTvTitle.setText(data.getResult().get(0).getTitle());
+        }
     }
 
     @Override

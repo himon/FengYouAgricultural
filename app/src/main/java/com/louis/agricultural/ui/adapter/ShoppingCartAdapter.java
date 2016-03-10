@@ -1,6 +1,7 @@
 package com.louis.agricultural.ui.adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -14,6 +15,8 @@ import com.louis.agricultural.base.adapter.ViewHolder;
 import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.model.entities.ShoppingCartEntity;
 import com.louis.agricultural.model.event.ShoppingCartEvent;
+import com.louis.agricultural.utils.manager.ImageLoadProxy;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 import java.util.List;
 
@@ -27,14 +30,20 @@ import de.greenrobot.event.EventBus;
  */
 public class ShoppingCartAdapter extends CommonAdapter<ShoppingCartEntity.ResultEntity> {
 
+    private DisplayImageOptions mOptions;
+
     public ShoppingCartAdapter(Context context, List<ShoppingCartEntity.ResultEntity> datas, int layoutId) {
         super(context, datas, layoutId);
+        mOptions = ImageLoadProxy.getOption4ExactlyType();
     }
 
     @Override
     public void convert(ViewHolder holder, final ShoppingCartEntity.ResultEntity productEntity) {
 
         holder.setText(R.id.tv_title, productEntity.getTitle()).setText(R.id.tv_price, "￥" + productEntity.getSell_price());
+
+        ImageView img = holder.getView(R.id.iv_img);
+        ImageLoadProxy.displayImage(productEntity.getImg_url(), img, mOptions);
 
         final EditText etNum = holder.getView(R.id.et_num);
         ImageView ivMinus = holder.getView(R.id.iv_minus);

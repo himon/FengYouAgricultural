@@ -1,6 +1,7 @@
 package com.louis.agricultural.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -10,8 +11,10 @@ import android.widget.TextView;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.adapter.CommonAdapter;
 import com.louis.agricultural.base.adapter.ViewHolder;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.model.entities.ShoppingAddressEntity;
 import com.louis.agricultural.model.event.ShoppingAddressEvent;
+import com.louis.agricultural.ui.activity.me.AddShoppingAddressActivity;
 
 import java.util.List;
 
@@ -38,7 +41,10 @@ public class ShippingAddressAdapter extends CommonAdapter<ShoppingAddressEntity.
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(mContext, AddShoppingAddressActivity.class);
+                intent.putExtra(Constants.MESSAGE_EXTRA_KEY, "update");
+                intent.putExtra(Constants.MESSAGE_EXTRA_KEY2, shippingAddressEntity.getId());
+                mContext.startActivity(intent);
             }
         });
 

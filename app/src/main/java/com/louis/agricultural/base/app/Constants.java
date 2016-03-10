@@ -98,6 +98,10 @@ public interface Constants {
      */
     String GET_ADRESS = "get_adress";
     /**
+     * 修改收货地址
+     */
+    String UPDATE_ADRESS = "update_adress";
+    /**
      * 查看收货地址详情
      */
     String GET_ADRESS_SHOW = "get_adress_show";
@@ -117,6 +121,10 @@ public interface Constants {
      * 添加商品订单
      */
     String ADD_ORDER = "add_order";
+    /**
+     * 查看公告/新闻和配送信息 公告:56, 新闻:57, 配送:58
+     */
+    String GET_NEWS_LIST = "get_news_list";
 
 
     /** 获取数据成功回调的key **/
@@ -220,6 +228,14 @@ public interface Constants {
      * 添加商品订单
      */
     int ADD_ORDER_LISTENER = 0x10025;
+    /**
+     * 修改收货地址
+     */
+    int UPDATE_ADRESS_LISTENER = 0x10026;
+    /**
+     * 查看公告/新闻和配送信息 公告:56, 新闻:57, 配送:58
+     */
+    int GET_NEWS_LIST_LISTENER = 0x10027;
 
 
     String MESSAGE_EXTRA_KEY = "message_extra_key";
@@ -238,4 +254,8 @@ public interface Constants {
     int REQUEST_CODE = 1;
     int REQUEST_CODE_IMAGE_CUT = 0x9001;
 
+    /**
+     * 一页显示的条数
+     */
+    int PAGESIZE = 20;
 }

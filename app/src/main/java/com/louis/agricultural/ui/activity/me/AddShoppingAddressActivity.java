@@ -1,6 +1,8 @@
 package com.louis.agricultural.ui.activity.me;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.ShoppingAddressEntity;
@@ -42,12 +45,14 @@ public class AddShoppingAddressActivity extends MVPBaseActivity<IAddShoppingAddr
     @Bind(R.id.et_code)
     EditText mEtCode;
     @Bind(R.id.eb_check)
-    CheckBox mEbCheckBox;
+    CheckBox mCbCheckBox;
     @Bind(R.id.btn_add_address)
     Button mBtnAdd;
 
     private AddShoppingAddressPresenter mPresenter;
     private UserEntity.ResultEntity mUser;
+    private String mOper;
+    private String mAddressId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +81,14 @@ public class AddShoppingAddressActivity extends MVPBaseActivity<IAddShoppingAddr
 
     @Override
     protected void initData() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            mOper = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY);
+            if (!TextUtils.isEmpty(mOper)) {
+                mAddressId = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY2);
+                mPresenter.getAdressShow(mAddressId);
+            }
+        }
         mUser = FYApplication.getContext().getUserEntity().getResult();
     }
 
@@ -83,18 +96,42 @@ public class AddShoppingAddressActivity extends MVPBaseActivity<IAddShoppingAddr
     protected void click(View view) {
         switch (view.getId()) {
             case R.id.btn_add_address:
-                boolean checked = mEbCheckBox.isChecked();
+                boolean checked = mCbCheckBox.isChecked();
                 String status = "0";
-                if(checked){
+                if (checked) {
                     status = "1";
                 }
-                mPresenter.getAddAddress(mUser.get_id(), "河南", "洛阳", "涧西", mEtAddress.getText().toString().trim(), mEtCode.getText().toString().trim(), mEtConsignee.getText().toString().trim(), mEtMobile.getText().toString().trim(), status);
+                if (TextUtils.isEmpty(mOper)) {
+                    mPresenter.getAddAddress(mUser.get_id(), "河南", "洛阳", "涧西", mEtAddress.getText().toString().trim(), mEtCode.getText().toString().trim(), mEtConsignee.getText().toString().trim(), mEtMobile.getText().toString().trim(), status);
+                } else {
+                    mPresenter.updateAdress(mAddressId, mUser.get_id(), "河南", "洛阳", "涧西", mEtAddress.getText().toString().trim(), mEtCode.getText().toString().trim(), mEtConsignee.getText().toString().trim(), mEtMobile.getText().toString().trim(), status);
+                }
                 break;
         }
     }
 
     @Override
     public void addSuccess(BaseEntity data) {
+        ShowToast.Short(data.getMessage());
+        EventBus.getDefault().post(new ShoppingAddressEvent("refresh"));
+        back();
+    }
+
+    @Override
+    public void showAddress(ShoppingAddressEntity data) {
+        ShoppingAddressEntity.ResultEntity address = data.getResult().get(0);
+        mEtConsignee.setText(address.getShr());
+        mEtMobile.setText(address.getPhone());
+        mEtAddress.setText(address.getXiangxi());
+        mEtConsignee.setText(address.getCode());
+        mTvArea.setText(address.getSheng() + address.getShi() + address.getQu());
+        if ("1".equals(address.getSheng())) {
+            mCbCheckBox.setChecked(true);
+        }
+    }
+
+    @Override
+    public void updateSuccess(BaseEntity data) {
         ShowToast.Short(data.getMessage());
         EventBus.getDefault().post(new ShoppingAddressEvent("refresh"));
         back();

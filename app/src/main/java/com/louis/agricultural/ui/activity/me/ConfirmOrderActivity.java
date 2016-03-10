@@ -9,14 +9,19 @@ import android.widget.TextView;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
+import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.app.FYApplication;
+import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.OrderEntity;
 import com.louis.agricultural.model.entities.ShoppingCartEntity;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.event.ConfirmOrderEvent;
 import com.louis.agricultural.model.event.ShoppingAddressEvent;
+import com.louis.agricultural.presenter.ConfirmOrderActivityPresenter;
 import com.louis.agricultural.ui.adapter.ConfirmOrderAdapter;
+import com.louis.agricultural.ui.view.IConfirmOrderView;
+import com.louis.agricultural.utils.ShowToast;
 import com.louis.agricultural.view.MyListView;
 
 import java.util.ArrayList;
@@ -29,7 +34,7 @@ import de.greenrobot.event.EventBus;
 /**
  * 确认订单
  */
-public class ConfirmOrderActivity extends BaseActivity {
+public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, ConfirmOrderActivityPresenter> implements IConfirmOrderView{
 
     @Bind(R.id.tv_name)
     TextView mTvName;
@@ -43,8 +48,12 @@ public class ConfirmOrderActivity extends BaseActivity {
     TextView mTvAddress;
     @Bind(R.id.listview)
     MyListView mListView;
+    @Bind(R.id.tv_total_price)
+    TextView mTvTotal;
     @Bind(R.id.btn_buy)
     Button mBtnBuy;
+
+    private ConfirmOrderActivityPresenter mPresenter;
 
     private ConfirmOrderAdapter mAdapter;
     private UserEntity.ResultEntity mUser;
@@ -68,8 +77,14 @@ public class ConfirmOrderActivity extends BaseActivity {
         setContentView(R.layout.activity_confirm_order);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
+        mPresenter = mMPresenter;
         initView();
         initData();
+    }
+
+    @Override
+    protected ConfirmOrderActivityPresenter createPresenter() {
+        return new ConfirmOrderActivityPresenter(this);
     }
 
     @Override
@@ -89,21 +104,32 @@ public class ConfirmOrderActivity extends BaseActivity {
         mTvName.setText(mUser.get_user_name());
         mTvMobile.setText(mUser.get_mobile());
         Intent intent = getIntent();
-        mList = intent.getParcelableArrayListExtra(Constants.MESSAGE_EXTRA_KEY);
-        mAdapter = new ConfirmOrderAdapter(this, mList, R.layout.adapter_confirm_order);
-        mListView.setAdapter(mAdapter);
+        if (intent != null) {
+            mList = intent.getParcelableArrayListExtra(Constants.MESSAGE_EXTRA_KEY);
+            String total = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY2);
+            mTvTotal.setText("还需支付：￥" + total.substring(total.indexOf("￥") + 1, total.length()));
+            mAdapter = new ConfirmOrderAdapter(this, mList, R.layout.adapter_confirm_order);
+            mListView.setAdapter(mAdapter);
+        }
     }
 
     @Override
     protected void click(View view) {
         switch (view.getId()) {
             case R.id.btn_buy:
-                toPay();
+                createOrder();
                 break;
             case R.id.rl_address:
                 toSelectAddress();
                 break;
         }
+    }
+
+    /**
+     * 生成订单
+     */
+    private void createOrder() {
+        mPresenter.addOrder(mUser.get_id(), mAddressId, "", mUser.get_user_name(), mList);
     }
 
     private void toSelectAddress() {
@@ -134,5 +160,12 @@ public class ConfirmOrderActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+    }
+
+
+    @Override
+    public void setCreateSuccess(BaseEntity data) {
+        ShowToast.Short(data.getMessage());
+        toPay();
     }
 }

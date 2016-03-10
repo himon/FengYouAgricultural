@@ -10,6 +10,7 @@
     <string name="register_code_error_prompt">此推荐码不存在,请重新输入</string>
     <string name="register_pwd_error_prompt">密码太短,应为6-12位</string>
     <string name="register_repwd_error_prompt">两次密码不一致,请重新输入</string>
+    <string name="title_activity_order_detail">OrderDetailActivity</string>
 
 
 </resources>

@@ -11,6 +11,7 @@ import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.ClassifyEntity;
+import com.louis.agricultural.model.entities.OrderEntity;
 import com.louis.agricultural.model.entities.ProductDetailEntity;
 import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.model.entities.FyttEntity;
@@ -23,6 +24,7 @@ import com.louis.agricultural.net.RequestManager;
 import com.louis.agricultural.ui.activity.ProductDetailsActivity;
 import com.louis.agricultural.utils.StringUtil;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -495,7 +497,8 @@ public class HttpManager {
 
     /**
      * 根据类别和搜索查询商品
-     *  @param category_id
+     *
+     * @param category_id
      * @param search
      * @param paixu
      * @param listener
@@ -532,9 +535,9 @@ public class HttpManager {
                 return params;
             }
         };
-        if(fragment != null) {
+        if (fragment != null) {
             RequestManager.addRequest(request, fragment);
-        }else{
+        } else {
             RequestManager.addRequest(request, activity);
         }
     }
@@ -750,5 +753,222 @@ public class HttpManager {
             }
         };
         RequestManager.addRequest(request, activity);
+    }
+
+    /**
+     * 查看收货地址详情
+     *
+     * @param adress_id
+     * @param listener
+     * @param activity
+     */
+    public void getAdressShow(final String adress_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+
+        GsonRequest<ShoppingAddressEntity> request = new GsonRequest<ShoppingAddressEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                ShoppingAddressEntity.class, null, new Response.Listener<ShoppingAddressEntity>() {
+
+            @Override
+            public void onResponse(ShoppingAddressEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.GET_ADRESS_SHOW_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.GET_ADRESS_SHOW);
+                params.put("parames", JsonManager.getAdressShow(adress_id));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, activity);
+    }
+
+    /**
+     * 修改收货地址
+     *
+     * @param adress_id
+     * @param user_id
+     * @param sheng
+     * @param shi
+     * @param qu
+     * @param xiangxi
+     * @param code
+     * @param shr
+     * @param phone
+     * @param status
+     * @param listener
+     * @param activity
+     */
+    public void updateAdress(final String adress_id, final String user_id, final String sheng, final String shi, final String qu, final String xiangxi, final String code, final String shr, final String phone, final String status, final UserLoseMultiLoadedListener listener, Activity activity) {
+
+        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+
+            @Override
+            public void onResponse(BaseEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.UPDATE_ADRESS_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.UPDATE_ADRESS);
+                params.put("parames", JsonManager.updateAdress(adress_id, user_id, sheng, shi, qu, xiangxi, code, shr, phone, status));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, activity);
+    }
+
+    /**
+     * 查看公告 新闻和配送信息
+     *
+     * @param category_id
+     * @param page
+     * @param listener
+     * @param fragment
+     */
+    public void getNewsList(final String category_id, final int page, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+
+            @Override
+            public void onResponse(BaseEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.GET_NEWS_LIST_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.GET_NEWS_LIST);
+                params.put("parames", JsonManager.getNewsList(category_id, page));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, fragment);
+    }
+
+    /**
+     * 添加商品订单
+     *
+     * @param user_id
+     * @param adress_id
+     * @param message
+     * @param user_name
+     * @param list
+     * @param listener
+     * @param activity
+     */
+    public void addOrder(final String user_id, final String adress_id, final String message, final String user_name, final ArrayList<ShoppingCartEntity.ResultEntity> list, final UserLoseMultiLoadedListener listener, Activity activity) {
+        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+
+            @Override
+            public void onResponse(BaseEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.ADD_ORDER_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.ADD_ORDER);
+                params.put("parames", JsonManager.addOrder(user_id, adress_id, message, user_name, list));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, activity);
+    }
+
+    /**
+     * 查看个人商品订单
+     *  @param user_id
+     * @param page
+     * @param status
+     * @param listener
+     * @param fragment
+     */
+    public void getOrderList(final String user_id, final int page, final String status, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        GsonRequest<OrderEntity> request = new GsonRequest<OrderEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                OrderEntity.class, null, new Response.Listener<OrderEntity>() {
+
+            @Override
+            public void onResponse(OrderEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.GET_ORDER_LIST_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.GET_ORDER_LIST);
+                params.put("parames", JsonManager.getOrderList(user_id, page, status));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, fragment);
     }
 }

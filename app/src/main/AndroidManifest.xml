@@ -1,76 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.louis.agricultural" >
+          package="com.louis.agricultural">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".base.app.FYApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="design_width"
-            android:value="640" />
+            android:value="640"/>
         <meta-data
             android:name="design_height"
-            android:value="1136" />
+            android:value="1136"/>
 
         <activity
             android:name=".ui.activity.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.activity.account.LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="@string/title_activity_login"/>
         <activity
             android:name=".ui.activity.ProductDetailsActivity"
-            android:label="@string/title_activity_product_details" />
+            android:label="@string/title_activity_product_details"/>
         <activity
             android:name=".ui.activity.me.UserInfoActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ui.activity.me.SettingActivity"/>
-        <activity
-            android:name=".ui.activity.me.UpdatePasswordActivity"/>
-        <activity
-            android:name=".ui.activity.me.MyOrderActivity"/>
-        <activity
-            android:name=".ui.activity.me.ShoppingAddressActivity"/>
-        <activity
-            android:name=".ui.activity.me.AddShoppingAddressActivity"/>
-        <activity
-            android:name=".ui.activity.me.ConfirmOrderActivity"/>
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".ui.activity.me.SettingActivity"/>
+        <activity android:name=".ui.activity.me.UpdatePasswordActivity"/>
+        <activity android:name=".ui.activity.me.MyOrderActivity"/>
+        <activity android:name=".ui.activity.me.ShoppingAddressActivity"/>
+        <activity android:name=".ui.activity.me.AddShoppingAddressActivity"/>
+        <activity android:name=".ui.activity.me.ConfirmOrderActivity"/>
         <activity
             android:name=".ui.activity.account.ForgetPasswordActivity"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".ui.activity.account.ForgetPasswordNextActivity" />
-        <activity android:name=".ui.activity.account.RegisterActivity" />
-        <activity android:name=".ui.activity.me.CommentActivity" />
-        <activity
-            android:name=".ui.activity.MessageActivity">
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".ui.activity.account.ForgetPasswordNextActivity"/>
+        <activity android:name=".ui.activity.account.RegisterActivity"/>
+        <activity android:name=".ui.activity.me.CommentActivity"/>
+        <activity android:name=".ui.activity.MessageActivity">
         </activity>
-        <activity
-            android:name=".ui.activity.me.PayActivity">
+        <activity android:name=".ui.activity.me.PayActivity">
         </activity>
-        <activity
-            android:name=".ui.activity.SearchActivity">
+        <activity android:name=".ui.activity.SearchActivity">
         </activity>
         <activity android:name=".ui.activity.me.PicClipActivity"/>
 
         <!-- 图片选择 -->
         <activity
             android:name="me.iwf.photopicker.PhotoPickerActivity"
-            android:theme="@style/myTheme" />
+            android:theme="@style/myTheme"/>
         <activity
             android:name="me.iwf.photopicker.PhotoPagerActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".ui.activity.me.OrderDetailActivity"
+            android:label="@string/title_activity_order_detail"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

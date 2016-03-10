@@ -46,6 +46,7 @@ public class ShoppingAddressEntity extends BaseEntity {
         private String phone;
         private String status;
         private boolean check;
+        private String addtime;
 
         public void setId(String id) {
             this.id = id;
@@ -133,6 +134,14 @@ public class ShoppingAddressEntity extends BaseEntity {
 
         public void setCheck(boolean check) {
             this.check = check;
+        }
+
+        public String getAddtime() {
+            return addtime;
+        }
+
+        public void setAddtime(String addtime) {
+            this.addtime = addtime;
         }
     }
 }

@@ -1,7 +1,13 @@
 package com.louis.agricultural.utils.manager;
 
+import com.louis.agricultural.base.app.Constants;
+import com.louis.agricultural.model.entities.ShoppingCartEntity;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by lc on 16/2/29.
@@ -229,6 +235,135 @@ public class JsonManager {
             object.put("code", code);
             object.put("shr", shr);
             object.put("phone", phone);
+            object.put("status", status);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 查看收货地址详情
+     *
+     * @param adress_id
+     * @return
+     */
+    public static String getAdressShow(String adress_id) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("adress_id", adress_id);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 修改收货地址
+     *
+     * @param adress_id
+     * @param user_id
+     * @param sheng
+     * @param shi
+     * @param qu
+     * @param xiangxi
+     * @param code
+     * @param shr
+     * @param phone
+     * @param status
+     * @return
+     */
+    public static String updateAdress(String adress_id, String user_id, String sheng, String shi, String qu, String xiangxi, String code, String shr, String phone, String status) {
+
+        JSONObject object = new JSONObject();
+        try {
+            object.put("adress_id", adress_id);
+            object.put("user_id", user_id);
+            object.put("sheng", sheng);
+            object.put("shi", shi);
+            object.put("qu", qu);
+            object.put("xiangxi", xiangxi);
+            object.put("code", code);
+            object.put("shr", shr);
+            object.put("phone", phone);
+            object.put("status", status);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 查看公告 新闻和配送信息
+     *
+     * @param category_id
+     * @param page
+     * @return
+     */
+    public static String getNewsList(String category_id, int page) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("category_id", category_id);
+            object.put("pagesize", Constants.PAGESIZE);
+            object.put("page", page);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 添加商品订单
+     *
+     * @param user_id
+     * @param adress_id
+     * @param message
+     * @param user_name
+     * @param list
+     * @return
+     */
+    public static String addOrder(String user_id, String adress_id, String message, String user_name, ArrayList<ShoppingCartEntity.ResultEntity> list) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("user_id", user_id);
+            object.put("adress_id", adress_id);
+            object.put("message", message);
+            object.put("user_name", user_name);
+
+            JSONArray goods = new JSONArray();
+            for (ShoppingCartEntity.ResultEntity item : list) {
+                JSONObject good = new JSONObject();
+                good.put("sum", item.getSum());
+                good.put("goods_id", item.getGoods_id());
+                good.put("goods_price", item.getSell_price());
+                good.put("real_price", item.getSell_price());
+                good.put("spec_text", "");
+                good.put("goods_no", item.getGoods_no());
+                goods.put(good);
+            }
+            object.put("goods", goods);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+
+    }
+
+    /**
+     * 查看个人商品订单
+     *
+     * @param user_id
+     * @param page
+     * @param status
+     * @return
+     */
+    public static String getOrderList(String user_id, int page, String status) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("user_id", user_id);
+            object.put("pagesize", Constants.PAGESIZE);
+            object.put("page", page);
             object.put("status", status);
         } catch (JSONException e) {
             e.printStackTrace();
