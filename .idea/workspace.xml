@@ -10,115 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68295ee3-75aa-4d05-8ac5-d1aa1caecc61" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PickerView/PickerView.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/area.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/AreaEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/UpdatePasswordActivityMode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/UpdatePasswordActivityModeImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/UpdatePasswordActivityPresenter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/WebViewActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/view/IUpdatePasswordView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/utils/SpanUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/utils/helper/AreaArrayDataHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/utils/helper/OptionsWindowHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/view/CircleTransform.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/view/ConfirmDialogFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_web_view.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/utils/ActivityManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/utils/manager/ActivityManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app-release.apk" afterPath="$PROJECT_DIR$/app/app-release.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PickerView/PickerView.iml" afterPath="$PROJECT_DIR$/PickerView/PickerView.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/activity/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/activity/BaseActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/activity/BasicActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/activity/BasicActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/app/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/app/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/app/FYApplication.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/app/FYApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/presenter/UserLosePresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/presenter/UserLosePresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/AnnouncementEntity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/AnnouncementEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/DistributionEntity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/DistributionEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/ProductDetailEntity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/ProductDetailEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/ShoppingCartEntity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/ShoppingCartEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/event/ShoppingCartEvent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/event/ShoppingCartEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/AddShoppingAddressActivityMode.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/AddShoppingAddressActivityMode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/AnnouncementFragmentMode.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/AnnouncementFragmentMode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/ConfirmOrderActivityMode.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/ConfirmOrderActivityMode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/ProductDetailsActivityMode.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/ProductDetailsActivityMode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/ShoppingCartFragmentMode.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/ShoppingCartFragmentMode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/AddShoppingAddressActivityModeImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/AddShoppingAddressActivityModeImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/AnnouncementFragmentModeImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/AnnouncementFragmentModeImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/ConfirmOrderActivityModeImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/ConfirmOrderActivityModeImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/ProductDetailsActivityModeImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/ProductDetailsActivityModeImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/ShoppingCartFragmentModeImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/mode/impl/ShoppingCartFragmentModeImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/AddShoppingAddressPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/AddShoppingAddressPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/AnnouncementFragmentPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/AnnouncementFragmentPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/ConfirmOrderActivityPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/ConfirmOrderActivityPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/ProductDetailsPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/ProductDetailsPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/ShoppingCartFragmentPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/ShoppingCartFragmentPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/MessageActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/MessageActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/ProductDetailsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/ProductDetailsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/SearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/SearchActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/account/ForgetPasswordNextActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/account/ForgetPasswordNextActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/account/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/account/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/AddShoppingAddressActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/AddShoppingAddressActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/ConfirmOrderActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/ConfirmOrderActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/MyOrderActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/MyOrderActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/PayActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/PayActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/ShoppingAddressActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/ShoppingAddressActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/UpdatePasswordActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/UpdatePasswordActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/UserInfoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/UserInfoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/adapter/AnnouncementAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/adapter/AnnouncementAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/adapter/DistributionAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/adapter/DistributionAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/adapter/NewsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/adapter/NewsAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/adapter/ShoppingCartAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/adapter/ShoppingCartAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/message/AnnouncementFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/message/AnnouncementFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/message/DistributionFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/message/DistributionFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/message/NewsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/message/NewsFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/product/ProductFirstFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/product/ProductFirstFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/product/ProductSecondFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/product/ProductSecondFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/HomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/HomeFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/MeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/MeFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/ShoppingCartFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/ShoppingCartFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/view/IAddShoppingAddressView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/view/IAddShoppingAddressView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/view/IAnnouncementView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/view/IAnnouncementView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/view/IConfirmOrderView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/view/IConfirmOrderView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/view/IShoppingCartView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/view/IShoppingCartView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/utils/manager/HttpManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/utils/manager/HttpManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/utils/manager/JsonManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/utils/manager/JsonManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/view/CustWebView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/view/CustWebView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_confirm_order.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_confirm_order.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_product_details.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_product_details.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_update_password.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_update_password.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_info.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_announcement.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_announcement.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_confirm_order.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_confirm_order.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_distribution.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_distribution.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_news.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_news.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_shopping_cart.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_shopping_cart.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_me.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_me.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_product_first.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_product_first.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_product_second.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_product_second.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_classify_title_bar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_classify_title_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_main_title_bar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_main_title_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_title_bar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_title_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/library.iml" afterPath="$PROJECT_DIR$/library/library.iml" />
     </list>
     <ignored path="FengYouAgricultural.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -142,7 +38,7 @@
       <file leaf-file-name="HomeFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/HomeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.074074">
+            <state vertical-scroll-proportion="0.0">
               <caret line="181" column="55" selection-start-line="181" selection-start-column="55" selection-end-line="181" selection-end-column="55" />
               <folding />
             </state>
@@ -151,53 +47,53 @@
       </file>
       <file leaf-file-name="fragment_home.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6363635">
+            <state vertical-scroll-proportion="0.0">
               <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="layout_main_title_bar.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_main_title_bar.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4751553">
+            <state vertical-scroll-proportion="1.3571428">
               <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="fragment_classify.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_classify.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1636364">
+            <state vertical-scroll-proportion="0.0">
               <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="layout_classify_title_bar.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_classify_title_bar.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1636364">
+            <state vertical-scroll-proportion="0.0">
               <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -3926,8 +3822,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -4206,7 +4101,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4214,7 +4110,7 @@
     <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="device.picker.selection" value="192.168.56.101:5555" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SelectCityModule-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mvp/Beam-master" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.SHOW" value="true" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
@@ -4823,7 +4719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07810107">
           <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4841,7 +4736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3323124">
           <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4849,10 +4743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.79173046">
           <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
-          <folding>
-            <element signature="e#1566#1567#0" expanded="false" />
-            <element signature="e#1635#1636#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4885,12 +4775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.4058193">
           <caret line="122" column="49" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="49" />
-          <folding>
-            <element signature="e#3663#4000#0" expanded="false" />
-            <element signature="e#3999#4000#0" expanded="false" />
-            <element signature="e#5320#5321#0" expanded="false" />
-            <element signature="e#5383#5384#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4916,7 +4800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20826952">
           <caret line="8" column="111" selection-start-line="8" selection-start-column="111" selection-end-line="8" selection-end-column="111" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4924,7 +4807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51454824">
           <caret line="326" column="73" selection-start-line="326" selection-start-column="49" selection-end-line="326" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4932,11 +4814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5467075">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#500#501#0" expanded="false" />
-            <element signature="e#536#537#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4944,7 +4821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20826952">
           <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4952,9 +4828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65084225">
           <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4962,12 +4835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.79173046">
           <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
-          <folding>
-            <element signature="e#1744#1745#0" expanded="false" />
-            <element signature="e#1795#1796#0" expanded="false" />
-            <element signature="e#1842#1843#0" expanded="false" />
-            <element signature="e#1920#1921#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4986,7 +4853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39050537">
           <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5000,21 +4866,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/HomeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.074074">
+        <state vertical-scroll-proportion="0.0">
           <caret line="181" column="55" selection-start-line="181" selection-start-column="55" selection-end-line="181" selection-end-column="55" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6363635">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
@@ -5025,9 +4880,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_main_title_bar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3571428">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_classify.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1636364">
+        <state vertical-scroll-proportion="0.0">
           <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
           <folding />
         </state>
@@ -5038,19 +4915,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_classify_title_bar.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1636364">
+        <state vertical-scroll-proportion="0.0">
           <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_main_title_bar.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4751553">
-          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
           <folding />
         </state>
       </provider>
