@@ -31,10 +31,17 @@ public class ShoppingCartFragmentPresenter extends UserLosePresenter<IShoppingCa
             case Constants.GET_GOODSCART_LISTENER:
                 mIShoppingCartView.setShoppingCart((ShoppingCartEntity)data);
                 break;
+            case Constants.DELETE_GOODSCART_LISTENER:
+                mIShoppingCartView.setDeleteSuccess(data);
+                break;
         }
     }
 
     public void get_goodscart(String user_id) {
         mShoppingCartFragmentMode.getGoodsCart(user_id, this);
+    }
+
+    public void deleteGoodscart(String car_id) {
+        mShoppingCartFragmentMode.deleteGoodscart(car_id, this);
     }
 }

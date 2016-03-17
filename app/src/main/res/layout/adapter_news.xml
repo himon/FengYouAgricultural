@@ -34,6 +34,7 @@
         android:textColor="@color/main_search_font_gray" />
 
     <TextView
+        android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

@@ -2,7 +2,10 @@ package com.louis.agricultural.ui.activity.me;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -20,11 +23,14 @@ import com.louis.agricultural.model.entities.ShoppingAddressEntity;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.event.ShoppingAddressEvent;
 import com.louis.agricultural.presenter.AddShoppingAddressPresenter;
+import com.louis.agricultural.ui.activity.MainActivity;
 import com.louis.agricultural.ui.view.IAddShoppingAddressView;
 import com.louis.agricultural.utils.ShowToast;
+import com.louis.agricultural.utils.helper.OptionsWindowHelper;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.jeesoft.widget.pickerview.CharacterPickerWindow;
 import de.greenrobot.event.EventBus;
 
 /**
@@ -53,6 +59,10 @@ public class AddShoppingAddressActivity extends MVPBaseActivity<IAddShoppingAddr
     private UserEntity.ResultEntity mUser;
     private String mOper;
     private String mAddressId;
+    private String mProvince;
+    private String mCity;
+    private String mArea;
+    private CharacterPickerWindow mWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +86,7 @@ public class AddShoppingAddressActivity extends MVPBaseActivity<IAddShoppingAddr
     }
 
     private void initEvent() {
+        mLLArea.setOnClickListener(this);
         mBtnAdd.setOnClickListener(this);
     }
 
@@ -87,9 +98,29 @@ public class AddShoppingAddressActivity extends MVPBaseActivity<IAddShoppingAddr
             if (!TextUtils.isEmpty(mOper)) {
                 mAddressId = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY2);
                 mPresenter.getAdressShow(mAddressId);
+                mTvNavRight.setText("删除");
+                mTvNavRight.setTextColor(ContextCompat.getColor(this, R.color.font_red));
+                mTvNavRight.setVisibility(View.VISIBLE);
+                mTvNavRight.setOnClickListener(this);
             }
         }
         mUser = FYApplication.getContext().getUserEntity().getResult();
+
+        //初始化
+        mWindow = OptionsWindowHelper.builder(this, new OptionsWindowHelper.OnOptionsSelectListener() {
+            @Override
+            public void onOptionsSelect(String province, String city, String area) {
+                mTvArea.setText(province + city + area);
+                mProvince = province;
+                mCity = city;
+                mArea = area;
+            }
+        });
+
+        mProvince = "河南";
+        mCity = "洛阳";
+        mArea = "西工区";
+        mTvArea.setText(mProvince + mCity + mArea);
     }
 
     @Override
@@ -102,12 +133,22 @@ public class AddShoppingAddressActivity extends MVPBaseActivity<IAddShoppingAddr
                     status = "1";
                 }
                 if (TextUtils.isEmpty(mOper)) {
-                    mPresenter.getAddAddress(mUser.get_id(), "河南", "洛阳", "涧西", mEtAddress.getText().toString().trim(), mEtCode.getText().toString().trim(), mEtConsignee.getText().toString().trim(), mEtMobile.getText().toString().trim(), status);
+                    mPresenter.getAddAddress(mUser.get_id(), mProvince, mCity, mArea, mEtAddress.getText().toString().trim(), mEtCode.getText().toString().trim(), mEtConsignee.getText().toString().trim(), mEtMobile.getText().toString().trim(), status);
                 } else {
-                    mPresenter.updateAdress(mAddressId, mUser.get_id(), "河南", "洛阳", "涧西", mEtAddress.getText().toString().trim(), mEtCode.getText().toString().trim(), mEtConsignee.getText().toString().trim(), mEtMobile.getText().toString().trim(), status);
+                    mPresenter.updateAdress(mAddressId, mUser.get_id(), mProvince, mCity, mArea, mEtAddress.getText().toString().trim(), mEtCode.getText().toString().trim(), mEtConsignee.getText().toString().trim(), mEtMobile.getText().toString().trim(), status);
                 }
                 break;
+            case R.id.tv_nav_right:
+                mPresenter.deleteAdress(mAddressId);
+                break;
+            case R.id.ll_area:
+                selectArea(view);
+                break;
         }
+    }
+
+    private void selectArea(View v) {
+        mWindow.showAtLocation(v, Gravity.BOTTOM, 0, 0);
     }
 
     @Override
@@ -132,6 +173,13 @@ public class AddShoppingAddressActivity extends MVPBaseActivity<IAddShoppingAddr
 
     @Override
     public void updateSuccess(BaseEntity data) {
+        ShowToast.Short(data.getMessage());
+        EventBus.getDefault().post(new ShoppingAddressEvent("refresh"));
+        back();
+    }
+
+    @Override
+    public void delSuccess(BaseEntity data) {
         ShowToast.Short(data.getMessage());
         EventBus.getDefault().post(new ShoppingAddressEvent("refresh"));
         back();

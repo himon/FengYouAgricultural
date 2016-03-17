@@ -12,4 +12,6 @@ public interface AddShoppingAddressActivityMode {
     void getAdressShow(String adress_id, UserLoseMultiLoadedListener listener);
 
     void updateAdress(String adress_id, String user_id, String sheng, String shi, String qu, String xiangxi, String code, String shr, String phone, String status, UserLoseMultiLoadedListener listener);
+
+    void deleteAdress(String adress_id, UserLoseMultiLoadedListener listener);
 }

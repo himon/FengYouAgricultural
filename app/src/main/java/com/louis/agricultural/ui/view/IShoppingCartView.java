@@ -1,5 +1,6 @@
 package com.louis.agricultural.ui.view;
 
+import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.ShoppingCartEntity;
 
 /**
@@ -8,4 +9,6 @@ import com.louis.agricultural.model.entities.ShoppingCartEntity;
 public interface IShoppingCartView {
 
     void setShoppingCart(ShoppingCartEntity data);
+
+    void setDeleteSuccess(BaseEntity data);
 }

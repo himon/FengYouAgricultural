@@ -12,6 +12,7 @@
         android:text="#促销# 红日阿康有机肥料10元 /5斤满减包邮！！活动时间：2016年1月15——18日。快来抢购！！！！" />
 
     <TextView
+        android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

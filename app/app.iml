@@ -133,6 +133,7 @@
     <orderEntry type="library" exported="" name="leakcanary-android-1.3.1" level="project" />
     <orderEntry type="library" exported="" name="leakcanary-watcher-1.3.1" level="project" />
     <orderEntry type="library" exported="" name="okhttputils-2.0.2" level="project" />
+    <orderEntry type="module" module-name="PickerView" exported="" />
     <orderEntry type="module" module-name="PhotoPicker" exported="" />
     <orderEntry type="module" module-name="library" exported="" />
   </component>

@@ -35,6 +35,7 @@ public class ProductDetailEntity extends BaseEntity {
         private String sell_price;
         private String brand;
         private String commentpls;
+        private int gwc_sum;
         /**
          * thumb_path : http://115.28.134.18:8087/upload/201603/01/thumb_201603011633431811.png
          */
@@ -63,6 +64,14 @@ public class ProductDetailEntity extends BaseEntity {
 
         public String getTitle() {
             return title;
+        }
+
+        public int getGwc_sum() {
+            return gwc_sum;
+        }
+
+        public void setGwc_sum(int gwc_sum) {
+            this.gwc_sum = gwc_sum;
         }
 
         public String getSell_price() {
@@ -120,6 +129,7 @@ public class ProductDetailEntity extends BaseEntity {
             };
         }
 
+
         @Override
         public int describeContents() {
             return 0;
@@ -131,6 +141,7 @@ public class ProductDetailEntity extends BaseEntity {
             dest.writeString(this.sell_price);
             dest.writeString(this.brand);
             dest.writeString(this.commentpls);
+            dest.writeInt(this.gwc_sum);
             dest.writeTypedList(album);
         }
 
@@ -142,6 +153,7 @@ public class ProductDetailEntity extends BaseEntity {
             this.sell_price = in.readString();
             this.brand = in.readString();
             this.commentpls = in.readString();
+            this.gwc_sum = in.readInt();
             this.album = in.createTypedArrayList(AlbumEntity.CREATOR);
         }
 

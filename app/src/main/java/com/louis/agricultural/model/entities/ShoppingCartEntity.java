@@ -40,7 +40,8 @@ public class ShoppingCartEntity extends BaseEntity {
         private BigDecimal sell_price;
         private String img_url;
         private String goods_no;
-        private boolean check;
+        private boolean check = true;
+        private boolean isDel;
 
         public void setId(String id) {
             this.id = id;
@@ -62,6 +63,13 @@ public class ShoppingCartEntity extends BaseEntity {
             this.title = title;
         }
 
+        public boolean isDel() {
+            return isDel;
+        }
+
+        public void setDel(boolean del) {
+            isDel = del;
+        }
 
         public String getId() {
             return id;
@@ -131,6 +139,7 @@ public class ShoppingCartEntity extends BaseEntity {
             dest.writeString(this.img_url);
             dest.writeString(this.goods_no);
             dest.writeByte(check ? (byte) 1 : (byte) 0);
+            dest.writeByte(isDel ? (byte) 1 : (byte) 0);
         }
 
         public ResultEntity() {
@@ -146,6 +155,7 @@ public class ShoppingCartEntity extends BaseEntity {
             this.img_url = in.readString();
             this.goods_no = in.readString();
             this.check = in.readByte() != 0;
+            this.isDel = in.readByte() != 0;
         }
 
         public static final Parcelable.Creator<ResultEntity> CREATOR = new Parcelable.Creator<ResultEntity>() {

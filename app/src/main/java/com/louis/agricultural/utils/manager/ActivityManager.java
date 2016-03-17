@@ -1,4 +1,4 @@
-package com.louis.agricultural.utils;
+package com.louis.agricultural.utils.manager;
 
 import android.app.Activity;
 

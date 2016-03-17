@@ -29,8 +29,8 @@ public class ProductDetailsPresenter extends UserLosePresenter<IProductDetailsVi
         mProductDetailsActivityMode = new ProductDetailsActivityModeImpl((Activity)view);
     }
 
-    public void getGoodsShow(String article_id) {
-        mProductDetailsActivityMode.getGoodsShow(article_id, this);
+    public void getGoodsShow(String user_id, String article_id) {
+        mProductDetailsActivityMode.getGoodsShow(user_id, article_id, this);
     }
 
     @Override

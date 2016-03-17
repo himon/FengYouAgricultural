@@ -1,6 +1,7 @@
 package com.louis.agricultural.ui.fragment.message;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -9,9 +10,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import com.louis.agricultural.R;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.fragment.BaseFragment;
+import com.louis.agricultural.base.fragment.MVPBaseFragment;
+import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.DistributionEntity;
+import com.louis.agricultural.presenter.AnnouncementFragmentPresenter;
+import com.louis.agricultural.ui.activity.WebViewActivity;
 import com.louis.agricultural.ui.adapter.DistributionAdapter;
+import com.louis.agricultural.ui.view.IAnnouncementView;
 import com.louis.agricultural.view.GetMoreListView;
 
 import java.util.ArrayList;
@@ -26,17 +33,19 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 /**
  * 配送
  */
-public class DistributionFragment extends BaseFragment {
+public class DistributionFragment extends MVPBaseFragment<IAnnouncementView, AnnouncementFragmentPresenter> implements IAnnouncementView {
 
     @Bind(R.id.ptr_main)
     PtrClassicFrameLayout mPtr;
     @Bind(R.id.gmlv_main)
     GetMoreListView mListView;
 
+    private int page = 1;
     //是否是下拉刷新
     private boolean isRefresh;
     private DistributionAdapter mAdapter;
-    private List<DistributionEntity> mList = new ArrayList<>();
+    private AnnouncementFragmentPresenter mPresenter;
+    private List<DistributionEntity.ResultEntity> mList = new ArrayList<>();
 
     public DistributionFragment() {
         // Required empty public constructor
@@ -46,12 +55,18 @@ public class DistributionFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_distribution, container, false);
         ButterKnife.bind(this, view);
+        mPresenter = mMPresenter;
         initView();
         initData();
         return view;
+    }
+
+
+    @Override
+    protected AnnouncementFragmentPresenter createPresenter() {
+        return new AnnouncementFragmentPresenter(this);
     }
 
 
@@ -70,7 +85,8 @@ public class DistributionFragment extends BaseFragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                DistributionEntity.ResultEntity entity = (DistributionEntity.ResultEntity) parent.getAdapter().getItem(position);
+                toDetail(entity.getId());
             }
         });
 
@@ -95,19 +111,24 @@ public class DistributionFragment extends BaseFragment {
 
     }
 
-    private void getData() {
-        for (int i = 0; i < 5; i++) {
-            DistributionEntity entity = new DistributionEntity();
-            entity.setContent("#2016年3月4日，有五吨化肥需要从河南洛阳运送到上海浦东新区#");
-            mList.add(entity);
-        }
-        setData();
+    private void toDetail(String id) {
+        Intent intent = new Intent(getActivity(), WebViewActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, id);
+        startActivity(intent);
     }
 
-    private void setData() {
+    private void getData() {
+        mPresenter.getNewsList("58", page);
+    }
+
+    @Override
+    public void setData(BaseEntity data) {
+        mList = ((DistributionEntity) data).getResult();
         mListView.setNoMore();
+        mAdapter.setmDatas(mList);
         mAdapter.notifyDataSetChanged();
         mListView.getMoreComplete();
         mPtr.refreshComplete();
     }
+
 }

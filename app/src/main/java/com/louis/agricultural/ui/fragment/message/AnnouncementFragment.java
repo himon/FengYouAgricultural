@@ -1,6 +1,7 @@
 package com.louis.agricultural.ui.fragment.message;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -10,10 +11,13 @@ import android.widget.AdapterView;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.fragment.BaseFragment;
 import com.louis.agricultural.base.fragment.MVPBaseFragment;
 import com.louis.agricultural.model.entities.AnnouncementEntity;
+import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.presenter.AnnouncementFragmentPresenter;
+import com.louis.agricultural.ui.activity.WebViewActivity;
 import com.louis.agricultural.ui.adapter.AnnouncementAdapter;
 import com.louis.agricultural.ui.view.IAnnouncementView;
 import com.louis.agricultural.view.GetMoreListView;
@@ -43,7 +47,7 @@ public class AnnouncementFragment extends MVPBaseFragment<IAnnouncementView, Ann
     //是否是下拉刷新
     private boolean isRefresh;
     private AnnouncementAdapter mAdapter;
-    private List<AnnouncementEntity> mList = new ArrayList<>();
+    private List<AnnouncementEntity.ResultEntity> mList = new ArrayList<>();
 
     public AnnouncementFragment() {
         // Required empty public constructor
@@ -81,7 +85,8 @@ public class AnnouncementFragment extends MVPBaseFragment<IAnnouncementView, Ann
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                AnnouncementEntity.ResultEntity entity = (AnnouncementEntity.ResultEntity) parent.getAdapter().getItem(position);
+                toDetail(entity.getId());
             }
         });
 
@@ -106,19 +111,21 @@ public class AnnouncementFragment extends MVPBaseFragment<IAnnouncementView, Ann
 
     }
 
-    private void getData() {
-//        for (int i = 0; i < 5; i++) {
-//            AnnouncementEntity entity = new AnnouncementEntity();
-//            entity.setContent("#促销# 红日阿康有机肥料10元 /5斤满减包邮！！活动时间：2016年1月15——18日。快来抢购！！！！");
-//            entity.setTime("今天");
-//            mList.add(entity);
-//        }
+    private void toDetail(String id) {
+        Intent intent = new Intent(getActivity(), WebViewActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, id);
+        startActivity(intent);
+    }
 
+    private void getData() {
         mPresenter.getNewsList("56", page);
     }
 
-    private void setData() {
+    @Override
+    public void setData(BaseEntity data) {
+        mList = ((AnnouncementEntity) data).getResult();
         mListView.setNoMore();
+        mAdapter.setmDatas(mList);
         mAdapter.notifyDataSetChanged();
         mListView.getMoreComplete();
         mPtr.refreshComplete();

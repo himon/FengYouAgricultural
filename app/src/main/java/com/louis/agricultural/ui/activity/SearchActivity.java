@@ -39,6 +39,8 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
     RelativeLayout mToolsBar;
     @Bind(R.id.iv_classify_left)
     ImageView mIvBack;
+    @Bind(R.id.rl_classify_left)
+    RelativeLayout mRlBack;
     @Bind(R.id.ll_sum)
     LinearLayout mLLSum;
     @Bind(R.id.ll_price)
@@ -123,6 +125,8 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
     private void initEvent() {
 
         mIvBack.setOnClickListener(this);
+        mRlBack.setOnClickListener(this);
+        mRlBack.setVisibility(View.VISIBLE);
         mLLSum.setOnClickListener(this);
         mLLPrice.setOnClickListener(this);
 
@@ -147,10 +151,10 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
         mCbHot.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     mOrder = "is_hot";
                     mPresenter.getSearchGoods("0", "生物", mOrder);
-                }else{
+                } else {
                     mOrder = "id";
                     mPresenter.getSearchGoods("0", "生物", mOrder);
                 }
@@ -170,6 +174,7 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
     protected void click(View view) {
         switch (view.getId()) {
             case R.id.iv_classify_left:
+            case R.id.rl_classify_left:
                 back();
                 break;
             case R.id.ll_sum:

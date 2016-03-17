@@ -7,6 +7,10 @@ public interface Constants {
 
     String HOST_URL = "http://115.28.134.18:8087";
 
+    String MESSAGE_URL = "http://115.28.134.18:8087/web/news_show.aspx?id=";
+
+    String GOODS_DETAIL_URL = "http://115.28.134.18:8087/web/goods_show.aspx?id=";
+
 
     /** 后台接口 **/
     /**
@@ -125,6 +129,10 @@ public interface Constants {
      * 查看公告/新闻和配送信息 公告:56, 新闻:57, 配送:58
      */
     String GET_NEWS_LIST = "get_news_list";
+    /**
+     * 获取个人默认收货地址
+     */
+    String GET_DEFAULT_ADRESS = "get_default_adress";
 
 
     /** 获取数据成功回调的key **/
@@ -236,6 +244,10 @@ public interface Constants {
      * 查看公告/新闻和配送信息 公告:56, 新闻:57, 配送:58
      */
     int GET_NEWS_LIST_LISTENER = 0x10027;
+    /**
+     * 获取个人默认收货地址
+     */
+    int GET_DEFAULT_ADRESS_LISTENER = 0x10028;
 
 
     String MESSAGE_EXTRA_KEY = "message_extra_key";
@@ -243,6 +255,8 @@ public interface Constants {
 
     String LOGIN_FROM_ME = "login_from_me";
     String LOGIN_FROM_SHOPPINGCART = "login_from_shoppingcart";
+    String LOGIN_REFRESH = "login_refresh";
+    String LOGIN_REFRESH_BY_PRODUCT_DETAIL = "login_refresh_by_product_detail";
 
     String DATA_IS_SIAMLL_PIC = "isSmallPic";
     String DATA_FILE_PATH = "file_path";
@@ -258,4 +272,5 @@ public interface Constants {
      * 一页显示的条数
      */
     int PAGESIZE = 20;
+
 }

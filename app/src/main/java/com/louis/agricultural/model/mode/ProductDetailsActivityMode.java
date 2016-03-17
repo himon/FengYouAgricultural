@@ -7,7 +7,7 @@ import com.louis.agricultural.presenter.ProductDetailsPresenter;
  * Created by lc on 16/3/6.
  */
 public interface ProductDetailsActivityMode {
-    void getGoodsShow(String article_id, UserLoseMultiLoadedListener listenter);
+    void getGoodsShow(String user_id, String article_id, UserLoseMultiLoadedListener listenter);
 
     void getAddGoodscart(String user_id, String goods_id, int sum, UserLoseMultiLoadedListener listenter);
 }

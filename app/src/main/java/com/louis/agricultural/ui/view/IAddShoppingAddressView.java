@@ -12,4 +12,6 @@ public interface IAddShoppingAddressView {
     void showAddress(ShoppingAddressEntity data);
 
     void updateSuccess(BaseEntity data);
+
+    void delSuccess(BaseEntity data);
 }

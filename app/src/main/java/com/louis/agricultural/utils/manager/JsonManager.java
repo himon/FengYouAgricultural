@@ -72,10 +72,11 @@ public class JsonManager {
      * @param usertjr
      * @return
      */
-    public static String register(String username, String password, String usertjr) {
+    public static String register(String username, String phone, String password, String usertjr) {
         JSONObject object = new JSONObject();
         try {
             object.put("username", username);
+            object.put("phone", phone);
             object.put("password", password);
             object.put("usertjr", usertjr);
         } catch (JSONException e) {
@@ -177,13 +178,16 @@ public class JsonManager {
     /**
      * 商品信息
      *
+     *
+     * @param user_id
      * @param article_id
      * @return
      */
-    public static String getGoodsShow(String article_id) {
+    public static String getGoodsShow(String user_id, String article_id) {
         JSONObject object = new JSONObject();
         try {
             object.put("article_id", article_id);
+            object.put("user_id", user_id);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -329,6 +333,7 @@ public class JsonManager {
             object.put("adress_id", adress_id);
             object.put("message", message);
             object.put("user_name", user_name);
+            object.put("payment_id", "1");
 
             JSONArray goods = new JSONArray();
             for (ShoppingCartEntity.ResultEntity item : list) {
@@ -365,6 +370,21 @@ public class JsonManager {
             object.put("pagesize", Constants.PAGESIZE);
             object.put("page", page);
             object.put("status", status);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 删除购物车
+     * @param car_id
+     * @return
+     */
+    public static String deleteGoodscart(String car_id) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("car_id", car_id);
         } catch (JSONException e) {
             e.printStackTrace();
         }

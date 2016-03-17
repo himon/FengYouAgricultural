@@ -19,7 +19,7 @@ public class PayActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
+        initTitle("支付");
     }
 
     @Override

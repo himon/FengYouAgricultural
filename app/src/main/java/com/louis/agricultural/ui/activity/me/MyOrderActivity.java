@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.TextView;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
@@ -27,6 +28,16 @@ public class MyOrderActivity extends BaseActivity {
     UnderlinePageIndicator mIndicator;
     @Bind(R.id.id_viewpager)
     ViewPager mViewPager;
+    @Bind(R.id.tv_all)
+    TextView mTvAll;
+    @Bind(R.id.tv_pay)
+    TextView mTvPay;
+    @Bind(R.id.tv_get)
+    TextView mTvGet;
+    @Bind(R.id.tv_commit)
+    TextView mTvCommit;
+    @Bind(R.id.tv_finish)
+    TextView mTvFinish;
 
     private TabAdapter mTabAdapter;
     private List<Fragment> mFragments = new ArrayList<>();
@@ -89,6 +100,16 @@ public class MyOrderActivity extends BaseActivity {
         mViewPager.setOffscreenPageLimit(5);
         mIndicator.setViewPager(mViewPager);
         mIndicator.setFades(false);
+
+        initEvent();
+    }
+
+    private void initEvent() {
+        mTvAll.setOnClickListener(this);
+        mTvPay.setOnClickListener(this);
+        mTvCommit.setOnClickListener(this);
+        mTvGet.setOnClickListener(this);
+        mTvFinish.setOnClickListener(this);
     }
 
     @Override
@@ -98,6 +119,22 @@ public class MyOrderActivity extends BaseActivity {
 
     @Override
     protected void click(View view) {
-
+        switch (view.getId()) {
+            case R.id.tv_all:
+                mViewPager.setCurrentItem(0, false);
+                break;
+            case R.id.tv_pay:
+                mViewPager.setCurrentItem(1, false);
+                break;
+            case R.id.tv_get:
+                mViewPager.setCurrentItem(2, false);
+                break;
+            case R.id.tv_commit:
+                mViewPager.setCurrentItem(3, false);
+                break;
+            case R.id.tv_finish:
+                mViewPager.setCurrentItem(4, false);
+                break;
+        }
     }
 }

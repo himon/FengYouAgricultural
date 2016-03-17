@@ -9,8 +9,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
+import com.louis.agricultural.model.entities.AnnouncementEntity;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.ClassifyEntity;
+import com.louis.agricultural.model.entities.DistributionEntity;
 import com.louis.agricultural.model.entities.OrderEntity;
 import com.louis.agricultural.model.entities.ProductDetailEntity;
 import com.louis.agricultural.model.entities.ProductEntity;
@@ -274,7 +276,7 @@ public class HttpManager {
      * @param listener
      * @param activity
      */
-    public void register(final String username, String mobile, final String usertjr, final String password, final UserLoseMultiLoadedListener listener, Activity activity) {
+    public void register(final String username, final String mobile, final String usertjr, final String password, final UserLoseMultiLoadedListener listener, Activity activity) {
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -290,6 +292,8 @@ public class HttpManager {
 
             @Override
             public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
                 listener.onException(error.getMessage());
             }
         }) {
@@ -298,7 +302,7 @@ public class HttpManager {
 
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("methodName", Constants.USER_REGISTER);
-                params.put("parames", JsonManager.register(username, password, usertjr));
+                params.put("parames", JsonManager.register(username, mobile, password, usertjr));
                 return params;
             }
         };
@@ -545,11 +549,12 @@ public class HttpManager {
     /**
      * 商品信息
      *
+     * @param user_id
      * @param article_id
      * @param listener
      * @param activity
      */
-    public void getGoodsShow(final String article_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+    public void getGoodsShow(final String user_id, final String article_id, final UserLoseMultiLoadedListener listener, Activity activity) {
         GsonRequest<ProductDetailEntity> request = new GsonRequest<ProductDetailEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ProductDetailEntity.class, null, new Response.Listener<ProductDetailEntity>() {
 
@@ -565,8 +570,8 @@ public class HttpManager {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                byte[] data = error.networkResponse.data;
-                String str = new String(data);
+                //byte[] data = error.networkResponse.data;
+                //String str = new String(data);
                 listener.onException(error.getMessage());
             }
         }) {
@@ -575,7 +580,7 @@ public class HttpManager {
 
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("methodName", Constants.GET_GOODS_SHOW);
-                params.put("parames", JsonManager.getGoodsShow(article_id));
+                params.put("parames", JsonManager.getGoodsShow(user_id, article_id));
                 return params;
             }
         };
@@ -854,12 +859,12 @@ public class HttpManager {
      * @param listener
      * @param fragment
      */
-    public void getNewsList(final String category_id, final int page, final UserLoseMultiLoadedListener listener, Fragment fragment) {
-        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
-                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+    public void getNewsListAnnouncement(final String category_id, final int page, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        GsonRequest<AnnouncementEntity> request = new GsonRequest<AnnouncementEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                AnnouncementEntity.class, null, new Response.Listener<AnnouncementEntity>() {
 
             @Override
-            public void onResponse(BaseEntity response) {
+            public void onResponse(AnnouncementEntity response) {
                 if (response.isSuccess()) {
                     listener.onSuccess(Constants.GET_NEWS_LIST_LISTENER, response);
                 } else {
@@ -933,7 +938,8 @@ public class HttpManager {
 
     /**
      * 查看个人商品订单
-     *  @param user_id
+     *
+     * @param user_id
      * @param page
      * @param status
      * @param listener
@@ -970,5 +976,166 @@ public class HttpManager {
             }
         };
         RequestManager.addRequest(request, fragment);
+    }
+
+    /**
+     * 获取个人默认收货地址
+     *
+     * @param user_id
+     * @param listener
+     * @param activity
+     */
+    public void getDefaultAdress(final String user_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+        GsonRequest<ShoppingAddressEntity> request = new GsonRequest<ShoppingAddressEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                ShoppingAddressEntity.class, null, new Response.Listener<ShoppingAddressEntity>() {
+
+            @Override
+            public void onResponse(ShoppingAddressEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.GET_DEFAULT_ADRESS_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.GET_DEFAULT_ADRESS);
+                params.put("parames", JsonManager.getUserInfomation(user_id));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, activity);
+    }
+
+    /**
+     * 查看配送信息
+     *
+     * @param category_id
+     * @param page
+     * @param listener
+     * @param fragment
+     */
+    public void getNewsListDistribution(final String category_id, final int page, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        GsonRequest<DistributionEntity> request = new GsonRequest<DistributionEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                DistributionEntity.class, null, new Response.Listener<DistributionEntity>() {
+
+            @Override
+            public void onResponse(DistributionEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.GET_NEWS_LIST_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.GET_NEWS_LIST);
+                params.put("parames", JsonManager.getNewsList(category_id, page));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, fragment);
+    }
+
+    /**
+     * 删除购物车
+     *
+     * @param car_id
+     * @param listener
+     * @param fragment
+     */
+    public void deleteGoodscart(final String car_id, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+
+            @Override
+            public void onResponse(BaseEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.DELETE_GOODSCART_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.DELETE_GOODSCART);
+                params.put("parames", JsonManager.deleteGoodscart(car_id));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, fragment);
+    }
+
+    /**
+     * 删除收货地址
+     *
+     * @param adress_id
+     * @param listener
+     * @param activity
+     */
+    public void deleteAdress(final String adress_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+
+            @Override
+            public void onResponse(BaseEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.DELETE_ADRESS_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.DELETE_ADRESS);
+                params.put("parames", JsonManager.getAdressShow(adress_id));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, activity);
     }
 }

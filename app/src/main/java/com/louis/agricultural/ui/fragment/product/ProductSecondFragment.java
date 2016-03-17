@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.louis.agricultural.R;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.fragment.BaseFragment;
+import com.louis.agricultural.model.entities.ProductDetailEntity;
 import com.louis.agricultural.ui.adapter.ProductSecondAdapter;
 import com.viewpagerindicator.UnderlinePageIndicator;
 
@@ -25,14 +27,6 @@ import butterknife.ButterKnife;
  */
 public class ProductSecondFragment extends BaseFragment implements View.OnClickListener {
 
-    @Bind(R.id.tab_left)
-    TextView mTvLeft;
-    @Bind(R.id.tab_mid)
-    TextView mTvMid;
-    @Bind(R.id.tab_right)
-    TextView mTvRight;
-    @Bind(R.id.indicator)
-    UnderlinePageIndicator mIndicator;
     @Bind(R.id.viewpager)
     ViewPager mViewPager;
 
@@ -55,18 +49,16 @@ public class ProductSecondFragment extends BaseFragment implements View.OnClickL
     @Override
     protected void initView() {
 
+        Bundle bundle = getArguments();
+        String id = bundle.getString(Constants.MESSAGE_EXTRA_KEY);
+
         List<String> urls = new ArrayList<>();
-        urls.add("http://www.qq.com");
-        urls.add("http://www.taobao.com");
-        urls.add("https://www.baidu.com");
+        urls.add(Constants.GOODS_DETAIL_URL + id);
 
         mAdapter = new ProductSecondAdapter(getActivity().getSupportFragmentManager());
         mAdapter.setUrls(urls);
 
         mViewPager.setAdapter(mAdapter);
-        mViewPager.setOffscreenPageLimit(3);
-        mIndicator.setViewPager(mViewPager);
-        mIndicator.setFades(false);
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -76,18 +68,8 @@ public class ProductSecondFragment extends BaseFragment implements View.OnClickL
 
             @Override
             public void onPageSelected(int position) {
-                clearTextColor();
-                switch (position) {
-                    case 0:
-                        mTvLeft.setTextColor(getResources().getColor(R.color.home_tab_red_bg));
-                        break;
-                    case 1:
-                        mTvMid.setTextColor(getResources().getColor(R.color.home_tab_red_bg));
-                        break;
-                    case 2:
-                        mTvRight.setTextColor(getResources().getColor(R.color.home_tab_red_bg));
-                        break;
-                }
+
+
             }
 
             @Override
@@ -100,9 +82,7 @@ public class ProductSecondFragment extends BaseFragment implements View.OnClickL
     }
 
     private void initEvent() {
-        mTvLeft.setOnClickListener(this);
-        mTvMid.setOnClickListener(this);
-        mTvRight.setOnClickListener(this);
+
     }
 
     @Override
@@ -113,27 +93,7 @@ public class ProductSecondFragment extends BaseFragment implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tab_left:
-                mViewPager.setCurrentItem(0);
-                clearTextColor();
-                mTvLeft.setTextColor(getResources().getColor(R.color.home_tab_red_bg));
-                break;
-            case R.id.tab_mid:
-                mViewPager.setCurrentItem(1);
-                clearTextColor();
-                mTvMid.setTextColor(getResources().getColor(R.color.home_tab_red_bg));
-                break;
-            case R.id.tab_right:
-                mViewPager.setCurrentItem(2);
-                clearTextColor();
-                mTvRight.setTextColor(getResources().getColor(R.color.home_tab_red_bg));
-                break;
-        }
-    }
 
-    private void clearTextColor() {
-        mTvLeft.setTextColor(getResources().getColor(R.color.main_search_font_gray));
-        mTvMid.setTextColor(getResources().getColor(R.color.main_search_font_gray));
-        mTvRight.setTextColor(getResources().getColor(R.color.main_search_font_gray));
+        }
     }
 }

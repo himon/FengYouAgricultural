@@ -4,10 +4,17 @@ package com.louis.agricultural.ui.fragment.tab;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.StrikethroughSpan;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -19,11 +26,14 @@ import com.louis.agricultural.base.fragment.MVPBaseFragment;
 import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.model.entities.FyttEntity;
 import com.louis.agricultural.model.entities.HomeAdImageEntity;
+import com.louis.agricultural.model.event.LoginResultEvent;
 import com.louis.agricultural.presenter.HomePresenter;
 import com.louis.agricultural.ui.activity.MessageActivity;
 import com.louis.agricultural.ui.activity.ProductDetailsActivity;
+import com.louis.agricultural.ui.activity.SearchActivity;
 import com.louis.agricultural.ui.activity.account.LoginActivity;
 import com.louis.agricultural.ui.view.IHomeView;
+import com.louis.agricultural.utils.SpanUtil;
 import com.louis.agricultural.utils.manager.ImageLoadProxy;
 import com.louis.agricultural.view.GuideGallery;
 import com.louis.agricultural.view.autoscrollviewpager.AdImageAdapter;
@@ -33,16 +43,35 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> implements IHomeView, View.OnClickListener {
 
+    @Bind(R.id.et_search)
+    EditText mEtSearch;
     @Bind(R.id.viewpager)
     GuideGallery mViewPager;
     @Bind(R.id.rl_recommend1)
     RelativeLayout mRlRecommend1;
+    @Bind(R.id.rl_recommend2)
+    RelativeLayout mRlRecommend2;
+    @Bind(R.id.rl_recommend3)
+    RelativeLayout mRlRecommend3;
+    @Bind(R.id.rl_recommend4)
+    RelativeLayout mRlRecommend4;
+    @Bind(R.id.rl_recommend5)
+    RelativeLayout mRlRecommend5;
+    @Bind(R.id.rl_hot1)
+    RelativeLayout mRlHot1;
+    @Bind(R.id.rl_hot2)
+    RelativeLayout mRlHot2;
+    @Bind(R.id.rl_hot3)
+    RelativeLayout mRlHot3;
+    @Bind(R.id.rl_hot4)
+    RelativeLayout mRlHot4;
     @Bind(R.id.ll_brand)
     LinearLayout mLLBrand;
     @Bind(R.id.ll_announcement)
@@ -53,7 +82,14 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
     LinearLayout mLLDistribution;
     @Bind(R.id.tv_tt_title)
     TextView mTvTitle;
-
+    @Bind(R.id.tv_jp_more)
+    TextView mTvJpMore;
+    @Bind(R.id.iv_jp_more)
+    ImageView mIvJpMore;
+    @Bind(R.id.tv_rx_more)
+    TextView mTvRxMore;
+    @Bind(R.id.iv_rx_more)
+    ImageView mIvRxMore;
     @Bind(R.id.tv_name1)
     TextView mTvName1;
     @Bind(R.id.tv_desc1)
@@ -131,8 +167,8 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
     private HomePresenter mPresenter;
     private AdImageAdapter imageAdapter;
     private DisplayImageOptions mOptions;
-    private List<ProductEntity.ResultEntity> jpList;
     private List<ProductEntity.ResultEntity> mJpList;
+    private List<ProductEntity.ResultEntity> mRmList;
 
 
     public HomeFragment() {
@@ -164,10 +200,41 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
 
     private void initEvent() {
         mRlRecommend1.setOnClickListener(this);
+        mRlRecommend2.setOnClickListener(this);
+        mRlRecommend3.setOnClickListener(this);
+        mRlRecommend4.setOnClickListener(this);
+        mRlRecommend5.setOnClickListener(this);
+        mRlHot1.setOnClickListener(this);
+        mRlHot2.setOnClickListener(this);
+        mRlHot3.setOnClickListener(this);
+        mRlHot4.setOnClickListener(this);
         mLLBrand.setOnClickListener(this);
         mLLAnnouncement.setOnClickListener(this);
         mLLNews.setOnClickListener(this);
         mLLDistribution.setOnClickListener(this);
+        mTvJpMore.setOnClickListener(this);
+        mIvJpMore.setOnClickListener(this);
+        mTvRxMore.setOnClickListener(this);
+        mIvRxMore.setOnClickListener(this);
+
+        mEtSearch.setOnKeyListener(new View.OnKeyListener() {//输入完后按键盘上的搜索键【回车键改为了搜索键】
+
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    //修改回车键功能
+                    // 先隐藏键盘
+                    ((InputMethodManager) getActivity().getSystemService(getActivity().INPUT_METHOD_SERVICE))
+                            .hideSoftInputFromWindow(
+                                    getActivity()
+                                            .getCurrentFocus()
+                                            .getWindowToken(),
+                                    InputMethodManager.HIDE_NOT_ALWAYS);
+                    //跳转到搜索结果界面
+                    toSearchResult(mEtSearch.getText().toString().trim());
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -182,14 +249,67 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mViewPager.startAutoScroll();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mViewPager.stopAutoScroll();
+    }
+
+    private void toSearchResult(String search) {
+        Intent intent = new Intent(getActivity(), SearchActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, search);
+        startActivity(intent);
+    }
+
+    @Override
     public void onClick(View v) {
+
+        String id = "";
+
         switch (v.getId()) {
             case R.id.rl_recommend1:
-                String id = mJpList.get(0).getId();
+                id = mJpList.get(0).getId();
+                toGoodsDetail(id);
+                break;
+            case R.id.rl_recommend2:
+                id = mJpList.get(1).getId();
+                toGoodsDetail(id);
+                break;
+            case R.id.rl_recommend3:
+                id = mJpList.get(2).getId();
+                toGoodsDetail(id);
+                break;
+            case R.id.rl_recommend4:
+                id = mJpList.get(3).getId();
+                toGoodsDetail(id);
+                break;
+            case R.id.rl_recommend5:
+                id = mJpList.get(4).getId();
+                toGoodsDetail(id);
+                break;
+            case R.id.rl_hot1:
+                id = mRmList.get(0).getId();
+                toGoodsDetail(id);
+                break;
+            case R.id.rl_hot2:
+                id = mRmList.get(1).getId();
+                toGoodsDetail(id);
+                break;
+            case R.id.rl_hot3:
+                id = mRmList.get(2).getId();
+                toGoodsDetail(id);
+                break;
+            case R.id.rl_hot4:
+                id = mRmList.get(3).getId();
                 toGoodsDetail(id);
                 break;
             case R.id.ll_brand:
-                toLogin();
+                EventBus.getDefault().post(new LoginResultEvent("classify"));
                 break;
             case R.id.ll_announcement:
                 toMessage(0);
@@ -199,6 +319,12 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
                 break;
             case R.id.ll_distribution:
                 toMessage(2);
+                break;
+            case R.id.tv_jp_more:
+            case R.id.tv_rx_more:
+            case R.id.iv_jp_more:
+            case R.id.iv_rx_more:
+                EventBus.getDefault().post(new LoginResultEvent("classify"));
                 break;
         }
     }
@@ -236,7 +362,6 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
         });
         //解决滑动切换时有声音
         mViewPager.setSoundEffectsEnabled(false);
-        mViewPager.startAutoScroll();
     }
 
     @Override
@@ -285,24 +410,32 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
     @Override
     public void setRmtj(ProductEntity data) {
 
-        List<ProductEntity.ResultEntity> result = data.getResult();
+        String content = "￥299";
+        SpannableStringBuilder ssb = SpanUtil.strikethroughSpan(content, 0, content.length());
+        mTvOrderOldPrice1.setText(ssb);
+        mTvOrderOldPrice2.setText(ssb);
+        mTvOrderOldPrice3.setText(ssb);
+        mTvOrderOldPrice4.setText(ssb);
 
-        ProductEntity.ResultEntity entity1 = result.get(0);
+
+        mRmList = data.getResult();
+
+        ProductEntity.ResultEntity entity1 = mRmList.get(0);
         mTvOrderName1.setText(entity1.getTitle());
         mTvOrderPrice1.setText("￥" + entity1.getSell_price());
         ImageLoadProxy.displayImage(entity1.getImg_url(), mIvOrderImg1, mOptions);
 
-        ProductEntity.ResultEntity entity2 = result.get(0);
+        ProductEntity.ResultEntity entity2 = mRmList.get(0);
         mTvOrderName2.setText(entity2.getTitle());
         mTvOrderPrice2.setText("￥" + entity2.getSell_price());
         ImageLoadProxy.displayImage(entity2.getImg_url(), mIvOrderImg2, mOptions);
 
-        ProductEntity.ResultEntity entity3 = result.get(0);
+        ProductEntity.ResultEntity entity3 = mRmList.get(0);
         mTvOrderName3.setText(entity3.getTitle());
         mTvOrderPrice3.setText("￥" + entity3.getSell_price());
         ImageLoadProxy.displayImage(entity3.getImg_url(), mIvOrderImg3, mOptions);
 
-        ProductEntity.ResultEntity entity4 = result.get(0);
+        ProductEntity.ResultEntity entity4 = mRmList.get(0);
         mTvOrderName4.setText(entity4.getTitle());
         mTvOrderPrice4.setText("￥" + entity4.getSell_price());
         ImageLoadProxy.displayImage(entity4.getImg_url(), mIvOrderImg4, mOptions);

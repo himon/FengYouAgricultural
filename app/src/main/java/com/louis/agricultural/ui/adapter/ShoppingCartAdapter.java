@@ -3,6 +3,7 @@ package com.louis.agricultural.ui.adapter;
 import android.content.Context;
 import android.media.Image;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -45,6 +46,21 @@ public class ShoppingCartAdapter extends CommonAdapter<ShoppingCartEntity.Result
         ImageView img = holder.getView(R.id.iv_img);
         ImageLoadProxy.displayImage(productEntity.getImg_url(), img, mOptions);
 
+        Button delete = holder.getView(R.id.btn_delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShoppingCartEvent event = new ShoppingCartEvent("delete");
+                event.setId(productEntity.getId());
+                EventBus.getDefault().post(event);
+            }
+        });
+        if (productEntity.isDel()) {
+            delete.setVisibility(View.VISIBLE);
+        } else {
+            delete.setVisibility(View.GONE);
+        }
+
         final EditText etNum = holder.getView(R.id.et_num);
         ImageView ivMinus = holder.getView(R.id.iv_minus);
         ImageView ivAdd = holder.getView(R.id.iv_add);
@@ -52,13 +68,15 @@ public class ShoppingCartAdapter extends CommonAdapter<ShoppingCartEntity.Result
             @Override
             public void onClick(View v) {
                 int num = Integer.parseInt(etNum.getText().toString().trim());
-                if(num <= 1){
+                if (num <= 1) {
                     num = 1;
-                }else{
+                } else {
                     num--;
                 }
                 etNum.setText(num + "");
                 productEntity.setSum(num + "");
+                EventBus.getDefault().post(new ShoppingCartEvent("calc"));
+
             }
         });
         ivAdd.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +87,7 @@ public class ShoppingCartAdapter extends CommonAdapter<ShoppingCartEntity.Result
                 num++;
                 etNum.setText(num + "");
                 productEntity.setSum(num + "");
+                EventBus.getDefault().post(new ShoppingCartEvent("calc"));
             }
         });
 

@@ -1,11 +1,17 @@
 package com.louis.agricultural.ui.activity.me;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.TimePicker;
 
+import com.bumptech.glide.Glide;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.base.app.Constants;
@@ -13,7 +19,9 @@ import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.presenter.UserInfoActivityPresenter;
 import com.louis.agricultural.ui.view.IUserInfoView;
+import com.louis.agricultural.view.CircleTransform;
 
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.Bind;
@@ -25,7 +33,7 @@ import me.iwf.photopicker.utils.PhotoPickerIntent;
 /**
  * 个人中心
  */
-public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoActivityPresenter> implements IUserInfoView{
+public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoActivityPresenter> implements IUserInfoView {
 
     @Bind(R.id.ll_head_icon)
     LinearLayout mLLHead;
@@ -35,6 +43,10 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
     LinearLayout mLLUpdatePwd;
     @Bind(R.id.ll_shipping_address)
     LinearLayout mLLShippingAddress;
+    @Bind(R.id.ll_date)
+    LinearLayout mLLDate;
+    @Bind(R.id.tv_date)
+    TextView mTvDate;
 
     private UserInfoActivityPresenter mPresenter;
     private UserEntity.ResultEntity mUser;
@@ -64,11 +76,13 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
         mLLHead.setOnClickListener(this);
         mLLUpdatePwd.setOnClickListener(this);
         mLLShippingAddress.setOnClickListener(this);
+        mLLDate.setOnClickListener(this);
     }
 
     @Override
     protected void initData() {
         mUser = FYApplication.getContext().getUserEntity().getResult();
+        Glide.with(this).load(mUser.get_avatar()).transform(new CircleTransform(this)).into(mIvHead);
         mPresenter.getUserInfomation(mUser.get_id());
         mPresenter.getUserImg(mUser.get_id());
     }
@@ -85,7 +99,21 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
             case R.id.ll_head_icon:
                 selectHeadImage();
                 break;
+            case R.id.ll_date:
+                selectDate();
+                break;
         }
+    }
+
+    private void selectDate() {
+        Calendar calendar = Calendar.getInstance();
+        new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                mTvDate.setText(year + "年" + (monthOfYear + 1) + "月" + dayOfMonth + "日");
+            }
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
     private void toShippingAddress() {

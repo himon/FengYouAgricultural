@@ -19,7 +19,17 @@ public class AnnouncementFragmentModeImpl extends BaseMode implements Announceme
 
 
     @Override
-    public void getNewsList(String category_id, int page, UserLoseMultiLoadedListener listener) {
-        mManager.getNewsList(category_id, page, listener, mFragment);
+    public void getNewsListAnnouncement(String category_id, int page, UserLoseMultiLoadedListener listener) {
+        mManager.getNewsListAnnouncement(category_id, page, listener, mFragment);
+    }
+
+    @Override
+    public void getNewsListDistribution(String category_id, int page, UserLoseMultiLoadedListener listener) {
+        mManager.getNewsListDistribution(category_id, page, listener, mFragment);
+    }
+
+    @Override
+    public void getNewsListNews(String category_id, int page, UserLoseMultiLoadedListener listener) {
+        mManager.getNewsListAnnouncement(category_id, page, listener, mFragment);
     }
 }

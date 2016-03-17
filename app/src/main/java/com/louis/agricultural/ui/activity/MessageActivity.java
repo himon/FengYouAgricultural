@@ -52,6 +52,9 @@ public class MessageActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+
+        initTitle("");
+
         mAnnouncementFragment = new AnnouncementFragment();
         mNewsFragment = new NewsFragment();
         mDistributionFragment = new DistributionFragment();

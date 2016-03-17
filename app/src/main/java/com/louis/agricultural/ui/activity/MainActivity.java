@@ -142,19 +142,19 @@ public class MainActivity extends BasicActivity {
                 break;
             case R.id.indicator_shopping_cart:
                 userEntity = FYApplication.getContext().getUserEntity();
-                if(userEntity != null) {
+                if (userEntity != null) {
                     mViewPager.setCurrentItem(2
                             , false);
-                }else{
+                } else {
                     toLogin(Constants.LOGIN_FROM_SHOPPINGCART);
                 }
                 break;
             case R.id.indicator_me:
                 userEntity = FYApplication.getContext().getUserEntity();
-                if(userEntity != null) {
+                if (userEntity != null) {
                     mViewPager.setCurrentItem(3
                             , false);
-                }else{
+                } else {
                     toLogin(Constants.LOGIN_FROM_ME);
                 }
                 break;
@@ -203,14 +203,21 @@ public class MainActivity extends BasicActivity {
     }
 
     public void onEvent(LoginResultEvent event) {
-        if(Constants.LOGIN_FROM_ME.equals(event.getMsg())){
+        if (Constants.LOGIN_FROM_ME.equals(event.getMsg())) {
             mViewPager.setCurrentItem(3, false);
             mMeFragment.refresh();
             mShoppingCartFragment.refresh();
-        }else if(Constants.LOGIN_FROM_SHOPPINGCART.equals(event.getMsg())){
+        } else if (Constants.LOGIN_FROM_SHOPPINGCART.equals(event.getMsg())) {
             mViewPager.setCurrentItem(2, false);
             mMeFragment.refresh();
             mShoppingCartFragment.refresh();
+        } else if (Constants.LOGIN_REFRESH.equals(event.getMsg()) || Constants.LOGIN_REFRESH_BY_PRODUCT_DETAIL.equals(event.getMsg())) {
+            mMeFragment.refresh();
+            mShoppingCartFragment.refresh();
+        } else if ("classify".equals(event.getMsg())) {
+            mViewPager.setCurrentItem(1, false);
+        } else if ("Shopping".equals(event.getMsg())) {
+            mViewPager.setCurrentItem(2, false);
         }
     }
 

@@ -54,6 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
+            android:inputType="textPassword"
             android:background="@null"
             android:textColorHint="@color/radio_group_gray_bg"
             android:hint="密码" />

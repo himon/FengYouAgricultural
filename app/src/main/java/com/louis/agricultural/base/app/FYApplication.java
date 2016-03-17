@@ -13,6 +13,10 @@ import com.louis.agricultural.utils.manager.ImageLoadProxy;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author Administrator
  * @version $Rev$
@@ -52,18 +56,17 @@ public class FYApplication extends Application {
         mContext = this;
         ImageLoadProxy.initImageLoader(this);
 
+
         if (BuildConfig.DEBUG) {
             Logger.init().hideThreadInfo().setMethodCount(1).setLogLevel(LogLevel.FULL);
         }
 
         Stetho.initializeWithDefaults(this);
 
-//        Stetho.initialize(
-//                Stetho.newInitializerBuilder(this)
-//                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
-//                        .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
-//                        .build());
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this)
+                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                        .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                        .build());
     }
-
-
 }

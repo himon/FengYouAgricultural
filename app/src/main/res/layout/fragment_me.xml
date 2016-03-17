@@ -1,10 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/home_tab_gray_bg"
-    android:orientation="vertical"
-    tools:context="com.louis.agricultural.ui.fragment.tab.MeFragment">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/home_tab_gray_bg"
+              android:orientation="vertical"
+              tools:context="com.louis.agricultural.ui.fragment.tab.MeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +28,16 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="15dp"
                     android:text="设置"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"/>
+
+                <ImageView
+                    android:id="@+id/iv_head_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="7dp"
+                    android:layout_marginLeft="30dp"/>
 
                 <TextView
                     android:id="@+id/tv_username"
@@ -36,19 +45,19 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="25dp"
-                    android:layout_marginLeft="80dp"
+                    android:layout_toRightOf="@+id/iv_head_icon"
                     android:text="漫不经心"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/font_size_16" />
+                    android:textSize="@dimen/font_size_16"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="80dp"
+                    android:layout_toRightOf="@+id/iv_head_icon"
                     android:text="注册用户"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"/>
 
                 <TextView
                     android:id="@+id/tv_user_info"
@@ -59,14 +68,14 @@
                     android:layout_marginBottom="15dp"
                     android:layout_marginRight="20dp"
                     android:text="个人中心管理/收货地址"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"/>
 
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="@android:color/white" />
+                android:background="@android:color/white"/>
 
         </LinearLayout>
 
@@ -87,7 +96,7 @@
             android:layout_weight="1"
             android:text="我的订单"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/font_size_16" />
+            android:textSize="@dimen/font_size_16"/>
 
         <TextView
             android:id="@+id/tv_see_order"
@@ -95,12 +104,12 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:text="查看我的订单"
-            android:textColor="@color/font_gray" />
+            android:textColor="@color/font_gray"/>
 
         <ImageView
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:src="@drawable/img_right_arrow" />
+            android:src="@drawable/img_right_arrow"/>
 
     </LinearLayout>
 
@@ -123,7 +132,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/img_wait_pay" />
+                android:src="@drawable/img_wait_pay"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -131,7 +140,7 @@
                 android:layout_below="@+id/iv_icon1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="待付款" />
+                android:text="待付款"/>
 
         </RelativeLayout>
 
@@ -145,7 +154,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/img_wait_get" />
+                android:src="@drawable/img_wait_get"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -153,7 +162,7 @@
                 android:layout_below="@+id/iv_icon2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="待收货" />
+                android:text="待收货"/>
 
         </RelativeLayout>
 
@@ -168,7 +177,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/img_wait_commit" />
+                android:src="@drawable/img_wait_commit"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -176,7 +185,7 @@
                 android:layout_below="@+id/iv_icon3"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="待评价" />
+                android:text="待评价"/>
 
         </RelativeLayout>
 
@@ -190,7 +199,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/img_customer" />
+                android:src="@drawable/img_customer"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -198,7 +207,7 @@
                 android:layout_below="@+id/iv_icon4"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="退货/售后" />
+                android:text="退货/售后"/>
 
         </RelativeLayout>
 
@@ -209,9 +218,9 @@
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:background="@android:color/white"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:gravity="center_vertical">
+        android:padding="10dp">
 
         <ImageView
             android:layout_width="20dp"
@@ -219,10 +228,10 @@
             android:src="@drawable/img_phone_icon"/>
 
         <TextView
-            android:layout_marginLeft="13dp"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_weight="1"
             android:text="0379-62321955/62325551"
             android:textColor="@android:color/black"
             android:textSize="@dimen/font_size_16"/>
@@ -230,7 +239,7 @@
         <ImageView
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:src="@drawable/img_right_arrow" />
+            android:src="@drawable/img_right_arrow"/>
 
     </LinearLayout>
 

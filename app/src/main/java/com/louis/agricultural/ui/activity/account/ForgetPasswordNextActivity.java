@@ -1,6 +1,5 @@
 package com.louis.agricultural.ui.activity.account;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,14 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.louis.agricultural.R;
-import com.louis.agricultural.base.activity.BaseActivity;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.presenter.ForgetPasswordNextPresenter;
 import com.louis.agricultural.ui.view.IForgetPasswordNextView;
-import com.louis.agricultural.utils.ActivityManager;
+import com.louis.agricultural.utils.manager.ActivityManager;
 import com.louis.agricultural.utils.ShowToast;
 
 import butterknife.Bind;

@@ -2,6 +2,7 @@ package com.louis.agricultural.presenter;
 
 import android.support.v4.app.Fragment;
 
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.presenter.UserLosePresenter;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
 import com.louis.agricultural.model.entities.BaseEntity;
@@ -25,10 +26,20 @@ public class AnnouncementFragmentPresenter extends UserLosePresenter<IAnnounceme
 
     @Override
     public void onSuccess(int event_tag, BaseEntity data) {
-
+        switch (event_tag){
+            case Constants.GET_NEWS_LIST_LISTENER:
+                mIAnnouncementView.setData(data);
+                break;
+        }
     }
 
     public void getNewsList(String category_id, int page) {
-        mAnnouncementFragmentMode.getNewsList(category_id, page, this);
+        if("56".equals(category_id)) {
+            mAnnouncementFragmentMode.getNewsListAnnouncement(category_id, page, this);
+        }else if("57".equals(category_id)){
+            mAnnouncementFragmentMode.getNewsListNews(category_id, page, this);
+        }else if("58".equals(category_id)){
+            mAnnouncementFragmentMode.getNewsListDistribution(category_id, page, this);
+        }
     }
 }

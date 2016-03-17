@@ -2,6 +2,7 @@ package com.louis.agricultural.ui.activity.me;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -9,6 +10,7 @@ import android.widget.ListView;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.model.entities.ShoppingAddressEntity;
 import com.louis.agricultural.model.entities.UserEntity;
@@ -41,6 +43,11 @@ public class ShoppingAddressActivity extends MVPBaseActivity<IShoppingAddressVie
 
     private UserEntity.ResultEntity mUser;
     private List<ShoppingAddressEntity.ResultEntity> mList = new ArrayList<>();
+
+    /**
+     * 是否是从订单界面跳转过来
+     */
+    private boolean isOrder = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +83,13 @@ public class ShoppingAddressActivity extends MVPBaseActivity<IShoppingAddressVie
     @Override
     protected void initData() {
         mUser = FYApplication.getContext().getUserEntity().getResult();
+        Intent intent = getIntent();
+        if (intent != null) {
+            String str = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY);
+            if (!TextUtils.isEmpty(str)) {
+                isOrder = true;
+            }
+        }
         getData();
     }
 
@@ -100,19 +114,21 @@ public class ShoppingAddressActivity extends MVPBaseActivity<IShoppingAddressVie
     @Override
     public void setShoppingAddressData(ShoppingAddressEntity data) {
         mList = data.getResult();
-        for (ShoppingAddressEntity.ResultEntity item : mList) {
-            if ("1".equals(item.getStatus())) {
-                item.setCheck(true);
+        if (mList != null) {
+            for (ShoppingAddressEntity.ResultEntity item : mList) {
+                if ("1".equals(item.getStatus())) {
+                    item.setCheck(true);
+                }
             }
+            mAdapter.setmDatas(mList);
+            mAdapter.notifyDataSetChanged();
         }
-        mAdapter.setmDatas(mList);
-        mAdapter.notifyDataSetChanged();
     }
 
     public void onEvent(ShoppingAddressEvent event) {
         if ("refresh".equals(event.getMsg())) {
             getData();
-        }else if("select".equals(event.getMsg())){
+        } else if ("select".equals(event.getMsg()) && isOrder) {
             for (ShoppingAddressEntity.ResultEntity item : mList) {
                 if (item.isCheck()) {
                     ConfirmOrderEvent selected = new ConfirmOrderEvent("selected");

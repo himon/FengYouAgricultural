@@ -22,4 +22,9 @@ public class ShoppingCartFragmentModeImpl extends BaseMode implements ShoppingCa
     public void getGoodsCart(String user_id, UserLoseMultiLoadedListener listener) {
         mManager.getGoodsCart(user_id, listener, mFragment);
     }
+
+    @Override
+    public void deleteGoodscart(String car_id, UserLoseMultiLoadedListener listener) {
+        mManager.deleteGoodscart(car_id, listener, mFragment);
+    }
 }

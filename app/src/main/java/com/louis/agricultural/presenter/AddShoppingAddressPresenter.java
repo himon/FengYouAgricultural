@@ -39,6 +39,9 @@ public class AddShoppingAddressPresenter extends UserLosePresenter<IAddShoppingA
             case Constants.UPDATE_ADRESS_LISTENER:
                 mIAddShoppingAddressView.updateSuccess(data);
                 break;
+            case Constants.DELETE_ADRESS_LISTENER:
+                mIAddShoppingAddressView.delSuccess(data);
+                break;
         }
     }
 
@@ -84,5 +87,13 @@ public class AddShoppingAddressPresenter extends UserLosePresenter<IAddShoppingA
      */
     public void updateAdress(String adress_id, String user_id, String sheng, String shi, String qu, String xiangxi, String code, String shr, String phone, String status) {
         mAddShoppingAddressActivityMode.updateAdress(adress_id, user_id, sheng, shi, qu, xiangxi, code, shr, phone, status, this);
+    }
+
+    /**
+     * 删除地址
+     * @param adress_id
+     */
+    public void deleteAdress(String adress_id) {
+        mAddShoppingAddressActivityMode.deleteAdress(adress_id, this);
     }
 }

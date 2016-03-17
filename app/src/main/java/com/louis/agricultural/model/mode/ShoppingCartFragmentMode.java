@@ -9,4 +9,6 @@ import com.louis.agricultural.presenter.ShoppingCartFragmentPresenter;
 public interface ShoppingCartFragmentMode {
 
     void getGoodsCart(String user_id, UserLoseMultiLoadedListener listener);
+
+    void deleteGoodscart(String car_id, UserLoseMultiLoadedListener listener);
 }

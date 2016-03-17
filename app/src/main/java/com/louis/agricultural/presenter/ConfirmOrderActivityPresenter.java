@@ -6,6 +6,7 @@ import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.presenter.UserLosePresenter;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
 import com.louis.agricultural.model.entities.BaseEntity;
+import com.louis.agricultural.model.entities.ShoppingAddressEntity;
 import com.louis.agricultural.model.entities.ShoppingCartEntity;
 import com.louis.agricultural.model.mode.ConfirmOrderActivityMode;
 import com.louis.agricultural.model.mode.impl.ConfirmOrderActivityModeImpl;
@@ -33,6 +34,9 @@ public class ConfirmOrderActivityPresenter extends UserLosePresenter<IConfirmOrd
             case Constants.ADD_ORDER_LISTENER:
                 mIConfirmOrderView.setCreateSuccess(data);
                 break;
+            case Constants.GET_DEFAULT_ADRESS_LISTENER:
+                mIConfirmOrderView.setDefaultAddress((ShoppingAddressEntity)data);
+                break;
         }
     }
 
@@ -47,5 +51,13 @@ public class ConfirmOrderActivityPresenter extends UserLosePresenter<IConfirmOrd
      */
     public void addOrder(String user_id, String adress_id, String message, String user_name, ArrayList<ShoppingCartEntity.ResultEntity> list) {
         mConfirmOrderActivityMode.addOrder(user_id, adress_id, message, user_name, list, this);
+    }
+
+    /**
+     * 获取个人默认收货地址
+     * @param user_id
+     */
+    public void getDefaultAdress(String user_id) {
+        mConfirmOrderActivityMode.getDefaultAdress(user_id, this);
     }
 }

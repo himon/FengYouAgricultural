@@ -6,7 +6,7 @@ import android.text.TextUtils;
 
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.ui.activity.account.LoginActivity;
-import com.louis.agricultural.utils.ActivityManager;
+import com.louis.agricultural.utils.manager.ActivityManager;
 import com.louis.agricultural.utils.ShowToast;
 
 /**

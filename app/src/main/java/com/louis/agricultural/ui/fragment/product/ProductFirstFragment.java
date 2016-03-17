@@ -13,6 +13,7 @@ import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.fragment.BaseFragment;
 import com.louis.agricultural.model.entities.ProductDetailEntity;
 import com.louis.agricultural.model.event.ProductDetailEvent;
+import com.louis.agricultural.utils.SpanUtil;
 import com.louis.agricultural.utils.manager.ImageLoadProxy;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
@@ -38,6 +39,8 @@ public class ProductFirstFragment extends BaseFragment implements View.OnClickLi
     TextView mTvTitle;
     @Bind(R.id.tv_price)
     TextView mTvPrice;
+    @Bind(R.id.tv_old_price)
+    TextView mTvOldPrice;
 
     private ProductDetailEntity.ResultEntity mProductDetail;
     private DisplayImageOptions mOptions;
@@ -73,6 +76,8 @@ public class ProductFirstFragment extends BaseFragment implements View.OnClickLi
         mProductDetail = bundle.getParcelable(Constants.MESSAGE_EXTRA_KEY);
         mTvTitle.setText(mProductDetail.getTitle());
         mTvPrice.setText("￥" + mProductDetail.getSell_price());
+        String content = "￥299.00";
+        mTvOldPrice.setText(SpanUtil.strikethroughSpan(content, 0, content.length()));
         ImageLoadProxy.displayImage(mProductDetail.getAlbum().get(0).getThumb_path(), mIvImg, mOptions);
     }
 

@@ -26,6 +26,7 @@ import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.event.LoginResultEvent;
 import com.louis.agricultural.model.event.ShoppingCartEvent;
 import com.louis.agricultural.presenter.ShoppingCartFragmentPresenter;
+import com.louis.agricultural.ui.activity.ProductDetailsActivity;
 import com.louis.agricultural.ui.activity.me.ConfirmOrderActivity;
 import com.louis.agricultural.ui.adapter.ShoppingCartAdapter;
 import com.louis.agricultural.ui.view.IShoppingCartView;
@@ -73,6 +74,13 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
 
     private ShoppingCartFragmentPresenter mPresenter;
     private UserEntity mUser;
+    private String mDeleteId;
+
+    private boolean isAllCheck = true;
+    /**
+     * 是否可以删除
+     */
+    private boolean mIsCanDel = false;
 
     public ShoppingCartFragment() {
         // Required empty public constructor
@@ -127,7 +135,8 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                ShoppingCartEntity.ResultEntity entity = (ShoppingCartEntity.ResultEntity) parent.getAdapter().getItem(position);
+                toProductDetail(entity.getGoods_id());
             }
         });
 
@@ -149,23 +158,34 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
         initEvent();
     }
 
+    private void toProductDetail(String goods_id) {
+        Intent intent = new Intent(getActivity(), ProductDetailsActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, goods_id);
+        startActivity(intent);
+    }
+
     private void initEvent() {
         mTvNavRight.setOnClickListener(this);
         mBtnCalc.setOnClickListener(this);
-        mCbAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        mCbAll.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onClick(View v) {
+                isAllCheck = !isAllCheck;
                 for (ShoppingCartEntity.ResultEntity item : mList) {
-                    item.setCheck(isChecked);
+                    item.setCheck(isAllCheck);
                 }
                 mAdapter.notifyDataSetChanged();
+                calc();
             }
         });
+
+
     }
 
     @Override
     protected void initData() {
-
+        mCbAll.setChecked(true);
     }
 
     private void getData() {
@@ -179,6 +199,11 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_nav_right:
+                mIsCanDel = !mIsCanDel;
+                for (ShoppingCartEntity.ResultEntity item : mList) {
+                    item.setDel(mIsCanDel);
+                }
+                mAdapter.notifyDataSetChanged();
                 break;
             case R.id.btn_calc:
                 toConfirmOrder();
@@ -217,15 +242,22 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
         mAdapter.notifyDataSetChanged();
         mListView.getMoreComplete();
         mPtr.refreshComplete();
+        calc();
+    }
 
-        mBtnCalc.setText("去结算（" + mList.size() + "）");
-
-        BigDecimal total = new BigDecimal(0.00);
-
-        for (ShoppingCartEntity.ResultEntity entity : mList) {
-            total = total.add(entity.getSell_price());
+    @Override
+    public void setDeleteSuccess(BaseEntity data) {
+        ShowToast.Short(data.getMessage());
+        for (ShoppingCartEntity.ResultEntity item : mList) {
+            if (mDeleteId.equals(item.getId())) {
+                mList.remove(item);
+                mAdapter.setmDatas(mList);
+                mAdapter.notifyDataSetChanged();
+                calc();
+                return;
+            }
         }
-        mTvTotalPrice.setText("合计：￥" + total.setScale(2, BigDecimal.ROUND_HALF_UP).toString());
+
     }
 
     public void onEvent(ShoppingCartEvent event) {
@@ -233,7 +265,33 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
             refresh();
         } else if ("check".equals(event.getMsg())) {
             check();
+        } else if ("calc".equals(event.getMsg())) {
+            calc();
+        } else if ("delete".equals(event.getMsg())) {
+            delete(event.getId());
         }
+    }
+
+    private void delete(String id) {
+        mDeleteId = id;
+        mPresenter.deleteGoodscart(id);
+    }
+
+    private void calc() {
+        BigDecimal count = new BigDecimal(0);
+        for (ShoppingCartEntity.ResultEntity entity : mList) {
+            if (entity.isCheck()) {
+                count = count.add(new BigDecimal(entity.getSum()));
+            }
+        }
+        mBtnCalc.setText("去结算（" + count.toString() + "）");
+        BigDecimal total = new BigDecimal(0.00);
+        for (ShoppingCartEntity.ResultEntity entity : mList) {
+            if (entity.isCheck()) {
+                total = total.add(entity.getSell_price().multiply(new BigDecimal(entity.getSum())));
+            }
+        }
+        mTvTotalPrice.setText("合计：￥" + total.setScale(2, BigDecimal.ROUND_HALF_UP).toString());
     }
 
     private void check() {
@@ -246,9 +304,13 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
 
         if (mList.size() == count) {
             mCbAll.setChecked(true);
+            isAllCheck = true;
         } else {
             mCbAll.setChecked(false);
+            isAllCheck = false;
         }
+
+        calc();
     }
 
     @Override

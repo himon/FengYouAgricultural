@@ -1,10 +1,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:scrollbars="none"
-    tools:context="com.louis.agricultural.ui.fragment.tab.HomeFragment">
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:scrollbars="none"
+            tools:context="com.louis.agricultural.ui.fragment.tab.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:orientation="vertical"
         tools:context="com.louis.agricultural.ui.fragment.tab.HomeFragment">
 
-        <include layout="@layout/layout_main_title_bar" />
+        <include layout="@layout/layout_main_title_bar"/>
 
         <com.louis.agricultural.view.GuideGallery
             android:id="@+id/viewpager"
@@ -38,14 +38,14 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/img_brand_icon" />
+                    android:src="@drawable/img_brand_icon"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="品牌"
-                    android:textColor="@color/font_gray" />
+                    android:textColor="@color/font_gray"/>
 
             </LinearLayout>
 
@@ -60,14 +60,14 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/img_announcement_icon" />
+                    android:src="@drawable/img_announcement_icon"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="公告"
-                    android:textColor="@color/font_gray" />
+                    android:textColor="@color/font_gray"/>
 
             </LinearLayout>
 
@@ -82,14 +82,14 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/img_news_icon" />
+                    android:src="@drawable/img_news_icon"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="新闻"
-                    android:textColor="@color/font_gray" />
+                    android:textColor="@color/font_gray"/>
 
             </LinearLayout>
 
@@ -104,14 +104,14 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/img_dispatching_icon" />
+                    android:src="@drawable/img_dispatching_icon"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="配送"
-                    android:textColor="@color/font_gray" />
+                    android:textColor="@color/font_gray"/>
 
             </LinearLayout>
 
@@ -120,7 +120,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/home_tab_gray_bg" />
+            android:background="@color/home_tab_gray_bg"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:text="丰友"
                 android:textColor="@color/home_tab_font_black"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -142,14 +142,14 @@
                 android:background="@color/home_tab_red_bg"
                 android:text="头条"
                 android:textColor="@android:color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <View
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="@color/home_tab_gray_bg" />
+                android:background="@color/home_tab_gray_bg"/>
 
             <TextView
                 android:id="@+id/tv_tt_title"
@@ -158,31 +158,33 @@
                 android:layout_weight="1"
                 android:ellipsize="end"
                 android:lines="1"
-                android:textColor="@color/home_tab_font_black" />
+                android:textColor="@color/home_tab_font_black"/>
 
             <TextView
+                android:id="@+id/tv_jp_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="更多"
-                android:textColor="@color/main_search_font_gray" />
+                android:textColor="@color/main_search_font_gray"/>
 
             <ImageView
+                android:id="@+id/iv_jp_more"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:src="@drawable/img_right_arrow" />
+                android:src="@drawable/img_right_arrow"/>
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/home_tab_gray_bg" />
+            android:background="@color/home_tab_gray_bg"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_home_ad" />
+            android:src="@drawable/img_home_ad"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -198,7 +200,7 @@
                 android:layout_width="3dp"
                 android:layout_height="22dp"
                 android:layout_marginRight="10dp"
-                android:background="@color/home_tab_red_bg" />
+                android:background="@color/home_tab_red_bg"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -206,18 +208,18 @@
                 android:layout_weight="1"
                 android:text="精品推荐"
                 android:textColor="@color/home_tab_font_black"
-                android:textSize="@dimen/font_size_20" />
+                android:textSize="@dimen/font_size_20"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="更多"
-                android:textColor="@color/main_search_font_gray" />
+                android:textColor="@color/main_search_font_gray"/>
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:src="@drawable/img_right_arrow" />
+                android:src="@drawable/img_right_arrow"/>
 
         </LinearLayout>
 
@@ -238,7 +240,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="掺混肥料"
-                    android:textColor="@color/home_tab_red_bg" />
+                    android:textColor="@color/home_tab_red_bg"/>
 
                 <TextView
                     android:id="@+id/tv_desc1"
@@ -247,7 +249,7 @@
                     android:layout_below="@+id/tv_name1"
                     android:text="国际农林博览会推荐"
                     android:textColor="@color/main_search_font_gray"
-                    android:textSize="@dimen/font_size_12" />
+                    android:textSize="@dimen/font_size_12"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -272,7 +274,7 @@
                             android:gravity="bottom"
                             android:text="$188"
                             android:textColor="@color/home_tab_red_bg"
-                            android:textSize="@dimen/font_size_14" />
+                            android:textSize="@dimen/font_size_10"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -280,7 +282,7 @@
                             android:layout_weight="2"
                             android:text="包邮"
                             android:textColor="@color/home_tab_red_bg"
-                            android:textSize="@dimen/font_size_10" />
+                            android:textSize="@dimen/font_size_10"/>
 
                     </LinearLayout>
                 </LinearLayout>
@@ -291,16 +293,17 @@
                     android:layout_height="105dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/img_home_goods1" />
+                    android:src="@drawable/img_home_goods1"/>
 
             </RelativeLayout>
 
             <View
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
-                android:background="@color/home_tab_gray_bg" />
+                android:background="@color/home_tab_gray_bg"/>
 
             <RelativeLayout
+                android:id="@+id/rl_recommend2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -311,7 +314,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="掺混肥料"
-                    android:textColor="@color/home_tab_red_bg" />
+                    android:textColor="@color/home_tab_red_bg"/>
 
                 <TextView
                     android:id="@+id/tv_desc2"
@@ -320,7 +323,7 @@
                     android:layout_below="@+id/tv_name2"
                     android:text="国际农林博览会推荐"
                     android:textColor="@color/main_search_font_gray"
-                    android:textSize="@dimen/font_size_12" />
+                    android:textSize="@dimen/font_size_12"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -334,7 +337,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="5dp"
                         android:text="$188"
-                        android:textColor="@color/home_tab_red_bg" />
+                        android:textColor="@color/home_tab_red_bg"
+                        android:textSize="@dimen/font_size_10"/>
 
                     <ImageView
                         android:id="@+id/iv_img2"
@@ -342,7 +346,7 @@
                         android:layout_height="78dp"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/img_home_goods2" />
+                        android:src="@drawable/img_home_goods2"/>
 
                 </RelativeLayout>
 
@@ -353,7 +357,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/home_tab_gray_bg" />
+            android:background="@color/home_tab_gray_bg"/>
 
 
         <LinearLayout
@@ -362,6 +366,7 @@
             android:orientation="horizontal">
 
             <RelativeLayout
+                android:id="@+id/rl_recommend3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -372,7 +377,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="掺混肥料"
-                    android:textColor="@color/home_tab_red_bg" />
+                    android:textColor="@color/home_tab_red_bg"/>
 
                 <TextView
                     android:id="@+id/tv_desc3"
@@ -381,7 +386,7 @@
                     android:layout_below="@+id/tv_name3"
                     android:text="国际农林博览会推荐"
                     android:textColor="@color/main_search_font_gray"
-                    android:textSize="@dimen/font_size_12" />
+                    android:textSize="@dimen/font_size_12"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -395,7 +400,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="5dp"
                         android:text="$188"
-                        android:textColor="@color/home_tab_red_bg" />
+                        android:textColor="@color/home_tab_red_bg"
+                        android:textSize="@dimen/font_size_10"/>
 
                     <ImageView
                         android:id="@+id/iv_img3"
@@ -403,7 +409,7 @@
                         android:layout_height="78dp"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/img_home_goods2" />
+                        android:src="@drawable/img_home_goods2"/>
 
                 </RelativeLayout>
 
@@ -412,9 +418,10 @@
             <View
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
-                android:background="@color/home_tab_gray_bg" />
+                android:background="@color/home_tab_gray_bg"/>
 
             <RelativeLayout
+                android:id="@+id/rl_recommend4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -425,7 +432,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="掺混肥料"
-                    android:textColor="@color/home_tab_red_bg" />
+                    android:textColor="@color/home_tab_red_bg"/>
 
                 <TextView
                     android:id="@+id/tv_desc4"
@@ -434,7 +441,7 @@
                     android:layout_below="@+id/tv_name4"
                     android:text="国际农林博览会推荐"
                     android:textColor="@color/main_search_font_gray"
-                    android:textSize="@dimen/font_size_12" />
+                    android:textSize="@dimen/font_size_12"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -447,8 +454,9 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="5dp"
-                        android:text="$188"
-                        android:textColor="@color/home_tab_red_bg" />
+                        android:text="￥188"
+                        android:textColor="@color/home_tab_red_bg"
+                        android:textSize="@dimen/font_size_10"/>
 
                     <ImageView
                         android:id="@+id/iv_img4"
@@ -456,7 +464,7 @@
                         android:layout_height="78dp"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/img_home_goods2" />
+                        android:src="@drawable/img_home_goods2"/>
 
                 </RelativeLayout>
 
@@ -465,9 +473,10 @@
             <View
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
-                android:background="@color/home_tab_gray_bg" />
+                android:background="@color/home_tab_gray_bg"/>
 
             <RelativeLayout
+                android:id="@+id/rl_recommend5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -478,7 +487,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="掺混肥料"
-                    android:textColor="@color/home_tab_red_bg" />
+                    android:textColor="@color/home_tab_red_bg"/>
 
                 <TextView
                     android:id="@+id/tv_desc5"
@@ -487,7 +496,7 @@
                     android:layout_below="@+id/tv_name5"
                     android:text="国际农林博览会推荐"
                     android:textColor="@color/main_search_font_gray"
-                    android:textSize="@dimen/font_size_12" />
+                    android:textSize="@dimen/font_size_12"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -501,7 +510,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="5dp"
                         android:text="$188"
-                        android:textColor="@color/home_tab_red_bg" />
+                        android:textColor="@color/home_tab_red_bg"
+                        android:textSize="@dimen/font_size_10"/>
 
                     <ImageView
                         android:id="@+id/iv_img5"
@@ -509,7 +519,8 @@
                         android:layout_height="78dp"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/img_home_goods2" />
+                        android:src="@drawable/img_home_goods2"
+                        />
 
                 </RelativeLayout>
 
@@ -531,7 +542,7 @@
                 android:layout_width="3dp"
                 android:layout_height="22dp"
                 android:layout_marginRight="10dp"
-                android:background="@color/home_tab_red_bg" />
+                android:background="@color/home_tab_red_bg"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -539,18 +550,20 @@
                 android:layout_weight="1"
                 android:text="热销排行"
                 android:textColor="@color/home_tab_font_black"
-                android:textSize="@dimen/font_size_20" />
+                android:textSize="@dimen/font_size_20"/>
 
             <TextView
+                android:id="@+id/tv_rx_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="更多"
-                android:textColor="@color/main_search_font_gray" />
+                android:textColor="@color/main_search_font_gray"/>
 
             <ImageView
+                android:id="@+id/iv_rx_more"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:src="@drawable/img_right_arrow" />
+                android:src="@drawable/img_right_arrow"/>
 
         </LinearLayout>
 
@@ -565,6 +578,7 @@
                 android:orientation="horizontal">
 
                 <RelativeLayout
+                    android:id="@+id/rl_hot1"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:padding="10dp">
@@ -574,13 +588,13 @@
                         android:layout_width="45dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/img_home_order_goods1" />
+                        android:src="@drawable/img_home_order_goods1"/>
 
                     <View
                         android:layout_width="0.5dp"
                         android:layout_height="75dp"
                         android:layout_alignParentRight="true"
-                        android:background="@color/home_tab_gray_bg" />
+                        android:background="@color/home_tab_gray_bg"/>
 
                     <TextView
                         android:layout_width="18dp"
@@ -591,7 +605,7 @@
                         android:gravity="center"
                         android:text="1"
                         android:textColor="@android:color/white"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/tv_order_name1"
@@ -602,7 +616,7 @@
                         android:layout_marginTop="8dp"
                         android:text="鲁西 复合肥料"
                         android:textColor="@color/home_tab_font_black"
-                        android:textSize="@dimen/font_size_12" />
+                        android:textSize="@dimen/font_size_12"/>
 
                     <TextView
                         android:id="@+id/tv_order_price1"
@@ -611,8 +625,8 @@
                         android:layout_below="@+id/tv_order_name1"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
-                        android:text="$188"
-                        android:textColor="@color/home_tab_red_bg" />
+                        android:text="￥188"
+                        android:textColor="@color/home_tab_red_bg"/>
 
                     <TextView
                         android:id="@+id/tv_order_old_price1"
@@ -621,13 +635,14 @@
                         android:layout_below="@+id/tv_order_price1"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
-                        android:text="$299"
+                        android:text="￥299"
                         android:textColor="@color/main_search_font_gray"
-                        android:textSize="@dimen/font_size_10" />
+                        android:textSize="@dimen/font_size_10"/>
 
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rl_hot2"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:padding="10dp">
@@ -637,13 +652,13 @@
                         android:layout_width="45dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/img_home_order_goods1" />
+                        android:src="@drawable/img_home_order_goods1"/>
 
                     <View
                         android:layout_width="0.5dp"
                         android:layout_height="75dp"
                         android:layout_alignParentRight="true"
-                        android:background="@color/home_tab_gray_bg" />
+                        android:background="@color/home_tab_gray_bg"/>
 
                     <TextView
                         android:layout_width="18dp"
@@ -654,7 +669,7 @@
                         android:gravity="center"
                         android:text="2"
                         android:textColor="@android:color/white"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/tv_order_name2"
@@ -665,7 +680,7 @@
                         android:layout_marginTop="8dp"
                         android:text="鲁西 复合肥料"
                         android:textColor="@color/home_tab_font_black"
-                        android:textSize="@dimen/font_size_12" />
+                        android:textSize="@dimen/font_size_12"/>
 
                     <TextView
                         android:id="@+id/tv_order_price2"
@@ -675,7 +690,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
                         android:text="$188"
-                        android:textColor="@color/home_tab_red_bg" />
+                        android:textColor="@color/home_tab_red_bg"/>
 
                     <TextView
                         android:id="@+id/tv_order_old_price2"
@@ -684,13 +699,14 @@
                         android:layout_below="@+id/tv_order_price2"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
-                        android:text="$299"
+                        android:text="￥299"
                         android:textColor="@color/main_search_font_gray"
-                        android:textSize="@dimen/font_size_10" />
+                        android:textSize="@dimen/font_size_10"/>
 
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rl_hot3"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:padding="10dp">
@@ -700,13 +716,13 @@
                         android:layout_width="45dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/img_home_order_goods1" />
+                        android:src="@drawable/img_home_order_goods1"/>
 
                     <View
                         android:layout_width="0.5dp"
                         android:layout_height="75dp"
                         android:layout_alignParentRight="true"
-                        android:background="@color/home_tab_gray_bg" />
+                        android:background="@color/home_tab_gray_bg"/>
 
                     <TextView
                         android:layout_width="18dp"
@@ -717,7 +733,7 @@
                         android:gravity="center"
                         android:text="3"
                         android:textColor="@android:color/white"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/tv_order_name3"
@@ -728,7 +744,7 @@
                         android:layout_marginTop="8dp"
                         android:text="鲁西 复合肥料"
                         android:textColor="@color/home_tab_font_black"
-                        android:textSize="@dimen/font_size_12" />
+                        android:textSize="@dimen/font_size_12"/>
 
                     <TextView
                         android:id="@+id/tv_order_price3"
@@ -737,8 +753,8 @@
                         android:layout_below="@+id/tv_order_name3"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
-                        android:text="$188"
-                        android:textColor="@color/home_tab_red_bg" />
+                        android:text="￥188"
+                        android:textColor="@color/home_tab_red_bg"/>
 
                     <TextView
                         android:id="@+id/tv_order_old_price3"
@@ -747,13 +763,14 @@
                         android:layout_below="@+id/tv_order_price3"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
-                        android:text="$299"
+                        android:text="￥299"
                         android:textColor="@color/main_search_font_gray"
-                        android:textSize="@dimen/font_size_10" />
+                        android:textSize="@dimen/font_size_10"/>
 
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rl_hot4"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:padding="10dp">
@@ -763,13 +780,13 @@
                         android:layout_width="45dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/img_home_order_goods1" />
+                        android:src="@drawable/img_home_order_goods1"/>
 
                     <View
                         android:layout_width="0.5dp"
                         android:layout_height="75dp"
                         android:layout_alignParentRight="true"
-                        android:background="@color/home_tab_gray_bg" />
+                        android:background="@color/home_tab_gray_bg"/>
 
                     <TextView
                         android:layout_width="18dp"
@@ -780,7 +797,7 @@
                         android:gravity="center"
                         android:text="4"
                         android:textColor="@android:color/white"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/tv_order_name4"
@@ -791,7 +808,7 @@
                         android:layout_marginTop="8dp"
                         android:text="鲁西 复合肥料"
                         android:textColor="@color/home_tab_font_black"
-                        android:textSize="@dimen/font_size_12" />
+                        android:textSize="@dimen/font_size_12"/>
 
                     <TextView
                         android:id="@+id/tv_order_price4"
@@ -801,7 +818,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
                         android:text="$188"
-                        android:textColor="@color/home_tab_red_bg" />
+                        android:textColor="@color/home_tab_red_bg"/>
 
                     <TextView
                         android:id="@+id/tv_order_old_price4"
@@ -810,9 +827,9 @@
                         android:layout_below="@+id/tv_order_price4"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
-                        android:text="$299"
+                        android:text="￥299"
                         android:textColor="@color/main_search_font_gray"
-                        android:textSize="@dimen/font_size_10" />
+                        android:textSize="@dimen/font_size_10"/>
 
                 </RelativeLayout>
 

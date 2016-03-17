@@ -9,7 +9,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.louis.agricultural.BuildConfig;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.app.FYApplication;
-import com.louis.agricultural.utils.ActivityManager;
+import com.louis.agricultural.utils.manager.ActivityManager;
 import com.louis.agricultural.utils.logger.LogLevel;
 import com.louis.agricultural.utils.logger.Logger;
 import com.zhy.autolayout.AutoLayoutActivity;

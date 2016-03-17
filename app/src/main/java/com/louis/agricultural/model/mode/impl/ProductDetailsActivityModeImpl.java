@@ -19,8 +19,8 @@ public class ProductDetailsActivityModeImpl extends BaseMode implements ProductD
 
 
     @Override
-    public void getGoodsShow(String article_id, UserLoseMultiLoadedListener listenter) {
-        mManager.getGoodsShow(article_id, listenter, mActivity);
+    public void getGoodsShow(String user_id, String article_id, UserLoseMultiLoadedListener listenter) {
+        mManager.getGoodsShow(user_id, article_id, listenter, mActivity);
     }
 
     @Override

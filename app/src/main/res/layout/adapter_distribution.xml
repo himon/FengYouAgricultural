@@ -9,6 +9,7 @@
     android:paddingTop="15dp">
 
     <TextView
+        android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="#2016年3月4日，有五吨化肥需要从河南洛阳运送到上海浦东新区#"

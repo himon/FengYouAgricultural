@@ -11,4 +11,6 @@ import java.util.ArrayList;
  */
 public interface ConfirmOrderActivityMode {
     void addOrder(String user_id, String adress_id, String message, String user_name, ArrayList<ShoppingCartEntity.ResultEntity> list, UserLoseMultiLoadedListener listener);
+
+    void getDefaultAdress(String user_id, UserLoseMultiLoadedListener listener);
 }

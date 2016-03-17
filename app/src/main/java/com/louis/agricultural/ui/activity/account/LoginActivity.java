@@ -13,6 +13,7 @@ import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.event.LoginResultEvent;
+import com.louis.agricultural.model.event.ProductDetailEvent;
 import com.louis.agricultural.presenter.LoginPresenter;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
@@ -111,6 +112,9 @@ public class LoginActivity extends MVPBaseActivity<ILoginView, LoginPresenter> i
         FYApplication.getContext().setUserEntity(data);
         if (!TextUtils.isEmpty(mFrom)) {
             EventBus.getDefault().post(new LoginResultEvent(mFrom));
+        }
+        if(Constants.LOGIN_REFRESH_BY_PRODUCT_DETAIL.equals(mFrom)){
+            EventBus.getDefault().post(new ProductDetailEvent("refresh_shopping_cart"));
         }
         back();
     }

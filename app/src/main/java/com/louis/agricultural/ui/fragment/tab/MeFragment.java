@@ -7,9 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.app.FYApplication;
@@ -20,6 +22,7 @@ import com.louis.agricultural.ui.activity.me.ConfirmOrderActivity;
 import com.louis.agricultural.ui.activity.me.MyOrderActivity;
 import com.louis.agricultural.ui.activity.me.SettingActivity;
 import com.louis.agricultural.ui.activity.me.UserInfoActivity;
+import com.louis.agricultural.view.CircleTransform;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,6 +35,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
 
     @Bind(R.id.tv_setting)
     TextView mTvSetting;
+    @Bind(R.id.iv_head_icon)
+    ImageView mIvHeadIcon;
     @Bind(R.id.tv_username)
     TextView mTvUserName;
     @Bind(R.id.tv_user_info)
@@ -80,6 +85,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
         UserEntity user = FYApplication.getContext().getUserEntity();
         if (user != null) {
             mTvUserName.setText(user.getResult().get_user_name());
+            Glide.with(this).load(user.getResult().get_avatar()).transform(new CircleTransform(getActivity())).into(mIvHeadIcon);
         }
     }
 

@@ -6,12 +6,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.louis.agricultural.BuildConfig;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.app.FYApplication;
-import com.louis.agricultural.utils.ActivityManager;
+import com.louis.agricultural.utils.manager.ActivityManager;
 import com.louis.agricultural.utils.logger.LogLevel;
 import com.louis.agricultural.utils.logger.Logger;
 import com.zhy.autolayout.AutoLayoutActivity;
@@ -23,6 +24,8 @@ public abstract class BaseActivity extends AutoLayoutActivity implements View.On
 
     @Bind(R.id.iv_nav_left)
     protected ImageView mNavLeft;
+    @Bind(R.id.rl_nav_left)
+    protected RelativeLayout mRlLeft;
     @Bind(R.id.iv_nav_right)
     protected ImageView mIvNavRight;
     @Bind(R.id.tv_nav_right)
@@ -48,6 +51,7 @@ public abstract class BaseActivity extends AutoLayoutActivity implements View.On
     protected void initTitle(String title) {
         mNavTitle.setText(title);
         mNavLeft.setOnClickListener(this);
+        mRlLeft.setOnClickListener(this);
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -101,6 +105,7 @@ public abstract class BaseActivity extends AutoLayoutActivity implements View.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_nav_left:
+            case R.id.rl_nav_left:
                 back();
                 break;
         }

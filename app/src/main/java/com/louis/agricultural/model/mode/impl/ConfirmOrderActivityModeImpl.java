@@ -24,4 +24,9 @@ public class ConfirmOrderActivityModeImpl extends BaseMode implements ConfirmOrd
     public void addOrder(String user_id, String adress_id, String message, String user_name, ArrayList<ShoppingCartEntity.ResultEntity> list, UserLoseMultiLoadedListener listener) {
         mManager.addOrder(user_id, adress_id, message, user_name, list, listener, mActivity);
     }
+
+    @Override
+    public void getDefaultAdress(String user_id, UserLoseMultiLoadedListener listener) {
+        mManager.getDefaultAdress(user_id, listener, mActivity);
+    }
 }
