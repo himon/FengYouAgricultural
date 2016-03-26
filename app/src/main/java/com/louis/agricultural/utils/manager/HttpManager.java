@@ -18,6 +18,7 @@ import com.louis.agricultural.model.entities.ProductDetailEntity;
 import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.model.entities.FyttEntity;
 import com.louis.agricultural.model.entities.HomeAdImageEntity;
+import com.louis.agricultural.model.entities.ResultStringEntity;
 import com.louis.agricultural.model.entities.ShoppingAddressEntity;
 import com.louis.agricultural.model.entities.ShoppingCartEntity;
 import com.louis.agricultural.model.entities.UserEntity;
@@ -395,11 +396,11 @@ public class HttpManager {
      * @param activity
      */
     public void getUserImg(final String user_id, final UserLoseMultiLoadedListener listener, Activity activity) {
-        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
-                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+        GsonRequest<ResultStringEntity> request = new GsonRequest<ResultStringEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                ResultStringEntity.class, null, new Response.Listener<ResultStringEntity>() {
 
             @Override
-            public void onResponse(BaseEntity response) {
+            public void onResponse(ResultStringEntity response) {
                 if (response.isSuccess()) {
                     listener.onSuccess(Constants.GET_USERIMG_LISTENER, response);
                 } else {
@@ -426,7 +427,7 @@ public class HttpManager {
     }
 
     public void uploadImg(final String user_id, final String images, final UserLoseMultiLoadedListener listener, Activity activity) {
-        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.UPLOAD_IMG),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
             @Override
@@ -450,8 +451,8 @@ public class HttpManager {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("methodName", Constants.UPLOAD_IMG);
-                params.put("parames", JsonManager.uploadImg(user_id, images));
+                params.put("userid", user_id);
+                params.put("imgbase", images);
                 return params;
             }
         };
@@ -945,7 +946,7 @@ public class HttpManager {
      * @param listener
      * @param fragment
      */
-    public void getOrderList(final String user_id, final int page, final String status, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+    public void getOrderList(final String user_id, final int page, final String status, final String payment_status, final String express_status, final UserLoseMultiLoadedListener listener, Fragment fragment) {
         GsonRequest<OrderEntity> request = new GsonRequest<OrderEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 OrderEntity.class, null, new Response.Listener<OrderEntity>() {
 
@@ -971,7 +972,7 @@ public class HttpManager {
 
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("methodName", Constants.GET_ORDER_LIST);
-                params.put("parames", JsonManager.getOrderList(user_id, page, status));
+                params.put("parames", JsonManager.getOrderList(user_id, page, status, payment_status, express_status));
                 return params;
             }
         };
@@ -1133,6 +1134,49 @@ public class HttpManager {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("methodName", Constants.DELETE_ADRESS);
                 params.put("parames", JsonManager.getAdressShow(adress_id));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, activity);
+    }
+
+    /**
+     * 修改订单信息
+     *
+     * @param orderId
+     * @param strxgname
+     * @param strzhi
+     * @param listener
+     * @param activity
+     */
+    public void updateOrder(final String orderId, final String strxgname, final String strzhi, final UserLoseMultiLoadedListener listener, Activity activity) {
+
+        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+
+            @Override
+            public void onResponse(BaseEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.UPDATE_ORDER_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.UPDATE_ORDER);
+                params.put("parames", JsonManager.updateOrder(orderId, strxgname, strzhi));
                 return params;
             }
         };

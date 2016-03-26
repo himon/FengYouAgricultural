@@ -178,7 +178,6 @@ public class JsonManager {
     /**
      * 商品信息
      *
-     *
      * @param user_id
      * @param article_id
      * @return
@@ -360,16 +359,19 @@ public class JsonManager {
      *
      * @param user_id
      * @param page
-     * @param status
-     * @return
+     * @param
+     * @param payment_status
+     * @param status         @return
      */
-    public static String getOrderList(String user_id, int page, String status) {
+    public static String getOrderList(String user_id, int page, String status, String payment_status, String express_status) {
         JSONObject object = new JSONObject();
         try {
             object.put("user_id", user_id);
             object.put("pagesize", Constants.PAGESIZE);
             object.put("page", page);
             object.put("status", status);
+            object.put("payment_status", payment_status);
+            object.put("express_status", express_status);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -378,6 +380,7 @@ public class JsonManager {
 
     /**
      * 删除购物车
+     *
      * @param car_id
      * @return
      */
@@ -385,6 +388,27 @@ public class JsonManager {
         JSONObject object = new JSONObject();
         try {
             object.put("car_id", car_id);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 修改订单信息
+     *
+     * @param orderId
+     * @param strxgname
+     * @param strzhi
+     * @return
+     */
+    public static String updateOrder(String orderId, String strxgname, String strzhi) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("orderId", orderId);
+            object.put("strxgname", strxgname);
+            object.put("strzhi", strzhi);
+            object.put("payment_status", "2");
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -14,6 +14,7 @@ import com.louis.agricultural.model.mode.impl.UserInfoactivityModeImpl;
 import com.louis.agricultural.ui.activity.me.UserInfoActivity;
 import com.louis.agricultural.ui.view.IUserInfoView;
 import com.louis.agricultural.utils.Base64Utils;
+import com.louis.agricultural.utils.ShowToast;
 
 /**
  * Created by lc on 16/3/2.
@@ -25,12 +26,19 @@ public class UserInfoActivityPresenter extends UserLosePresenter<IUserInfoView> 
 
     public UserInfoActivityPresenter(IUserInfoView view) {
         mIUserInfoView = view;
-        mUserInfoActivityMode = new UserInfoactivityModeImpl((Activity)view);
+        mUserInfoActivityMode = new UserInfoactivityModeImpl((Activity) view);
     }
 
     @Override
     public void onSuccess(int event_tag, BaseEntity data) {
-
+        switch (event_tag) {
+            case Constants.UPLOAD_IMG_LISTENER:
+                mIUserInfoView.updateSuccess(data);
+                break;
+            case Constants.GET_USERIMG_LISTENER:
+                mIUserInfoView.setUserImg(data);
+                break;
+        }
 
     }
 

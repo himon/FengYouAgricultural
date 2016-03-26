@@ -16,9 +16,13 @@ import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.app.FYApplication;
+import com.louis.agricultural.model.entities.BaseEntity;
+import com.louis.agricultural.model.entities.ResultStringEntity;
 import com.louis.agricultural.model.entities.UserEntity;
+import com.louis.agricultural.model.event.LoginResultEvent;
 import com.louis.agricultural.presenter.UserInfoActivityPresenter;
 import com.louis.agricultural.ui.view.IUserInfoView;
+import com.louis.agricultural.utils.ShowToast;
 import com.louis.agricultural.view.CircleTransform;
 
 import java.util.Calendar;
@@ -26,6 +30,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 import me.iwf.photopicker.PhotoPickerActivity;
 import me.iwf.photopicker.entity.Photo;
 import me.iwf.photopicker.utils.PhotoPickerIntent;
@@ -84,7 +89,6 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
         mUser = FYApplication.getContext().getUserEntity().getResult();
         Glide.with(this).load(mUser.get_avatar()).transform(new CircleTransform(this)).into(mIvHead);
         mPresenter.getUserInfomation(mUser.get_id());
-        mPresenter.getUserImg(mUser.get_id());
     }
 
     @Override
@@ -162,5 +166,20 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
                 mPresenter.uploadImg(mUser.get_id(), data);
             }
         }
+    }
+
+    @Override
+    public void updateSuccess(BaseEntity data) {
+        ShowToast.Short(data.getMessage());
+        mPresenter.getUserImg(mUser.get_id());
+    }
+
+    @Override
+    public void setUserImg(BaseEntity data) {
+        ResultStringEntity entity = (ResultStringEntity) data;
+        Glide.with(this).load(entity.getResult()).transform(new CircleTransform(this)).into(mIvHead);
+        UserEntity.ResultEntity result = FYApplication.getContext().getUserEntity().getResult();
+        result.set_avatar(((ResultStringEntity) data).getResult());
+        EventBus.getDefault().post(new LoginResultEvent("refresh_head_icon"));
     }
 }

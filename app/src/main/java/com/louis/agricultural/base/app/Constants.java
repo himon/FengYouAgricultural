@@ -48,7 +48,7 @@ public interface Constants {
     /**
      * 上传头像
      */
-    String UPLOAD_IMG = "upload_img";
+    String UPLOAD_IMG = "http://115.28.134.18:8087/upload_img.asmx/CaseMethad";
     /**
      * 用户注册
      */
@@ -133,6 +133,10 @@ public interface Constants {
      * 获取个人默认收货地址
      */
     String GET_DEFAULT_ADRESS = "get_default_adress";
+    /**
+     * 修改订单信息
+     */
+    String UPDATE_ORDER = "update_order";
 
 
     /** 获取数据成功回调的key **/
@@ -248,10 +252,15 @@ public interface Constants {
      * 获取个人默认收货地址
      */
     int GET_DEFAULT_ADRESS_LISTENER = 0x10028;
+    /**
+     * 修改订单信息
+     */
+    int UPDATE_ORDER_LISTENER = 0x10029;
 
 
     String MESSAGE_EXTRA_KEY = "message_extra_key";
     String MESSAGE_EXTRA_KEY2 = "message_extra_key2";
+    String MESSAGE_EXTRA_KEY3 = "message_extra_key3";
 
     String LOGIN_FROM_ME = "login_from_me";
     String LOGIN_FROM_SHOPPINGCART = "login_from_shoppingcart";

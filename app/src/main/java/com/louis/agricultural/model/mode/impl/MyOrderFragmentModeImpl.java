@@ -18,7 +18,7 @@ public class MyOrderFragmentModeImpl extends BaseMode implements MyOrderFragment
     }
 
     @Override
-    public void getOrderList(String user_id, int page, String status, UserLoseMultiLoadedListener listener) {
-        mManager.getOrderList(user_id, page, status, listener, mFragment);
+    public void getOrderList(String user_id, int page, String status, String payment_status, String express_status, UserLoseMultiLoadedListener listener) {
+        mManager.getOrderList(user_id, page, status, payment_status, express_status, listener, mFragment);
     }
 }

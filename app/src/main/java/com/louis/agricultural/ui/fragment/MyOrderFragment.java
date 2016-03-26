@@ -50,6 +50,8 @@ public class MyOrderFragment extends MVPBaseFragment<IMyOrderView, MyOrderFragme
     private MyOrderAdapter mAdapter;
     private List<OrderEntity.ResultEntity> mList = new ArrayList<>();
     private String status;
+    private String paymentStatus;
+    private String expressStatus;
     private UserEntity.ResultEntity mUser;
 
     public MyOrderFragment() {
@@ -80,6 +82,8 @@ public class MyOrderFragment extends MVPBaseFragment<IMyOrderView, MyOrderFragme
         Bundle bundle = getArguments();
         if (bundle != null) {
             status = bundle.getString(Constants.MESSAGE_EXTRA_KEY);
+            paymentStatus = bundle.getString(Constants.MESSAGE_EXTRA_KEY2);
+            expressStatus = bundle.getString(Constants.MESSAGE_EXTRA_KEY3);
         }
         mUser = FYApplication.getContext().getUserEntity().getResult();
 
@@ -126,7 +130,7 @@ public class MyOrderFragment extends MVPBaseFragment<IMyOrderView, MyOrderFragme
     }
 
     private void getData() {
-        mPresenter.getOrderList(mUser.get_id(), page, status);
+        mPresenter.getOrderList(mUser.get_id(), page, status, paymentStatus, expressStatus);
     }
 
     private void toDetail(OrderEntity.ResultEntity entity) {

@@ -218,6 +218,8 @@ public class MainActivity extends BasicActivity {
             mViewPager.setCurrentItem(1, false);
         } else if ("Shopping".equals(event.getMsg())) {
             mViewPager.setCurrentItem(2, false);
+        }else if("refresh_head_icon".equals(event.getMsg())){
+            mMeFragment.refresh();
         }
     }
 
