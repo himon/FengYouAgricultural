@@ -41,6 +41,8 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
     TextView mTvPay;
     @Bind(R.id.tv_get)
     TextView mTvGet;
+    @Bind(R.id.tv_comment)
+    TextView mTvComment;
     @Bind(R.id.tv_finish)
     TextView mTvFinish;
 
@@ -75,6 +77,7 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
         MyOrderFragment fragment2 = new MyOrderFragment();
         MyOrderFragment fragment3 = new MyOrderFragment();
         MyOrderFragment fragment4 = new MyOrderFragment();
+        MyOrderFragment fragment5 = new MyOrderFragment();
 
         Bundle bundle1 = new Bundle();
         bundle1.putString(Constants.MESSAGE_EXTRA_KEY, "0");
@@ -83,7 +86,7 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
         fragment1.setArguments(bundle1);
 
         Bundle bundle2 = new Bundle();
-        bundle2.putString(Constants.MESSAGE_EXTRA_KEY, "1");
+        bundle2.putString(Constants.MESSAGE_EXTRA_KEY, "2");
         bundle2.putString(Constants.MESSAGE_EXTRA_KEY2, "1");
         bundle2.putString(Constants.MESSAGE_EXTRA_KEY3, "1");
         fragment2.setArguments(bundle2);
@@ -95,25 +98,33 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
         fragment3.setArguments(bundle3);
 
         Bundle bundle4 = new Bundle();
-        bundle4.putString(Constants.MESSAGE_EXTRA_KEY, "3");
+        bundle4.putString(Constants.MESSAGE_EXTRA_KEY, "6");
         bundle4.putString(Constants.MESSAGE_EXTRA_KEY2, "2");
         bundle4.putString(Constants.MESSAGE_EXTRA_KEY3, "2");
         fragment4.setArguments(bundle4);
+
+        Bundle bundle5 = new Bundle();
+        bundle5.putString(Constants.MESSAGE_EXTRA_KEY, "3");
+        bundle5.putString(Constants.MESSAGE_EXTRA_KEY2, "2");
+        bundle5.putString(Constants.MESSAGE_EXTRA_KEY3, "2");
+        fragment5.setArguments(bundle5);
 
 
         mFragments.add(fragment1);
         mFragments.add(fragment2);
         mFragments.add(fragment3);
         mFragments.add(fragment4);
+        mFragments.add(fragment5);
 
         mPageTitle.add("全部");
         mPageTitle.add("待付款");
         mPageTitle.add("待收货");
+        mPageTitle.add("待评价");
         mPageTitle.add("交易完成");
 
         mTabAdapter = new TabAdapter(getSupportFragmentManager(), mFragments);
         mViewPager.setAdapter(mTabAdapter);
-        mViewPager.setOffscreenPageLimit(4);
+        mViewPager.setOffscreenPageLimit(5);
         mIndicator.setViewPager(mViewPager);
         mIndicator.setFades(false);
 

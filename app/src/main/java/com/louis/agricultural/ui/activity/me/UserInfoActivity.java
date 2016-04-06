@@ -46,6 +46,10 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
     ImageView mIvHead;
     @Bind(R.id.ll_update_pwd)
     LinearLayout mLLUpdatePwd;
+    @Bind(R.id.ll_username)
+    LinearLayout mLLUserName;
+    @Bind(R.id.tv_username)
+    TextView mTvUserName;
     @Bind(R.id.ll_shipping_address)
     LinearLayout mLLShippingAddress;
     @Bind(R.id.ll_date)
@@ -82,6 +86,7 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
         mLLUpdatePwd.setOnClickListener(this);
         mLLShippingAddress.setOnClickListener(this);
         mLLDate.setOnClickListener(this);
+        mLLUserName.setOnClickListener(this);
     }
 
     @Override
@@ -106,7 +111,15 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
             case R.id.ll_date:
                 selectDate();
                 break;
+            case R.id.ll_username:
+                toUpdateUserInfo();
+                break;
         }
+    }
+
+    private void toUpdateUserInfo() {
+        Intent intent = new Intent(this, UpdateUserInfoActivity.class);
+        startActivity(intent);
     }
 
     private void selectDate() {

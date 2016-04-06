@@ -69,6 +69,8 @@
         </activity>
         <activity android:name=".ui.activity.WebViewActivity">
         </activity>
+        <activity android:name=".ui.activity.me.UpdateUserInfoActivity">
+        </activity>
     </application>
 
 </manifest>

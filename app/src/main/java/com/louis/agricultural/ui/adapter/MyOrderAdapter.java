@@ -36,19 +36,13 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
         Button right = holder.getView(R.id.btn_cancel_order);
         Button left = holder.getView(R.id.btn_pay);
 
-        if ("1".equals(orderEntity.getStatus())) {
+        if ("2".equals(orderEntity.getStatus()) && "1".equals(orderEntity.getPayment_status())) {
             type.setText("待付款");
             type.setBackgroundColor(ContextCompat.getColor(mContext, R.color.button_yellow_bg));
-            right.setText("前去付款");
-            left.setText("取消订单");
+            right.setText("取消订单");
+            left.setText("前去付款");
             left.setVisibility(View.VISIBLE);
             right.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    EventBus.getDefault().post(new MyOrderEvent("pay"));
-                }
-            });
-            left.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     MyOrderEvent event = new MyOrderEvent("update");
@@ -57,7 +51,13 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
                     EventBus.getDefault().post(event);
                 }
             });
-        } else if ("2".equals(orderEntity.getStatus())) {
+            left.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    EventBus.getDefault().post(new MyOrderEvent("pay"));
+                }
+            });
+        } else if ("2".equals(orderEntity.getStatus()) && "2".equals(orderEntity.getPayment_status())) {
             type.setText("已发货");
             type.setBackgroundColor(ContextCompat.getColor(mContext, R.color.login_btn_bg));
             right.setText("确认收货");
@@ -99,8 +99,6 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
                 }
             });
         }
-
-
         holder.setText(R.id.tv_order_no, "交易单" + orderEntity.getOrder_no()).setText(R.id.tv_desc, "共 " + orderEntity.getRow_number() + " 件商品  合计:￥" + orderEntity.getOrder_amount() + "(含运费￥" + orderEntity.getPayment_fee() + ")");
     }
 }

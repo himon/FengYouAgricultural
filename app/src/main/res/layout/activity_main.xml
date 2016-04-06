@@ -23,6 +23,17 @@
             android:orientation="horizontal">
 
             <com.louis.agricultural.view.ChangeColorIconWithText
+                android:id="@+id/indicator_fengyou"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="5dp"
+                louis:tab_color="@color/main_tab_font_gray"
+                louis:tab_icon="@drawable/img_tab_home"
+                louis:tab_text="活动"
+                louis:tab_text_size="@dimen/font_size_11" />
+
+            <com.louis.agricultural.view.ChangeColorIconWithText
                 android:id="@+id/indicator_home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

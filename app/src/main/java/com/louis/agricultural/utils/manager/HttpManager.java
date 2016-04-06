@@ -293,8 +293,8 @@ public class HttpManager {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                byte[] data = error.networkResponse.data;
-                String str = new String(data);
+                //byte[] data = error.networkResponse.data;
+                //String str = new String(data);
                 listener.onException(error.getMessage());
             }
         }) {
@@ -1177,6 +1177,46 @@ public class HttpManager {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("methodName", Constants.UPDATE_ORDER);
                 params.put("parames", JsonManager.updateOrder(orderId, strxgname, strzhi));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, activity);
+    }
+
+    /**
+     * 修改用户信息
+     *
+     * @param nick_name
+     * @param listener
+     * @param activity
+     */
+    public void userUpuserinformation(final String nick_name, final UserLoseMultiLoadedListener listener, Activity activity) {
+        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+
+            @Override
+            public void onResponse(BaseEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.USER_UPUSERINFOMATION_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.USER_UPUSERINFOMATION);
+                params.put("parames", JsonManager.userUpuserinformation(nick_name));
                 return params;
             }
         };

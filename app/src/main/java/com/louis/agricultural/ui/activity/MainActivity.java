@@ -16,6 +16,7 @@ import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.event.LoginResultEvent;
 import com.louis.agricultural.ui.activity.account.LoginActivity;
+import com.louis.agricultural.ui.fragment.WebViewFragment;
 import com.louis.agricultural.ui.fragment.tab.ClassifyFragment;
 import com.louis.agricultural.ui.fragment.tab.HomeFragment;
 import com.louis.agricultural.ui.fragment.tab.MeFragment;
@@ -30,6 +31,8 @@ import de.greenrobot.event.EventBus;
 
 public class MainActivity extends BasicActivity {
 
+    @Bind(R.id.indicator_fengyou)
+    ChangeColorIconWithText mIndicatorFengyou;
     @Bind(R.id.indicator_home)
     ChangeColorIconWithText mIndicatorHome;
     @Bind(R.id.indicator_classify)
@@ -46,6 +49,7 @@ public class MainActivity extends BasicActivity {
     private FragmentPagerAdapter mAdapter;
     private ArrayList<Bitmap> bitmaps;
 
+    private WebViewFragment mFengyouFragment;
     private HomeFragment mHomeFragment;
     private ClassifyFragment mClassifyFragment;
     private ShoppingCartFragment mShoppingCartFragment;
@@ -68,16 +72,22 @@ public class MainActivity extends BasicActivity {
     @Override
     protected void initView() {
 
+        mTabIndicators.add(mIndicatorFengyou);
         mTabIndicators.add(mIndicatorHome);
         mTabIndicators.add(mIndicatorClassify);
         mTabIndicators.add(mIndicatorShopping);
         mTabIndicators.add(mIndicatorMe);
 
+        mFengyouFragment = new WebViewFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.MESSAGE_EXTRA_KEY, "http://www.qq.com");
+        mFengyouFragment.setArguments(bundle);
         mHomeFragment = new HomeFragment();
         mClassifyFragment = new ClassifyFragment();
         mShoppingCartFragment = new ShoppingCartFragment();
         mMeFragment = new MeFragment();
 
+        mTabs.add(mFengyouFragment);
         mTabs.add(mHomeFragment);
         mTabs.add(mClassifyFragment);
         mTabs.add(mShoppingCartFragment);
@@ -96,8 +106,8 @@ public class MainActivity extends BasicActivity {
         };
 
         mViewPager.setAdapter(mAdapter);
-        mViewPager.setOffscreenPageLimit(4);
-        mViewPager.setCurrentItem(0);
+        mViewPager.setOffscreenPageLimit(5);
+        mViewPager.setCurrentItem(1);
 
         initEvent();
     }
@@ -109,10 +119,12 @@ public class MainActivity extends BasicActivity {
         mUnSelectedColor = getResources().getColor(R.color.main_tab_font_gray);
 
         bitmaps = new ArrayList<>();
+        bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_icon));
         bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_home));
         bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_classify));
         bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_shopping_cart));
         bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_me));
+        bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_icon_selected));
         bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_home_selected));
         bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_classify_selected));
         bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_shopping_cart_selected));
@@ -134,16 +146,19 @@ public class MainActivity extends BasicActivity {
         UserEntity userEntity;
 
         switch (view.getId()) {
-            case R.id.indicator_home:
+            case R.id.indicator_fengyou:
                 mViewPager.setCurrentItem(0, false);
                 break;
-            case R.id.indicator_classify:
+            case R.id.indicator_home:
                 mViewPager.setCurrentItem(1, false);
+                break;
+            case R.id.indicator_classify:
+                mViewPager.setCurrentItem(2, false);
                 break;
             case R.id.indicator_shopping_cart:
                 userEntity = FYApplication.getContext().getUserEntity();
                 if (userEntity != null) {
-                    mViewPager.setCurrentItem(2
+                    mViewPager.setCurrentItem(3
                             , false);
                 } else {
                     toLogin(Constants.LOGIN_FROM_SHOPPINGCART);
@@ -152,7 +167,7 @@ public class MainActivity extends BasicActivity {
             case R.id.indicator_me:
                 userEntity = FYApplication.getContext().getUserEntity();
                 if (userEntity != null) {
-                    mViewPager.setCurrentItem(3
+                    mViewPager.setCurrentItem(4
                             , false);
                 } else {
                     toLogin(Constants.LOGIN_FROM_ME);
@@ -177,7 +192,7 @@ public class MainActivity extends BasicActivity {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 resetOtherTabs();
-                mTabIndicators.get(position).setmIcon(bitmaps.get(position + 4), mSelectedColor);
+                mTabIndicators.get(position).setmIcon(bitmaps.get(position + 5), mSelectedColor);
             }
 
             @Override
@@ -204,20 +219,20 @@ public class MainActivity extends BasicActivity {
 
     public void onEvent(LoginResultEvent event) {
         if (Constants.LOGIN_FROM_ME.equals(event.getMsg())) {
-            mViewPager.setCurrentItem(3, false);
+            mViewPager.setCurrentItem(4, false);
             mMeFragment.refresh();
             mShoppingCartFragment.refresh();
         } else if (Constants.LOGIN_FROM_SHOPPINGCART.equals(event.getMsg())) {
-            mViewPager.setCurrentItem(2, false);
+            mViewPager.setCurrentItem(3, false);
             mMeFragment.refresh();
             mShoppingCartFragment.refresh();
         } else if (Constants.LOGIN_REFRESH.equals(event.getMsg()) || Constants.LOGIN_REFRESH_BY_PRODUCT_DETAIL.equals(event.getMsg())) {
             mMeFragment.refresh();
             mShoppingCartFragment.refresh();
         } else if ("classify".equals(event.getMsg())) {
-            mViewPager.setCurrentItem(1, false);
-        } else if ("Shopping".equals(event.getMsg())) {
             mViewPager.setCurrentItem(2, false);
+        } else if ("Shopping".equals(event.getMsg())) {
+            mViewPager.setCurrentItem(3, false);
         }else if("refresh_head_icon".equals(event.getMsg())){
             mMeFragment.refresh();
         }

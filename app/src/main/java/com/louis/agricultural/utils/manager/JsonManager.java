@@ -82,7 +82,7 @@ public class JsonManager {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return object.toString();
+        return object.toString().trim();
     }
 
     /**
@@ -409,6 +409,22 @@ public class JsonManager {
             object.put("strxgname", strxgname);
             object.put("strzhi", strzhi);
             object.put("payment_status", "2");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    /**
+     * 修改用户信息
+     *
+     * @param nick_name
+     * @return
+     */
+    public static String userUpuserinformation(String nick_name) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("nick_name", nick_name);
         } catch (JSONException e) {
             e.printStackTrace();
         }

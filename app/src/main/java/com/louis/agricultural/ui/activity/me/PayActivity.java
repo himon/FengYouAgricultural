@@ -6,6 +6,8 @@ import android.view.View;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
 
+import butterknife.ButterKnife;
+
 /**
  * 支付页面
  */
@@ -15,6 +17,9 @@ public class PayActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
+        ButterKnife.bind(this);
+        initView();
+        initData();
     }
 
     @Override
