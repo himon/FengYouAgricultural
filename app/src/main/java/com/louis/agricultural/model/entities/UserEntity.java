@@ -8,24 +8,24 @@ public class UserEntity extends BaseEntity {
 
     /**
      * _address :
-     * _amount : 0.0
+     * _amount : 0
      * _area :
-     * _avatar : http://115.28.134.18:8087
-     * _birthday : null
+     * _avatar : http://115.28.134.18:8087/upload/201603/23/201603232209576041.jpg
+     * _birthday : /Date(1459958400000+0800)/
      * _email :
      * _exp : 0
      * _group_id : 1
      * _id : 3
      * _mobile : lingery
-     * _msn :
-     * _nick_name :
-     * _password : 433088B8BC14F69F
+     * _msn : 13460206930
+     * _nick_name : lingery11
+     * _password : EBEEBFFE1CBBAEE9
      * _point : 0
      * _qq :
      * _reg_ip :
      * _reg_time : /Date(1456843004000+0800)/
      * _salt : T0BH4B
-     * _sex :
+     * _sex : 男
      * _status : 0
      * _telphone :
      * _user_name : lingery
@@ -43,10 +43,10 @@ public class UserEntity extends BaseEntity {
 
     public static class ResultEntity {
         private String _address;
-        private double _amount;
+        private int _amount;
         private String _area;
         private String _avatar;
-        private Object _birthday;
+        private String _birthday;
         private String _email;
         private int _exp;
         private int _group_id;
@@ -69,7 +69,7 @@ public class UserEntity extends BaseEntity {
             this._address = _address;
         }
 
-        public void set_amount(double _amount) {
+        public void set_amount(int _amount) {
             this._amount = _amount;
         }
 
@@ -81,7 +81,7 @@ public class UserEntity extends BaseEntity {
             this._avatar = _avatar;
         }
 
-        public void set_birthday(Object _birthday) {
+        public void set_birthday(String _birthday) {
             this._birthday = _birthday;
         }
 
@@ -97,6 +97,13 @@ public class UserEntity extends BaseEntity {
             this._group_id = _group_id;
         }
 
+        public String get_id() {
+            return _id;
+        }
+
+        public void set_id(String _id) {
+            this._id = _id;
+        }
 
         public void set_mobile(String _mobile) {
             this._mobile = _mobile;
@@ -154,7 +161,7 @@ public class UserEntity extends BaseEntity {
             return _address;
         }
 
-        public double get_amount() {
+        public int get_amount() {
             return _amount;
         }
 
@@ -166,7 +173,7 @@ public class UserEntity extends BaseEntity {
             return _avatar;
         }
 
-        public Object get_birthday() {
+        public String get_birthday() {
             return _birthday;
         }
 
@@ -182,13 +189,6 @@ public class UserEntity extends BaseEntity {
             return _group_id;
         }
 
-        public String get_id() {
-            return _id;
-        }
-
-        public void set_id(String _id) {
-            this._id = _id;
-        }
 
         public String get_mobile() {
             return _mobile;

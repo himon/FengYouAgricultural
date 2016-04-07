@@ -7,5 +7,5 @@ import com.louis.agricultural.presenter.UpdateUserInfoActivityPresenter;
  * Created by lc on 16/4/6.
  */
 public interface UpdateUserInfoActivityMode {
-    void userUpuserinformation(String nick_name, UserLoseMultiLoadedListener listener);
+    void userUpuserinformation(String user_name, String nick_name, String strzhi, UserLoseMultiLoadedListener listener);
 }

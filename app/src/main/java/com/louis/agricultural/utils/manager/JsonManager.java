@@ -397,18 +397,17 @@ public class JsonManager {
     /**
      * 修改订单信息
      *
-     * @param orderId
+     * @param order_id
      * @param strxgname
      * @param strzhi
      * @return
      */
-    public static String updateOrder(String orderId, String strxgname, String strzhi) {
+    public static String updateOrder(String order_id, String strxgname, String strzhi) {
         JSONObject object = new JSONObject();
         try {
-            object.put("orderId", orderId);
+            object.put("order_id", order_id);
             object.put("strxgname", strxgname);
             object.put("strzhi", strzhi);
-            object.put("payment_status", "2");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -418,13 +417,16 @@ public class JsonManager {
     /**
      * 修改用户信息
      *
-     * @param nick_name
-     * @return
+     * @param user_name
+     * @param strxgname
+     * @param strzhi    @return
      */
-    public static String userUpuserinformation(String nick_name) {
+    public static String userUpuserinformation(String user_name, String strxgname, String strzhi) {
         JSONObject object = new JSONObject();
         try {
-            object.put("nick_name", nick_name);
+            object.put("user_name", user_name);
+            object.put("strxgname", strxgname);
+            object.put("strzhi", strzhi);
         } catch (JSONException e) {
             e.printStackTrace();
         }

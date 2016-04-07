@@ -18,7 +18,7 @@ public class UpdateUserInfoActivityModeImpl extends BaseMode implements UpdateUs
     }
 
     @Override
-    public void userUpuserinformation(String nick_name, UserLoseMultiLoadedListener listener) {
-        mManager.userUpuserinformation(nick_name, listener, mActivity);
+    public void userUpuserinformation(String user_name, String strxgname, String strzhi, UserLoseMultiLoadedListener listener) {
+        mManager.userUpuserinformation(user_name, strxgname, strzhi, listener, mActivity);
     }
 }

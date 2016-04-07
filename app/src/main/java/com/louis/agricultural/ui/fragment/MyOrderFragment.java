@@ -129,6 +129,14 @@ public class MyOrderFragment extends MVPBaseFragment<IMyOrderView, MyOrderFragme
 
     }
 
+    /**
+     * 刷新
+     */
+    public void refresh() {
+        isRefresh = true;
+        getData();
+    }
+
     private void getData() {
         mPresenter.getOrderList(mUser.get_id(), page, status, paymentStatus, expressStatus);
     }

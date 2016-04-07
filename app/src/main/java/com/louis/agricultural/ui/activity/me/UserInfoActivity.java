@@ -1,7 +1,6 @@
 package com.louis.agricultural.ui.activity.me;
 
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 import com.bumptech.glide.Glide;
 import com.louis.agricultural.R;
@@ -20,11 +18,13 @@ import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.ResultStringEntity;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.event.LoginResultEvent;
+import com.louis.agricultural.model.event.UpdateUserInfoEvent;
 import com.louis.agricultural.presenter.UserInfoActivityPresenter;
 import com.louis.agricultural.ui.view.IUserInfoView;
 import com.louis.agricultural.utils.ShowToast;
 import com.louis.agricultural.view.CircleTransform;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -46,10 +46,14 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
     ImageView mIvHead;
     @Bind(R.id.ll_update_pwd)
     LinearLayout mLLUpdatePwd;
-    @Bind(R.id.ll_username)
-    LinearLayout mLLUserName;
-    @Bind(R.id.tv_username)
-    TextView mTvUserName;
+    @Bind(R.id.ll_nick_name)
+    LinearLayout mLLNickName;
+    @Bind(R.id.tv_nick_name)
+    TextView mTvNickName;
+    @Bind(R.id.ll_sex)
+    LinearLayout mLLSex;
+    @Bind(R.id.tv_sex)
+    TextView mTvSex;
     @Bind(R.id.ll_shipping_address)
     LinearLayout mLLShippingAddress;
     @Bind(R.id.ll_date)
@@ -65,6 +69,7 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         mPresenter = mMPresenter;
         initView();
         initData();
@@ -86,7 +91,8 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
         mLLUpdatePwd.setOnClickListener(this);
         mLLShippingAddress.setOnClickListener(this);
         mLLDate.setOnClickListener(this);
-        mLLUserName.setOnClickListener(this);
+        mLLSex.setOnClickListener(this);
+        mLLNickName.setOnClickListener(this);
     }
 
     @Override
@@ -94,6 +100,14 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
         mUser = FYApplication.getContext().getUserEntity().getResult();
         Glide.with(this).load(mUser.get_avatar()).transform(new CircleTransform(this)).into(mIvHead);
         mPresenter.getUserInfomation(mUser.get_id());
+
+        mTvNickName.setText(mUser.get_nick_name());
+        mTvSex.setText(mUser.get_sex());
+        if (mUser.get_birthday() != null) {
+//            SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日");
+//            String date = format.format(mUser.get_birthday());
+//            mTvDate.setText(date);
+        }
     }
 
     @Override
@@ -111,14 +125,23 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
             case R.id.ll_date:
                 selectDate();
                 break;
-            case R.id.ll_username:
-                toUpdateUserInfo();
+            case R.id.ll_nick_name:
+                toUpdateUserInfo(true);
+                break;
+            case R.id.ll_sex:
+                toUpdateUserInfo(false);
                 break;
         }
     }
 
-    private void toUpdateUserInfo() {
+    private void toUpdateUserInfo(boolean b) {
         Intent intent = new Intent(this, UpdateUserInfoActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, b);
+        if (b) {
+            intent.putExtra(Constants.MESSAGE_EXTRA_KEY2, mUser.get_nick_name());
+        } else {
+            intent.putExtra(Constants.MESSAGE_EXTRA_KEY2, mUser.get_sex());
+        }
         startActivity(intent);
     }
 
@@ -129,6 +152,8 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 mTvDate.setText(year + "年" + (monthOfYear + 1) + "月" + dayOfMonth + "日");
+
+                mPresenter.userUpuserinformation(mUser.get_id(), year + "-" + ((monthOfYear + 1) < 10 ? "0" + (monthOfYear + 1) : (monthOfYear + 1)) + "-" + (dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth), "birthday");
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
@@ -182,9 +207,12 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
     }
 
     @Override
-    public void updateSuccess(BaseEntity data) {
+    public void updateSuccess(BaseEntity data, String type) {
         ShowToast.Short(data.getMessage());
-        mPresenter.getUserImg(mUser.get_id());
+        if ("img".equals(type)) {
+            mPresenter.getUserImg(mUser.get_id());
+        } else {
+        }
     }
 
     @Override
@@ -194,5 +222,19 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
         UserEntity.ResultEntity result = FYApplication.getContext().getUserEntity().getResult();
         result.set_avatar(((ResultStringEntity) data).getResult());
         EventBus.getDefault().post(new LoginResultEvent("refresh_head_icon"));
+    }
+
+    public void onEvent(UpdateUserInfoEvent event) {
+        if (event.getType() == 1) {
+            mTvNickName.setText(event.getMsg());
+        } else if (event.getType() == 2) {
+            mTvSex.setText(event.getMsg());
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

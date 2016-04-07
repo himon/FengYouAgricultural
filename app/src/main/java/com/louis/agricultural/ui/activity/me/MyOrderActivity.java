@@ -11,6 +11,7 @@ import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.base.app.Constants;
+import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.event.LoginResultEvent;
 import com.louis.agricultural.model.event.MyOrderEvent;
 import com.louis.agricultural.presenter.MyOrderPresenter;
@@ -135,6 +136,7 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
         mTvAll.setOnClickListener(this);
         mTvPay.setOnClickListener(this);
         mTvGet.setOnClickListener(this);
+        mTvComment.setOnClickListener(this);
         mTvFinish.setOnClickListener(this);
     }
 
@@ -155,8 +157,11 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
             case R.id.tv_get:
                 mViewPager.setCurrentItem(2, false);
                 break;
-            case R.id.tv_finish:
+            case R.id.tv_comment:
                 mViewPager.setCurrentItem(3, false);
+                break;
+            case R.id.tv_finish:
+                mViewPager.setCurrentItem(4, false);
                 break;
         }
     }
@@ -168,6 +173,8 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
             startActivity(intent);
         } else if ("update".equals(event.getMsg())) {
             mPresenter.updateOrder(event.getOrderId(), "status", event.getStatus());
+        } else if ("update_pay".equals(event.getMsg())) {
+            mPresenter.updateOrder(event.getOrderId(), "payment_status", event.getStatus());
         } else if ("comment".equals(event.getMsg())) {
             Intent intent = new Intent(this, CommentActivity.class);
             intent.putExtra(Constants.MESSAGE_EXTRA_KEY, event.getOrderId());
@@ -182,4 +189,10 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
     }
 
 
+    @Override
+    public void setUpdateOrderSuccess(BaseEntity data) {
+        int currentItem = mViewPager.getCurrentItem();
+        MyOrderFragment fragment = (MyOrderFragment) mFragments.get(currentItem);
+        fragment.refresh();
+    }
 }

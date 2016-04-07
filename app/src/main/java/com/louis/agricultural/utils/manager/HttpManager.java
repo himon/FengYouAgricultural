@@ -1143,13 +1143,13 @@ public class HttpManager {
     /**
      * 修改订单信息
      *
-     * @param orderId
+     * @param order_id
      * @param strxgname
      * @param strzhi
      * @param listener
      * @param activity
      */
-    public void updateOrder(final String orderId, final String strxgname, final String strzhi, final UserLoseMultiLoadedListener listener, Activity activity) {
+    public void updateOrder(final String order_id, final String strxgname, final String strzhi, final UserLoseMultiLoadedListener listener, Activity activity) {
 
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
@@ -1176,7 +1176,7 @@ public class HttpManager {
 
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("methodName", Constants.UPDATE_ORDER);
-                params.put("parames", JsonManager.updateOrder(orderId, strxgname, strzhi));
+                params.put("parames", JsonManager.updateOrder(order_id, strxgname, strzhi));
                 return params;
             }
         };
@@ -1186,11 +1186,13 @@ public class HttpManager {
     /**
      * 修改用户信息
      *
-     * @param nick_name
+     * @param user_name
+     * @param strxgname
+     * @param strzhi
      * @param listener
      * @param activity
      */
-    public void userUpuserinformation(final String nick_name, final UserLoseMultiLoadedListener listener, Activity activity) {
+    public void userUpuserinformation(final String user_name, final String strxgname, final String strzhi, final UserLoseMultiLoadedListener listener, Activity activity) {
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -1206,8 +1208,8 @@ public class HttpManager {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                byte[] data = error.networkResponse.data;
-                String str = new String(data);
+                //byte[] data = error.networkResponse.data;
+                //String str = new String(data);
                 listener.onException(error.getMessage());
             }
         }) {
@@ -1216,7 +1218,7 @@ public class HttpManager {
 
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("methodName", Constants.USER_UPUSERINFOMATION);
-                params.put("parames", JsonManager.userUpuserinformation(nick_name));
+                params.put("parames", JsonManager.userUpuserinformation(user_name, strxgname, strzhi));
                 return params;
             }
         };

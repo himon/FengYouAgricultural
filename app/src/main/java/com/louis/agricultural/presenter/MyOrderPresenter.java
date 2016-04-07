@@ -28,7 +28,7 @@ public class MyOrderPresenter extends UserLosePresenter<IMyOrderAView> implement
     public void onSuccess(int event_tag, BaseEntity data) {
         switch (event_tag){
             case Constants.UPDATE_ORDER_LISTENER:
-
+                mIMyOrderAView.setUpdateOrderSuccess(data);
                 break;
         }
     }

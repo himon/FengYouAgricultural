@@ -54,7 +54,11 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
             left.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    EventBus.getDefault().post(new MyOrderEvent("pay"));
+                    //EventBus.getDefault().post(new MyOrderEvent("pay"));
+                    MyOrderEvent event = new MyOrderEvent("update_pay");
+                    event.setOrderId(orderEntity.getId());
+                    event.setStatus("2");
+                    EventBus.getDefault().post(event);
                 }
             });
         } else if ("2".equals(orderEntity.getStatus()) && "2".equals(orderEntity.getPayment_status())) {

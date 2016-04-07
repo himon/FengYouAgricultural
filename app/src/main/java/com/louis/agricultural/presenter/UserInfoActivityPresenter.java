@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.text.TextUtils;
 
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.presenter.UserLosePresenter;
@@ -33,10 +34,13 @@ public class UserInfoActivityPresenter extends UserLosePresenter<IUserInfoView> 
     public void onSuccess(int event_tag, BaseEntity data) {
         switch (event_tag) {
             case Constants.UPLOAD_IMG_LISTENER:
-                mIUserInfoView.updateSuccess(data);
+                mIUserInfoView.updateSuccess(data, "img");
                 break;
             case Constants.GET_USERIMG_LISTENER:
                 mIUserInfoView.setUserImg(data);
+                break;
+            case Constants.USER_UPUSERINFOMATION_LISTENER:
+                mIUserInfoView.updateSuccess(data, "date");
                 break;
         }
 
@@ -57,5 +61,12 @@ public class UserInfoActivityPresenter extends UserLosePresenter<IUserInfoView> 
             String base64 = Base64Utils.bitmapToBase64(bitmap);
             mUserInfoActivityMode.uploadImg(user_id, base64, this);
         }
+    }
+
+    public void userUpuserinformation(String user_id, String nick_name, String strxgname) {
+        if (TextUtils.isEmpty(nick_name)) {
+            return;
+        }
+        mUserInfoActivityMode.userUpuserinformation(user_id, strxgname, nick_name, this);
     }
 }

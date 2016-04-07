@@ -31,4 +31,9 @@ public class UserInfoactivityModeImpl extends BaseMode implements UserInfoActivi
     public void uploadImg(String user_id, String images, UserLoseMultiLoadedListener listener) {
         mManager.uploadImg(user_id, images, listener, mActivity);
     }
+
+    @Override
+    public void userUpuserinformation(String user_id, String strxgname, String nick_name, UserLoseMultiLoadedListener listener) {
+        mManager.userUpuserinformation(user_id, strxgname, nick_name, listener, mActivity);
+    }
 }

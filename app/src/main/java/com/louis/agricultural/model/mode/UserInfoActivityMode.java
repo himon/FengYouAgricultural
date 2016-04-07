@@ -12,4 +12,6 @@ public interface UserInfoActivityMode {
     void getUserImg(String user_id, UserLoseMultiLoadedListener listener);
 
     void uploadImg(String user_id, String base64, UserLoseMultiLoadedListener listener);
+
+    void userUpuserinformation(String user_id, String strxgname, String nick_name, UserLoseMultiLoadedListener listener);
 }
