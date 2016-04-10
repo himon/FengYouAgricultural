@@ -80,7 +80,7 @@ public class MainActivity extends BasicActivity {
 
         mFengyouFragment = new WebViewFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.MESSAGE_EXTRA_KEY, "http://www.qq.com");
+        bundle.putString(Constants.MESSAGE_EXTRA_KEY, "http://115.28.134.18:8087/web/activity_show.aspx?id=113");
         mFengyouFragment.setArguments(bundle);
         mHomeFragment = new HomeFragment();
         mClassifyFragment = new ClassifyFragment();
@@ -183,6 +183,7 @@ public class MainActivity extends BasicActivity {
     }
 
     private void initEvent() {
+        mIndicatorFengyou.setOnClickListener(this);
         mIndicatorHome.setOnClickListener(this);
         mIndicatorClassify.setOnClickListener(this);
         mIndicatorShopping.setOnClickListener(this);

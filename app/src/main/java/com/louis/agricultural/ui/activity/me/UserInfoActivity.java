@@ -103,10 +103,8 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
 
         mTvNickName.setText(mUser.get_nick_name());
         mTvSex.setText(mUser.get_sex());
-        if (mUser.get_birthday() != null) {
-//            SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日");
-//            String date = format.format(mUser.get_birthday());
-//            mTvDate.setText(date);
+        if (mUser.get_birthday1() != null) {
+            mTvDate.setText(mUser.get_birthday1());
         }
     }
 
@@ -151,9 +149,9 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                mTvDate.setText(year + "年" + (monthOfYear + 1) + "月" + dayOfMonth + "日");
-
-                mPresenter.userUpuserinformation(mUser.get_id(), year + "-" + ((monthOfYear + 1) < 10 ? "0" + (monthOfYear + 1) : (monthOfYear + 1)) + "-" + (dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth), "birthday");
+                String date = year + "-" + ((monthOfYear + 1) < 10 ? "0" + (monthOfYear + 1) : (monthOfYear + 1)) + "-" + (dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth);
+                mTvDate.setText(date);
+                mPresenter.userUpuserinformation(mUser.get_id(), date, "birthday");
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
@@ -212,6 +210,8 @@ public class UserInfoActivity extends MVPBaseActivity<IUserInfoView, UserInfoAct
         if ("img".equals(type)) {
             mPresenter.getUserImg(mUser.get_id());
         } else {
+            mUser.set_birthday(mTvDate.getText().toString());
+            mUser.set_birthday1(mTvDate.getText().toString());
         }
     }
 

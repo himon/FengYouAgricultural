@@ -47,6 +47,7 @@ public class UserEntity extends BaseEntity {
         private String _area;
         private String _avatar;
         private String _birthday;
+        private String _birthday1;
         private String _email;
         private int _exp;
         private int _group_id;
@@ -240,6 +241,14 @@ public class UserEntity extends BaseEntity {
 
         public String get_user_name() {
             return _user_name;
+        }
+
+        public String get_birthday1() {
+            return _birthday1;
+        }
+
+        public void set_birthday1(String _birthday1) {
+            this._birthday1 = _birthday1;
         }
     }
 }

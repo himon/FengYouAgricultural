@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -337,12 +338,16 @@ public class JsonManager {
             JSONArray goods = new JSONArray();
             for (ShoppingCartEntity.ResultEntity item : list) {
                 JSONObject good = new JSONObject();
+
+                String price = item.getSell_price().toString();
+                String realPrice = item.getSell_price().multiply(new BigDecimal(item.getSum())).toString();
+
                 good.put("sum", item.getSum());
                 good.put("goods_id", item.getGoods_id());
-                good.put("goods_price", item.getSell_price());
-                good.put("real_price", item.getSell_price());
-                good.put("spec_text", "");
-                good.put("goods_no", item.getGoods_no());
+                good.put("goods_price", price.substring(0, price.length() - 1));
+                good.put("real_price", realPrice.substring(0, realPrice.length() - 1));
+                good.put("spec_text", "规格描述");
+                good.put("goods_no", item.getId());
                 goods.put(good);
             }
             object.put("goods", goods);
