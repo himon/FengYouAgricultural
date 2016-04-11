@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -57,6 +58,8 @@ public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, Con
     TextView mTvTotal;
     @Bind(R.id.btn_buy)
     Button mBtnBuy;
+    @Bind(R.id.rg_pay_type)
+    RadioGroup mRgPay;
     @Bind(R.id.rb_line_pay)
     RadioButton mRbLinePay;
     @Bind(R.id.rb_arrive_pay)
@@ -130,6 +133,7 @@ public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, Con
             });
             mListView.setAdapter(mAdapter);
         }
+        mRgPay.check(R.id.rb_line_pay);
     }
 
     @Override

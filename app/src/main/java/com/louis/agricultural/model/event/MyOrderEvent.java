@@ -9,6 +9,8 @@ public class MyOrderEvent {
 
     private String orderId;
 
+    private String orderGoodsId;
+
     private String status;
 
     public String getMsg() {
@@ -33,6 +35,14 @@ public class MyOrderEvent {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getOrderGoodsId() {
+        return orderGoodsId;
+    }
+
+    public void setOrderGoodsId(String orderGoodsId) {
+        this.orderGoodsId = orderGoodsId;
     }
 
     public MyOrderEvent(String msg) {

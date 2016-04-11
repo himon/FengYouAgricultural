@@ -138,6 +138,11 @@ public interface Constants {
      */
     String UPDATE_ORDER = "update_order";
 
+    /**
+     * 添加评论
+     */
+    String ADD_GOODS_COMMENT = "add_goods_comment";
+
 
     /** 获取数据成功回调的key **/
     /**
@@ -256,6 +261,11 @@ public interface Constants {
      * 修改订单信息
      */
     int UPDATE_ORDER_LISTENER = 0x10029;
+
+    /**
+     * 添加评论
+     */
+    int ADD_GOODS_COMMENT_LISTENER = 0x10030;
 
 
     String MESSAGE_EXTRA_KEY = "message_extra_key";

@@ -69,13 +69,9 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
             right.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    MyOrderEvent event = new MyOrderEvent("update");
-//                    event.setOrderId(orderEntity.getId());
-//                    event.setStatus("3");
-//                    EventBus.getDefault().post(event);
-                    MyOrderEvent event = new MyOrderEvent("comment");
+                    MyOrderEvent event = new MyOrderEvent("update");
                     event.setOrderId(orderEntity.getId());
-
+                    event.setStatus("3");
                     EventBus.getDefault().post(event);
                 }
             });
@@ -89,7 +85,8 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
                 @Override
                 public void onClick(View v) {
                     MyOrderEvent event = new MyOrderEvent("comment");
-                    event.setOrderId(orderEntity.getId());
+                    event.setOrderId(orderEntity.getOrder_no());
+                    event.setOrderGoodsId(orderEntity.getId());
                     EventBus.getDefault().post(event);
                 }
             });

@@ -13,6 +13,7 @@ import com.louis.agricultural.model.entities.AnnouncementEntity;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.ClassifyEntity;
 import com.louis.agricultural.model.entities.DistributionEntity;
+import com.louis.agricultural.model.entities.OrderDetailEntity;
 import com.louis.agricultural.model.entities.OrderEntity;
 import com.louis.agricultural.model.entities.ProductDetailEntity;
 import com.louis.agricultural.model.entities.ProductEntity;
@@ -962,8 +963,8 @@ public class HttpManager {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                byte[] data = error.networkResponse.data;
-                String str = new String(data);
+//                byte[] data = error.networkResponse.data;
+//                String str = new String(data);
                 listener.onException(error.getMessage());
             }
         }) {
@@ -1219,6 +1220,72 @@ public class HttpManager {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("methodName", Constants.USER_UPUSERINFOMATION);
                 params.put("parames", JsonManager.userUpuserinformation(user_name, strxgname, strzhi));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, activity);
+    }
+
+    public void addGoodsComment(final String goods_id, final String user_id, final String user_name, final String comment, final String order_goods_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+
+            @Override
+            public void onResponse(BaseEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.ADD_GOODS_COMMENT_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.ADD_GOODS_COMMENT);
+                params.put("parames", JsonManager.addGoodsComment(goods_id, user_id, user_name, comment, order_goods_id));
+                return params;
+            }
+        };
+        RequestManager.addRequest(request, activity);
+    }
+
+    public void getOrderShow(final String order_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+        GsonRequest<OrderDetailEntity> request = new GsonRequest<OrderDetailEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                OrderDetailEntity.class, null, new Response.Listener<OrderDetailEntity>() {
+
+            @Override
+            public void onResponse(OrderDetailEntity response) {
+                if (response.isSuccess()) {
+                    listener.onSuccess(Constants.GET_ORDER_SHOW_LISTENER, response);
+                } else {
+                    listener.onError(response.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
+                listener.onException(error.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("methodName", Constants.GET_ORDER_SHOW);
+                params.put("parames", JsonManager.getOrderShow(order_id));
                 return params;
             }
         };

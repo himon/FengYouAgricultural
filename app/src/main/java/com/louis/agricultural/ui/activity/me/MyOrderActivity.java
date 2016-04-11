@@ -18,6 +18,7 @@ import com.louis.agricultural.presenter.MyOrderPresenter;
 import com.louis.agricultural.ui.adapter.TabAdapter;
 import com.louis.agricultural.ui.fragment.MyOrderFragment;
 import com.louis.agricultural.ui.view.IMyOrderAView;
+import com.louis.agricultural.utils.ShowToast;
 import com.viewpagerindicator.UnderlinePageIndicator;
 
 import java.util.ArrayList;
@@ -178,6 +179,7 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
         } else if ("comment".equals(event.getMsg())) {
             Intent intent = new Intent(this, CommentActivity.class);
             intent.putExtra(Constants.MESSAGE_EXTRA_KEY, event.getOrderId());
+            intent.putExtra(Constants.MESSAGE_EXTRA_KEY2, event.getOrderGoodsId());
             startActivity(intent);
         }
     }
@@ -191,6 +193,7 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
 
     @Override
     public void setUpdateOrderSuccess(BaseEntity data) {
+        ShowToast.Short(data.getMessage());
         int currentItem = mViewPager.getCurrentItem();
         MyOrderFragment fragment = (MyOrderFragment) mFragments.get(currentItem);
         fragment.refresh();

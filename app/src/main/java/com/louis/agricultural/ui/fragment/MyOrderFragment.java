@@ -18,6 +18,7 @@ import com.louis.agricultural.base.fragment.MVPBaseFragment;
 import com.louis.agricultural.model.entities.OrderEntity;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.presenter.MyOrderFragmentPresenter;
+import com.louis.agricultural.ui.activity.me.OrderDetailActivity;
 import com.louis.agricultural.ui.adapter.MyOrderAdapter;
 import com.louis.agricultural.ui.view.IMyOrderView;
 import com.louis.agricultural.view.GetMoreListView;
@@ -142,7 +143,9 @@ public class MyOrderFragment extends MVPBaseFragment<IMyOrderView, MyOrderFragme
     }
 
     private void toDetail(OrderEntity.ResultEntity entity) {
-
+        Intent intent = new Intent(getActivity(), OrderDetailActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, entity.getId());
+        startActivity(intent);
     }
 
     @Override

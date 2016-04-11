@@ -437,4 +437,38 @@ public class JsonManager {
         }
         return object.toString();
     }
+
+    /**
+     * 添加评论
+     *
+     * @param goods_id
+     * @param user_id
+     * @param user_name
+     * @param comment
+     * @param order_goods_id
+     * @return
+     */
+    public static String addGoodsComment(String goods_id, String user_id, String user_name, String comment, String order_goods_id) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("goods_id", goods_id);
+            object.put("user_id", user_id);
+            object.put("user_name", user_name);
+            object.put("comment", comment);
+            object.put("order_goods_id", order_goods_id);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
+
+    public static String getOrderShow(String order_id) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("order_id", order_id);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
 }

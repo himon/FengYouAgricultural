@@ -263,6 +263,7 @@
                 android:textColor="@color/home_tab_font_black" />
 
             <Button
+                android:id="@+id/btn_comment"
                 android:layout_width="100dp"
                 android:layout_height="45dp"
                 android:background="@color/button_yellow_bg"
