@@ -31,10 +31,17 @@ public class OrderDetailActivityPresenter extends UserLosePresenter<IOrderDetail
             case Constants.GET_ORDER_SHOW_LISTENER:
                 mIOrderDetailView.setData((OrderDetailEntity)data);
                 break;
+            case Constants.UPDATE_ORDER_LISTENER:
+                mIOrderDetailView.setUpdateOrderSuccess(data);
+                break;
         }
     }
 
     public void getOrderShow(String order_id) {
         mOrderDetailActivityMode.getOrderShow(order_id, this);
+    }
+
+    public void updateOrder(String orderId, String strxgname, String strzhi) {
+        mOrderDetailActivityMode.updateOrder(orderId, strxgname, strzhi, this);
     }
 }

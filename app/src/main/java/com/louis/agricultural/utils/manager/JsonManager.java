@@ -454,7 +454,7 @@ public class JsonManager {
             object.put("goods_id", goods_id);
             object.put("user_id", user_id);
             object.put("user_name", user_name);
-            object.put("comment", comment);
+            object.put("conment", comment);
             object.put("order_goods_id", order_goods_id);
         } catch (JSONException e) {
             e.printStackTrace();

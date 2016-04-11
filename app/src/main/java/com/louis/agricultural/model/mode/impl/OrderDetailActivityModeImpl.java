@@ -21,4 +21,9 @@ public class OrderDetailActivityModeImpl extends BaseMode implements OrderDetail
     public void getOrderShow(String order_id, UserLoseMultiLoadedListener listener) {
         mManager.getOrderShow(order_id, listener, mActivity);
     }
+
+    @Override
+    public void updateOrder(String orderId, String strxgname, String strzhi, UserLoseMultiLoadedListener listener) {
+        mManager.updateOrder(orderId, strxgname, strzhi, listener, mActivity);
+    }
 }

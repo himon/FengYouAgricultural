@@ -1,5 +1,6 @@
 package com.louis.agricultural.ui.view;
 
+import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.OrderDetailEntity;
 
 /**
@@ -7,4 +8,6 @@ import com.louis.agricultural.model.entities.OrderDetailEntity;
  */
 public interface IOrderDetailView {
     void setData(OrderDetailEntity data);
+
+    void setUpdateOrderSuccess(BaseEntity data);
 }

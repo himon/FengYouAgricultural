@@ -144,7 +144,7 @@ public class MyOrderFragment extends MVPBaseFragment<IMyOrderView, MyOrderFragme
 
     private void toDetail(OrderEntity.ResultEntity entity) {
         Intent intent = new Intent(getActivity(), OrderDetailActivity.class);
-        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, entity.getId());
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, entity);
         startActivity(intent);
     }
 

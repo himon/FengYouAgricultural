@@ -1,5 +1,8 @@
 package com.louis.agricultural.model.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
@@ -62,7 +65,7 @@ public class OrderEntity extends BaseEntity {
         return result;
     }
 
-    public static class ResultEntity {
+    public static class ResultEntity implements Parcelable {
         private String row_number;
         private String id;
         private String order_no;
@@ -378,5 +381,100 @@ public class OrderEntity extends BaseEntity {
         public String getComplete_time() {
             return complete_time;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.row_number);
+            dest.writeString(this.id);
+            dest.writeString(this.order_no);
+            dest.writeString(this.trade_no);
+            dest.writeString(this.user_id);
+            dest.writeString(this.user_name);
+            dest.writeString(this.payment_id);
+            dest.writeString(this.payment_fee);
+            dest.writeString(this.payment_status);
+            dest.writeString(this.payment_time);
+            dest.writeString(this.express_id);
+            dest.writeString(this.express_no);
+            dest.writeString(this.express_fee);
+            dest.writeString(this.express_status);
+            dest.writeString(this.express_time);
+            dest.writeString(this.accept_name);
+            dest.writeString(this.post_code);
+            dest.writeString(this.telphone);
+            dest.writeString(this.mobile);
+            dest.writeString(this.email);
+            dest.writeString(this.area);
+            dest.writeString(this.address);
+            dest.writeString(this.message);
+            dest.writeString(this.remark);
+            dest.writeString(this.is_invoice);
+            dest.writeString(this.invoice_title);
+            dest.writeString(this.invoice_taxes);
+            dest.writeString(this.payable_amount);
+            dest.writeString(this.real_amount);
+            dest.writeString(this.order_amount);
+            dest.writeString(this.point);
+            dest.writeString(this.status);
+            dest.writeString(this.add_time);
+            dest.writeString(this.confirm_time);
+            dest.writeString(this.complete_time);
+        }
+
+        public ResultEntity() {
+        }
+
+        protected ResultEntity(Parcel in) {
+            this.row_number = in.readString();
+            this.id = in.readString();
+            this.order_no = in.readString();
+            this.trade_no = in.readString();
+            this.user_id = in.readString();
+            this.user_name = in.readString();
+            this.payment_id = in.readString();
+            this.payment_fee = in.readString();
+            this.payment_status = in.readString();
+            this.payment_time = in.readString();
+            this.express_id = in.readString();
+            this.express_no = in.readString();
+            this.express_fee = in.readString();
+            this.express_status = in.readString();
+            this.express_time = in.readString();
+            this.accept_name = in.readString();
+            this.post_code = in.readString();
+            this.telphone = in.readString();
+            this.mobile = in.readString();
+            this.email = in.readString();
+            this.area = in.readString();
+            this.address = in.readString();
+            this.message = in.readString();
+            this.remark = in.readString();
+            this.is_invoice = in.readString();
+            this.invoice_title = in.readString();
+            this.invoice_taxes = in.readString();
+            this.payable_amount = in.readString();
+            this.real_amount = in.readString();
+            this.order_amount = in.readString();
+            this.point = in.readString();
+            this.status = in.readString();
+            this.add_time = in.readString();
+            this.confirm_time = in.readString();
+            this.complete_time = in.readString();
+        }
+
+        public static final Parcelable.Creator<ResultEntity> CREATOR = new Parcelable.Creator<ResultEntity>() {
+            public ResultEntity createFromParcel(Parcel source) {
+                return new ResultEntity(source);
+            }
+
+            public ResultEntity[] newArray(int size) {
+                return new ResultEntity[size];
+            }
+        };
     }
 }

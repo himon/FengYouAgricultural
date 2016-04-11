@@ -1,11 +1,14 @@
 package com.louis.agricultural.ui.adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.louis.agricultural.R;
 import com.louis.agricultural.model.entities.OrderEntity;
 import com.louis.agricultural.base.adapter.CommonAdapter;
@@ -35,6 +38,7 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
         TextView type = holder.getView(R.id.tv_type);
         Button right = holder.getView(R.id.btn_cancel_order);
         Button left = holder.getView(R.id.btn_pay);
+        ImageView imageView = holder.getView(R.id.iv_img);
 
         if ("2".equals(orderEntity.getStatus()) && "1".equals(orderEntity.getPayment_status())) {
             type.setText("待付款");
@@ -100,6 +104,8 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
                 }
             });
         }
-        holder.setText(R.id.tv_order_no, "交易单" + orderEntity.getOrder_no()).setText(R.id.tv_desc, "共 " + orderEntity.getRow_number() + " 件商品  合计:￥" + orderEntity.getOrder_amount() + "(含运费￥" + orderEntity.getPayment_fee() + ")");
+        holder.setText(R.id.tv_order_no, "交易单" + orderEntity.getOrder_no())
+                .setText(R.id.tv_desc, "共 " + orderEntity.getRow_number() + " 件商品  合计:￥" + orderEntity.getOrder_amount() + "(含运费￥" + orderEntity.getReal_amount() + ")")
+        .setText(R.id.tv_num, "x" + orderEntity.getRow_number());
     }
 }

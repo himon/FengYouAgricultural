@@ -8,4 +8,6 @@ import com.louis.agricultural.presenter.OrderDetailActivityPresenter;
  */
 public interface OrderDetailActivityMode {
     void getOrderShow(String order_id, UserLoseMultiLoadedListener listener);
+
+    void updateOrder(String orderId, String strxgname, String strzhi, UserLoseMultiLoadedListener listener);
 }
