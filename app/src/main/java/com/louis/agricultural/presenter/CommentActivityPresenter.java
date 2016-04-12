@@ -3,6 +3,7 @@ package com.louis.agricultural.presenter;
 import android.app.Activity;
 import android.text.TextUtils;
 
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.presenter.UserLosePresenter;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
 import com.louis.agricultural.model.entities.BaseEntity;
@@ -28,7 +29,11 @@ public class CommentActivityPresenter extends UserLosePresenter<ICommentView> im
 
     @Override
     public void onSuccess(int event_tag, BaseEntity data) {
-
+        switch (event_tag){
+            case Constants.ADD_GOODS_COMMENT_LISTENER:
+                mICommentView.setCommnetSuccess(data);
+                break;
+        }
     }
 
 

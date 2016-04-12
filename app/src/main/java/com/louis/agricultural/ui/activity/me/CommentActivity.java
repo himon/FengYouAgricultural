@@ -11,9 +11,11 @@ import com.louis.agricultural.base.activity.BaseActivity;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.app.FYApplication;
+import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.presenter.CommentActivityPresenter;
 import com.louis.agricultural.ui.view.ICommentView;
+import com.louis.agricultural.utils.ShowToast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -66,8 +68,8 @@ public class CommentActivity extends MVPBaseActivity<ICommentView, CommentActivi
         mUser = FYApplication.getContext().getUserEntity().getResult();
         Intent intent = getIntent();
         if (intent != null) {
-            mGoodsId = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY);
-            mOrderGoodsId = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY2);
+            mOrderGoodsId = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY);
+            mGoodsId = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY2);
         }
     }
 
@@ -78,5 +80,11 @@ public class CommentActivity extends MVPBaseActivity<ICommentView, CommentActivi
                 mPresenter.comment(mGoodsId, mUser.get_id(), mUser.get_user_name(), mEtComment.getText().toString(), mOrderGoodsId);
                 break;
         }
+    }
+
+    @Override
+    public void setCommnetSuccess(BaseEntity data) {
+        ShowToast.Short(data.getMessage());
+        back();
     }
 }

@@ -124,34 +124,15 @@ public class OrderDetailActivity extends MVPBaseActivity<IOrderDetailView, Order
                 } else if ("2".equals(orderEntity.getOrder_status()) && "2".equals(orderEntity.getPayment_status())) {
 
                 } else if ("3".equals(orderEntity.getOrder_status())) {
-//                    MyOrderEvent event = new MyOrderEvent("update");
-//                    event.setOrderId(orderEntity.getId());
-//                    event.setStatus("5");
-//                    EventBus.getDefault().post(event);
-
                     mPresenter.updateOrder(mOrder.getId(), "status", "5");
                 }
                 break;
             case R.id.btn_right:
                 if ("2".equals(orderEntity.getOrder_status()) && "1".equals(orderEntity.getPayment_status())) {
-//                    MyOrderEvent event = new MyOrderEvent("update");
-//                    event.setOrderId(orderEntity.getId());
-//                    event.setStatus("4");
-//                    EventBus.getDefault().post(event);
-
                     mPresenter.updateOrder(mOrder.getId(), "status", "4");
                 } else if ("2".equals(orderEntity.getOrder_status()) && "2".equals(orderEntity.getPayment_status())) {
-//                    MyOrderEvent event = new MyOrderEvent("update");
-//                    event.setOrderId(orderEntity.getId());
-//                    event.setStatus("3");
-//                    EventBus.getDefault().post(event);
-
                     mPresenter.updateOrder(mOrder.getId(), "status", "3");
                 } else if ("3".equals(orderEntity.getOrder_status())) {
-//                    MyOrderEvent event = new MyOrderEvent("comment");
-//                    event.setOrderId(orderEntity.getOrder_id());
-//                    event.setOrderGoodsId(orderEntity.getId());
-
                     Intent intent = new Intent(this, CommentActivity.class);
                     intent.putExtra(Constants.MESSAGE_EXTRA_KEY, orderEntity.getId());
                     intent.putExtra(Constants.MESSAGE_EXTRA_KEY2, orderEntity.getArticle_id());
@@ -170,7 +151,7 @@ public class OrderDetailActivity extends MVPBaseActivity<IOrderDetailView, Order
         mTvAddress.setText(mOrder.getArea() + mOrder.getAddress());
         mTvMobile.setText(mOrder.getTelphone());
         mTvName.setText(mOrder.getUser_name());
-        mTvNum.setText(mOrder.getRow_number());
+        mTvNum.setText("x" + mOrder.getRow_number());
         mTvTitle.setText(orderEntity.getGoods_title());
         mTvPrice.setText(orderEntity.getGoods_price());
         mTvFee.setText(mOrder.getPayment_fee());

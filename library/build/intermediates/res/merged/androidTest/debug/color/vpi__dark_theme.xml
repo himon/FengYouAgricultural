@@ -22,4 +22,4 @@
     <!--item android:state_activated="true" android:color="@color/vpi__bright_foreground_holo_dark"/-->
     <item android:color="@color/vpi__bright_foreground_holo_dark"/> <!-- not selected -->
 </selector>
-<!-- From: file:/Users/lc/code/FengYouAgricultural/library/res/color/vpi__dark_theme.xml --><!-- From: file:/Users/lc/code/FengYouAgricultural/library/build/intermediates/bundles/debug/res/color/vpi__dark_theme.xml -->
+<!-- From: file:/E:/lei/github/FengYouAgricultural/library/res/color/vpi__dark_theme.xml --><!-- From: file:/E:/lei/github/FengYouAgricultural/library/build/intermediates/bundles/debug/res/color/vpi__dark_theme.xml -->
