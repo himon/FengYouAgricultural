@@ -34,6 +34,7 @@ public abstract class BaseActivity extends AutoLayoutActivity implements View.On
     protected TextView mNavTitle;
 
     protected Context mContext;
+//    private AVLoadingIndicatorView mProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,17 @@ public abstract class BaseActivity extends AutoLayoutActivity implements View.On
     // Common Operation
     ///////////////////////////////////////////////////////////////////////////
 
+
+//    public void startAnim(){
+//        if(mProgress == null){
+//            mProgress = new AVLoadingIndicatorView(this);
+//        }
+//        mProgress.setVisibility(View.VISIBLE);
+//    }
+//
+//    public void stopAnim(){
+//        mProgress.setVisibility(View.GONE);
+//    }
 
     @Override
     protected void onDestroy() {

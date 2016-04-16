@@ -52,6 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_name"
             android:layout_marginTop="7dp"
+            android:maxLines="2"
+            android:ellipsize="end"
             android:text="上海市浦东新区长青路579弄6号602室"
             android:textColor="@color/main_search_font_gray"/>
 

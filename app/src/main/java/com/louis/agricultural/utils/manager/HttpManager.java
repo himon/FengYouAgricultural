@@ -655,8 +655,8 @@ public class HttpManager {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                byte[] data = error.networkResponse.data;
-                String str = new String(data);
+//                byte[] data = error.networkResponse.data;
+//                String str = new String(data);
                 listener.onException(error.getMessage());
             }
         }) {

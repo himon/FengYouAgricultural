@@ -89,6 +89,7 @@ public class LoginActivity extends MVPBaseActivity<ILoginView, LoginPresenter> i
                 toFindPwd();
                 break;
             case R.id.btn_login:
+
                 mPresenter.login(mEtName.getText().toString().trim(), mEtPwd.getText().toString().trim());
                 break;
         }

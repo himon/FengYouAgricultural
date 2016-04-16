@@ -31,6 +31,7 @@
             android:background="@null"
             android:cursorVisible="true"
             android:hint="搜索你想要的商品"
+            android:imeOptions="actionSearch"
             android:textColor="@color/main_search_font_gray"/>
 
     </LinearLayout>
