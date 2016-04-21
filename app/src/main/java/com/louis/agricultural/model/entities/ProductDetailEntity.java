@@ -91,14 +91,14 @@ public class ProductDetailEntity extends BaseEntity {
         }
 
         public static class AlbumEntity implements Parcelable {
-            private String thumb_path;
+            private String original_path;
 
-            public void setThumb_path(String thumb_path) {
-                this.thumb_path = thumb_path;
+            public String getOriginal_path() {
+                return original_path;
             }
 
-            public String getThumb_path() {
-                return thumb_path;
+            public void setOriginal_path(String original_path) {
+                this.original_path = original_path;
             }
 
             @Override
@@ -108,14 +108,14 @@ public class ProductDetailEntity extends BaseEntity {
 
             @Override
             public void writeToParcel(Parcel dest, int flags) {
-                dest.writeString(this.thumb_path);
+                dest.writeString(this.original_path);
             }
 
             public AlbumEntity() {
             }
 
             protected AlbumEntity(Parcel in) {
-                this.thumb_path = in.readString();
+                this.original_path = in.readString();
             }
 
             public static final Parcelable.Creator<AlbumEntity> CREATOR = new Parcelable.Creator<AlbumEntity>() {

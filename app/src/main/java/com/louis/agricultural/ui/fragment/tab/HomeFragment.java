@@ -420,6 +420,10 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
 
         mRmList = data.getResult();
 
+        if(mRmList == null){
+            return;
+        }
+
         ProductEntity.ResultEntity entity1 = mRmList.get(0);
         mTvOrderName1.setText(entity1.getTitle());
         mTvOrderPrice1.setText("￥" + entity1.getSell_price());

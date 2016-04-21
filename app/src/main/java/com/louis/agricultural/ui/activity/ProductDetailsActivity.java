@@ -142,7 +142,7 @@ public class ProductDetailsActivity extends MVPBaseActivity<IProductDetailsView,
         item.setGoods_id(mId);
         item.setGoods_no("");
         item.setGoods_no("");
-        item.setImg_url(mProductDetail.getAlbum().get(0).getThumb_path());
+        item.setImg_url(mProductDetail.getAlbum().get(0).getOriginal_path());
         item.setId("");
         item.setSell_price(new BigDecimal(mProductDetail.getSell_price()));
         item.setTitle(mProductDetail.getTitle());

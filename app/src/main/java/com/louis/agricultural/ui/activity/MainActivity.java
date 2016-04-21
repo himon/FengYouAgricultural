@@ -236,6 +236,8 @@ public class MainActivity extends BasicActivity {
             mViewPager.setCurrentItem(3, false);
         }else if("refresh_head_icon".equals(event.getMsg())){
             mMeFragment.refresh();
+        }else if("logout".equals(event.getMsg())){
+            mViewPager.setCurrentItem(1, false);
         }
     }
 

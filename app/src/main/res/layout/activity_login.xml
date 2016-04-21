@@ -29,7 +29,6 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:background="@null"
-            android:text="lingery"
             android:textColorHint="@color/radio_group_gray_bg"
             android:hint="用户名" />
 
@@ -57,7 +56,6 @@
             android:layout_weight="1"
             android:inputType="textPassword"
             android:background="@null"
-            android:text="222222"
             android:textColorHint="@color/radio_group_gray_bg"
             android:hint="密码" />
 

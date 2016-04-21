@@ -22,6 +22,7 @@ import com.louis.agricultural.model.entities.HomeAdImageEntity;
 import com.louis.agricultural.model.entities.ResultStringEntity;
 import com.louis.agricultural.model.entities.ShoppingAddressEntity;
 import com.louis.agricultural.model.entities.ShoppingCartEntity;
+import com.louis.agricultural.model.entities.SimpleEntity;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.net.GsonRequest;
 import com.louis.agricultural.net.RequestManager;
@@ -279,15 +280,15 @@ public class HttpManager {
      * @param activity
      */
     public void register(final String username, final String mobile, final String usertjr, final String password, final UserLoseMultiLoadedListener listener, Activity activity) {
-        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
-                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+        GsonRequest<SimpleEntity> request = new GsonRequest<SimpleEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                SimpleEntity.class, null, new Response.Listener<SimpleEntity>() {
 
             @Override
-            public void onResponse(BaseEntity response) {
+            public void onResponse(SimpleEntity response) {
                 if (response.isSuccess()) {
                     listener.onSuccess(Constants.USER_REGISTER_LISTENER, response);
                 } else {
-                    listener.onError(response.getMessage());
+                    listener.onError(response.getResult());
                 }
             }
         }, new Response.ErrorListener() {
@@ -572,8 +573,8 @@ public class HttpManager {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                //byte[] data = error.networkResponse.data;
-                //String str = new String(data);
+                byte[] data = error.networkResponse.data;
+                String str = new String(data);
                 listener.onException(error.getMessage());
             }
         }) {
@@ -906,15 +907,15 @@ public class HttpManager {
      * @param activity
      */
     public void addOrder(final String user_id, final String adress_id, final String message, final String user_name, final ArrayList<ShoppingCartEntity.ResultEntity> list, final UserLoseMultiLoadedListener listener, Activity activity) {
-        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
-                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+        GsonRequest<SimpleEntity> request = new GsonRequest<SimpleEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                SimpleEntity.class, null, new Response.Listener<SimpleEntity>() {
 
             @Override
-            public void onResponse(BaseEntity response) {
+            public void onResponse(SimpleEntity response) {
                 if (response.isSuccess()) {
                     listener.onSuccess(Constants.ADD_ORDER_LISTENER, response);
                 } else {
-                    listener.onError(response.getMessage());
+                    listener.onError(response.getResult());
                 }
             }
         }, new Response.ErrorListener() {

@@ -78,7 +78,7 @@ public class ProductFirstFragment extends BaseFragment implements View.OnClickLi
         mTvPrice.setText("￥" + mProductDetail.getSell_price());
         String content = "￥299.00";
         mTvOldPrice.setText(SpanUtil.strikethroughSpan(content, 0, content.length()));
-        ImageLoadProxy.displayImage(mProductDetail.getAlbum().get(0).getThumb_path(), mIvImg, mOptions);
+        ImageLoadProxy.displayImage(mProductDetail.getAlbum().get(0).getOriginal_path(), mIvImg, mOptions);
     }
 
     @Override
