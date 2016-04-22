@@ -102,6 +102,15 @@ public class OrderEntity extends BaseEntity {
         private String confirm_time;
         private String complete_time;
 
+        private String article_id;
+        private String img_url;
+        private String quantity;
+        private String real_price;
+        private String goods_price;
+        private String Expr1;
+        private String goods_title;
+        private String order_goods_id;
+
         public void setRow_number(String row_number) {
             this.row_number = row_number;
         }
@@ -382,6 +391,71 @@ public class OrderEntity extends BaseEntity {
             return complete_time;
         }
 
+        public String getArticle_id() {
+            return article_id;
+        }
+
+        public void setArticle_id(String article_id) {
+            this.article_id = article_id;
+        }
+
+        public String getImg_url() {
+            return img_url;
+        }
+
+        public void setImg_url(String img_url) {
+            this.img_url = img_url;
+        }
+
+        public String getQuantity() {
+            return quantity;
+        }
+
+        public void setQuantity(String quantity) {
+            this.quantity = quantity;
+        }
+
+        public String getReal_price() {
+            return real_price;
+        }
+
+        public void setReal_price(String real_price) {
+            this.real_price = real_price;
+        }
+
+        public String getGoods_price() {
+            return goods_price;
+        }
+
+        public void setGoods_price(String goods_price) {
+            this.goods_price = goods_price;
+        }
+
+        public String getExpr1() {
+            return Expr1;
+        }
+
+        public void setExpr1(String expr1) {
+            Expr1 = expr1;
+        }
+
+        public String getGoods_title() {
+            return goods_title;
+        }
+
+        public void setGoods_title(String goods_title) {
+            this.goods_title = goods_title;
+        }
+
+        public String getOrder_goods_id() {
+            return order_goods_id;
+        }
+
+        public void setOrder_goods_id(String order_goods_id) {
+            this.order_goods_id = order_goods_id;
+        }
+
+
         @Override
         public int describeContents() {
             return 0;
@@ -424,6 +498,14 @@ public class OrderEntity extends BaseEntity {
             dest.writeString(this.add_time);
             dest.writeString(this.confirm_time);
             dest.writeString(this.complete_time);
+            dest.writeString(this.article_id);
+            dest.writeString(this.img_url);
+            dest.writeString(this.quantity);
+            dest.writeString(this.real_price);
+            dest.writeString(this.goods_price);
+            dest.writeString(this.Expr1);
+            dest.writeString(this.goods_title);
+            dest.writeString(this.order_goods_id);
         }
 
         public ResultEntity() {
@@ -465,6 +547,14 @@ public class OrderEntity extends BaseEntity {
             this.add_time = in.readString();
             this.confirm_time = in.readString();
             this.complete_time = in.readString();
+            this.article_id = in.readString();
+            this.img_url = in.readString();
+            this.quantity = in.readString();
+            this.real_price = in.readString();
+            this.goods_price = in.readString();
+            this.Expr1 = in.readString();
+            this.goods_title = in.readString();
+            this.order_goods_id = in.readString();
         }
 
         public static final Parcelable.Creator<ResultEntity> CREATOR = new Parcelable.Creator<ResultEntity>() {

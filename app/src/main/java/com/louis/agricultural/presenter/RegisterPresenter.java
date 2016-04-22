@@ -6,6 +6,7 @@ import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.presenter.UserLosePresenter;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
 import com.louis.agricultural.model.entities.BaseEntity;
+import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.mode.RegisterActivityMode;
 import com.louis.agricultural.model.mode.impl.RegisterActivityModeImpl;
 import com.louis.agricultural.ui.view.IRegisterView;
@@ -31,7 +32,7 @@ public class RegisterPresenter extends UserLosePresenter<IRegisterView> implemen
                 mIRegisterView.setExistsMobileResult(data);
                 break;
             case Constants.USER_REGISTER_LISTENER:
-                mIRegisterView.registerSuccess(data);
+                mIRegisterView.registerSuccess((UserEntity)data);
                 break;
         }
     }

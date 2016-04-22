@@ -2,6 +2,7 @@ package com.louis.agricultural.ui.activity.me;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
@@ -92,6 +93,7 @@ public class AddShoppingAddressActivity extends MVPBaseActivity<IAddShoppingAddr
 
     @Override
     protected void initData() {
+        waittingDialog();
         Intent intent = getIntent();
         if (intent != null) {
             mOper = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY);
@@ -106,21 +108,27 @@ public class AddShoppingAddressActivity extends MVPBaseActivity<IAddShoppingAddr
         }
         mUser = FYApplication.getContext().getUserEntity().getResult();
 
-        //初始化
-        mWindow = OptionsWindowHelper.builder(this, new OptionsWindowHelper.OnOptionsSelectListener() {
-            @Override
-            public void onOptionsSelect(String province, String city, String area) {
-                mTvArea.setText(province + city + area);
-                mProvince = province;
-                mCity = city;
-                mArea = area;
-            }
-        });
-
         mProvince = "河南";
         mCity = "洛阳";
         mArea = "西工区";
         mTvArea.setText(mProvince + mCity + mArea);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //初始化
+                mWindow = OptionsWindowHelper.builder(AddShoppingAddressActivity.this, new OptionsWindowHelper.OnOptionsSelectListener() {
+                    @Override
+                    public void onOptionsSelect(String province, String city, String area) {
+                        mTvArea.setText(province + city + area);
+                        mProvince = province;
+                        mCity = city;
+                        mArea = area;
+                    }
+                });
+                stopCusDialog();
+            }
+        }, 100);
     }
 
     @Override

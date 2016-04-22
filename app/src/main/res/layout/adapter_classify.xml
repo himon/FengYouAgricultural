@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:gravity="center_horizontal">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_classify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="热销产品"
+        android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
-        android:textColor="@color/main_search_font_gray"
-        android:layout_marginBottom="15dp"/>
+        android:padding="10dp"
+        android:text="热销产品"
+        android:textColor="@color/main_search_font_gray"/>
 
     <View
         android:id="@+id/view_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_margin="8dp"
-        android:background="@color/main_search_font_gray" />
+        android:background="@color/main_search_font_gray"/>
 
 </LinearLayout>

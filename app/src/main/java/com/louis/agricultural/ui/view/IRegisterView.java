@@ -1,6 +1,7 @@
 package com.louis.agricultural.ui.view;
 
 import com.louis.agricultural.model.entities.BaseEntity;
+import com.louis.agricultural.model.entities.UserEntity;
 
 /**
  * Created by lc on 16/3/1.
@@ -40,5 +41,5 @@ public interface IRegisterView {
      *
      * @param data
      */
-    void registerSuccess(BaseEntity data);
+    void registerSuccess(UserEntity data);
 }

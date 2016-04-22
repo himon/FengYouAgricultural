@@ -15,6 +15,7 @@ import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.utils.manager.ActivityManager;
 import com.louis.agricultural.utils.logger.LogLevel;
 import com.louis.agricultural.utils.logger.Logger;
+import com.louis.agricultural.view.CustomerProgress;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.Bind;
@@ -34,7 +35,8 @@ public abstract class BaseActivity extends AutoLayoutActivity implements View.On
     protected TextView mNavTitle;
 
     protected Context mContext;
-//    private AVLoadingIndicatorView mProgress;
+
+    private CustomerProgress mCustomerProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,18 @@ public abstract class BaseActivity extends AutoLayoutActivity implements View.On
         mNavTitle.setText(title);
         mNavLeft.setOnClickListener(this);
         mRlLeft.setOnClickListener(this);
+    }
+
+    public void waittingDialog() {
+        setTheme(android.R.style.Theme);
+        mCustomerProgress = new CustomerProgress(this, "进行中,请稍后");
+        mCustomerProgress.show();
+    }
+
+    public void stopCusDialog() {
+        if (mCustomerProgress != null) {
+            mCustomerProgress.dismiss();
+        }
     }
 
     ///////////////////////////////////////////////////////////////////////////

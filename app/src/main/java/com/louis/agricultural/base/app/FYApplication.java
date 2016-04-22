@@ -68,5 +68,9 @@ public class FYApplication extends Application {
                         .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
                         .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                         .build());
+
+        // 全局捕获异常
+        MyCrashHandler handler = MyCrashHandler.getInstance();
+        Thread.currentThread().setUncaughtExceptionHandler(handler);
     }
 }

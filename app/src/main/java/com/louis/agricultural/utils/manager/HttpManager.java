@@ -280,15 +280,15 @@ public class HttpManager {
      * @param activity
      */
     public void register(final String username, final String mobile, final String usertjr, final String password, final UserLoseMultiLoadedListener listener, Activity activity) {
-        GsonRequest<SimpleEntity> request = new GsonRequest<SimpleEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
-                SimpleEntity.class, null, new Response.Listener<SimpleEntity>() {
+        GsonRequest<UserEntity> request = new GsonRequest<UserEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                UserEntity.class, null, new Response.Listener<UserEntity>() {
 
             @Override
-            public void onResponse(SimpleEntity response) {
+            public void onResponse(UserEntity response) {
                 if (response.isSuccess()) {
                     listener.onSuccess(Constants.USER_REGISTER_LISTENER, response);
                 } else {
-                    listener.onError(response.getResult());
+                    listener.onError(response.getMessage());
                 }
             }
         }, new Response.ErrorListener() {
@@ -656,8 +656,8 @@ public class HttpManager {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-//                byte[] data = error.networkResponse.data;
-//                String str = new String(data);
+                //byte[] data = error.networkResponse.data;
+                //String str = new String(data);
                 listener.onException(error.getMessage());
             }
         }) {
@@ -1228,15 +1228,15 @@ public class HttpManager {
     }
 
     public void addGoodsComment(final String goods_id, final String user_id, final String user_name, final String comment, final String order_goods_id, final UserLoseMultiLoadedListener listener, Activity activity) {
-        GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
-                BaseEntity.class, null, new Response.Listener<BaseEntity>() {
+        GsonRequest<SimpleEntity> request = new GsonRequest<SimpleEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                SimpleEntity.class, null, new Response.Listener<SimpleEntity>() {
 
             @Override
-            public void onResponse(BaseEntity response) {
+            public void onResponse(SimpleEntity response) {
                 if (response.isSuccess()) {
                     listener.onSuccess(Constants.ADD_GOODS_COMMENT_LISTENER, response);
                 } else {
-                    listener.onError(response.getMessage());
+                    listener.onError(response.getResult());
                 }
             }
         }, new Response.ErrorListener() {

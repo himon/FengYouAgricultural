@@ -90,6 +90,10 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
     TextView mTvRxMore;
     @Bind(R.id.iv_rx_more)
     ImageView mIvRxMore;
+    @Bind(R.id.tv_tt_more)
+    TextView mTvTtMore;
+    @Bind(R.id.iv_tt_more)
+    ImageView mIvTtMore;
     @Bind(R.id.tv_name1)
     TextView mTvName1;
     @Bind(R.id.tv_desc1)
@@ -220,7 +224,7 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
         mEtSearch.setOnKeyListener(new View.OnKeyListener() {//输入完后按键盘上的搜索键【回车键改为了搜索键】
 
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER && KeyEvent.ACTION_DOWN == event.getAction()) {
                     //修改回车键功能
                     // 先隐藏键盘
                     ((InputMethodManager) getActivity().getSystemService(getActivity().INPUT_METHOD_SERVICE))
@@ -326,6 +330,10 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
             case R.id.iv_rx_more:
                 EventBus.getDefault().post(new LoginResultEvent("classify"));
                 break;
+            case R.id.tv_tt_more:
+            case R.id.iv_tt_more:
+                toMessage(1);
+                break;
         }
     }
 
@@ -417,10 +425,15 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
         mTvOrderOldPrice3.setText(ssb);
         mTvOrderOldPrice4.setText(ssb);
 
+        mTvOrderOldPrice1.setVisibility(View.GONE);
+        mTvOrderOldPrice2.setVisibility(View.GONE);
+        mTvOrderOldPrice3.setVisibility(View.GONE);
+        mTvOrderOldPrice4.setVisibility(View.GONE);
+
 
         mRmList = data.getResult();
 
-        if(mRmList == null){
+        if (mRmList == null) {
             return;
         }
 

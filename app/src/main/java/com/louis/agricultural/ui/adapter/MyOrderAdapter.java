@@ -89,8 +89,8 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
                 @Override
                 public void onClick(View v) {
                     MyOrderEvent event = new MyOrderEvent("comment");
-                    event.setOrderId(orderEntity.getOrder_no());
-                    event.setOrderGoodsId(orderEntity.getId());
+                    event.setOrderId(orderEntity.getId());
+                    event.setOrderGoodsId(orderEntity.getArticle_id());
                     EventBus.getDefault().post(event);
                 }
             });

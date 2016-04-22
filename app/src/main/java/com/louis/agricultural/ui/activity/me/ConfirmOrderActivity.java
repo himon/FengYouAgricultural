@@ -218,7 +218,12 @@ public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, Con
 
     @Override
     public void setDefaultAddress(ShoppingAddressEntity data) {
-        ShoppingAddressEntity.ResultEntity entity = data.getResult().get(0);
+        List<ShoppingAddressEntity.ResultEntity> result = data.getResult();
+        if(result == null || result.size() == 0){
+            mTvAddress.setText("");
+            return;
+        }
+        ShoppingAddressEntity.ResultEntity entity = result.get(0);
         mAddressId = entity.getId();
         mAddress = entity.getSheng() + entity.getShi() + entity.getQu() + entity.getXiangxi();
         mTvAddress.setText(mAddress);

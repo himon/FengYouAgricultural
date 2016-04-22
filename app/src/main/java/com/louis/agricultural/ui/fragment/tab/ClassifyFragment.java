@@ -91,7 +91,7 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
         mEtSearch.setOnKeyListener(new View.OnKeyListener() {//输入完后按键盘上的搜索键【回车键改为了搜索键】
 
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER && KeyEvent.ACTION_DOWN == event.getAction()) {
                     //修改回车键功能
                     // 先隐藏键盘
                     ((InputMethodManager) getActivity().getSystemService(getActivity().INPUT_METHOD_SERVICE))

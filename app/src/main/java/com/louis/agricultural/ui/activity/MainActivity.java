@@ -232,7 +232,8 @@ public class MainActivity extends BasicActivity {
             mShoppingCartFragment.refresh();
         } else if ("classify".equals(event.getMsg())) {
             mViewPager.setCurrentItem(2, false);
-        } else if ("Shopping".equals(event.getMsg())) {
+        }
+        else if ("Shopping".equals(event.getMsg())) {
             mViewPager.setCurrentItem(3, false);
         }else if("refresh_head_icon".equals(event.getMsg())){
             mMeFragment.refresh();

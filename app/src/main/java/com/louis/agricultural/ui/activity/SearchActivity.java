@@ -96,7 +96,8 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                ProductEntity.ResultEntity entity = (ProductEntity.ResultEntity) parent.getAdapter().getItem(position);
+                toGoodsDetail(entity.getId());
             }
         });
 
@@ -119,7 +120,7 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
     }
 
     private void getData() {
-        mPresenter.getSearchGoods("0", "生物", mOrder);
+        mPresenter.getSearchGoods("0", mSearch, mOrder);
     }
 
     private void initEvent() {
@@ -133,7 +134,7 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
         mEtSearch.setOnKeyListener(new View.OnKeyListener() {//输入完后按键盘上的搜索键【回车键改为了搜索键】
 
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER && KeyEvent.ACTION_DOWN == event.getAction()) {
                     //修改回车键功能
                     // 先隐藏键盘
                     ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
@@ -142,7 +143,8 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
                                             .getCurrentFocus()
                                             .getWindowToken(),
                                     InputMethodManager.HIDE_NOT_ALWAYS);
-                    //跳转到搜索结果界面
+                    mSearch = mEtSearch.getText().toString().trim();
+                    getData();
                 }
                 return false;
             }
@@ -153,10 +155,10 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     mOrder = "is_hot";
-                    mPresenter.getSearchGoods("0", "生物", mOrder);
+                    mPresenter.getSearchGoods("0", mSearch, mOrder);
                 } else {
                     mOrder = "id";
-                    mPresenter.getSearchGoods("0", "生物", mOrder);
+                    mPresenter.getSearchGoods("0", mSearch, mOrder);
                 }
             }
         });
@@ -170,6 +172,12 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
         }
     }
 
+    private void toGoodsDetail(String article_id) {
+        Intent intent = new Intent(this, ProductDetailsActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, article_id);
+        startActivity(intent);
+    }
+
     @Override
     protected void click(View view) {
         switch (view.getId()) {
@@ -179,11 +187,11 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
                 break;
             case R.id.ll_sum:
                 mOrder = "sum";
-                mPresenter.getSearchGoods("0", "生物", mOrder);
+                mPresenter.getSearchGoods("0", mSearch, mOrder);
                 break;
             case R.id.ll_price:
                 mOrder = "sell_price";
-                mPresenter.getSearchGoods("0", "生物", mOrder);
+                mPresenter.getSearchGoods("0", mSearch, mOrder);
                 break;
         }
     }

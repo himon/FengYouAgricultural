@@ -12,14 +12,21 @@ import android.widget.TextView;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.BaseActivity;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
+import com.louis.agricultural.base.app.Constants;
+import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.model.entities.BaseEntity;
+import com.louis.agricultural.model.entities.UserEntity;
+import com.louis.agricultural.model.event.LoginResultEvent;
+import com.louis.agricultural.model.event.ProductDetailEvent;
 import com.louis.agricultural.presenter.RegisterPresenter;
 import com.louis.agricultural.ui.view.IRegisterView;
 import com.louis.agricultural.utils.ShowToast;
 import com.louis.agricultural.utils.TextUtil;
+import com.louis.agricultural.utils.manager.ActivityManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 
 /**
  * 注册页面
@@ -131,7 +138,7 @@ public class RegisterActivity extends MVPBaseActivity<IRegisterView, RegisterPre
     @Override
     protected void click(View view) {
 
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_next_step:
                 register();
                 break;
@@ -146,10 +153,10 @@ public class RegisterActivity extends MVPBaseActivity<IRegisterView, RegisterPre
         String pwd = mEtPwd.getText().toString().trim();
         String repwd = mEtRePwd.getText().toString().trim();
 
-        if(TextUtils.isEmpty(name) || TextUtils.isEmpty(mobile) || TextUtils.isEmpty(pwd)){
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(mobile) || TextUtils.isEmpty(pwd)) {
 
-        }else{
-            if(pwd.equals(repwd)){
+        } else {
+            if (pwd.equals(repwd)) {
                 mPresenter.register(name, mobile, code, pwd);
             }
         }
@@ -196,9 +203,12 @@ public class RegisterActivity extends MVPBaseActivity<IRegisterView, RegisterPre
     }
 
     @Override
-    public void registerSuccess(BaseEntity data) {
-        if(data.isSuccess()){
+    public void registerSuccess(UserEntity data) {
+        if (data.isSuccess()) {
             ShowToast.Short(data.getMessage());
+            FYApplication.getContext().setUserEntity(data);
+            EventBus.getDefault().post(new LoginResultEvent(Constants.LOGIN_FROM_ME));
+            ActivityManager.getAppManager().finishActivity(LoginActivity.class);
             back();
         }
     }
