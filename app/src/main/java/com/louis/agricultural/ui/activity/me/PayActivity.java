@@ -172,7 +172,7 @@ public class PayActivity extends BaseActivity {
                     }).show();
             return;
         }
-        String orderInfo = getOrderInfo("测试的商品", "该测试商品的详细描述", "0.01");
+        String orderInfo = getOrderInfo("测试的商品", "该测试商品的详细描述", mPrice);
 
         /**
          * 特别注意，这里的签名逻辑需要放在服务端，切勿将私钥泄露在代码中！
