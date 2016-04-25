@@ -20,6 +20,8 @@ import com.louis.agricultural.model.event.LoginResultEvent;
 import com.louis.agricultural.model.event.ProductDetailEvent;
 import com.louis.agricultural.presenter.RegisterPresenter;
 import com.louis.agricultural.ui.view.IRegisterView;
+import com.louis.agricultural.utils.JsonUtil;
+import com.louis.agricultural.utils.PreferencesUtils;
 import com.louis.agricultural.utils.ShowToast;
 import com.louis.agricultural.utils.TextUtil;
 import com.louis.agricultural.utils.manager.ActivityManager;
@@ -206,6 +208,8 @@ public class RegisterActivity extends MVPBaseActivity<IRegisterView, RegisterPre
     public void registerSuccess(UserEntity data) {
         if (data.isSuccess()) {
             ShowToast.Short(data.getMessage());
+            String str = JsonUtil.toJson(data);
+            PreferencesUtils.putString(this, "User", str);
             FYApplication.getContext().setUserEntity(data);
             EventBus.getDefault().post(new LoginResultEvent(Constants.LOGIN_FROM_ME));
             ActivityManager.getAppManager().finishActivity(LoginActivity.class);

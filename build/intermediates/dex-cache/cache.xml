@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/lc/code/FengYouAgricultural/app/build/intermediates/exploded-aar/com.pnikosis/materialish-progress/1.7/jars/classes.jar"
+        jar="/Users/lc/code/FengYouAgricultural/app/lib/alipaySdk-20160223.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="41a4edf3c43fdbce6eba27da50b17ff9933987f1">
-        <dex dex="/Users/lc/code/FengYouAgricultural/app/build/intermediates/pre-dexed/release/classes-1e24da089d14cfbe5699666175c47a76092da9d8.jar" />
+        sha1="ff0f8e55a08ddd28e1fa8e94e2d8881264a5f345">
+        <dex dex="/Users/lc/code/FengYouAgricultural/app/build/intermediates/pre-dexed/debug/alipaySdk-20160223-693172c6a48b95be2f24aa4497de577cd010c739.jar" />
     </item>
 
 </items>

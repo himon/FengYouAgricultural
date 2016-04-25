@@ -18,6 +18,8 @@ import com.louis.agricultural.presenter.LoginPresenter;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.ui.view.ILoginView;
+import com.louis.agricultural.utils.JsonUtil;
+import com.louis.agricultural.utils.PreferencesUtils;
 import com.louis.agricultural.utils.ShowToast;
 import com.louis.agricultural.utils.TextUtil;
 
@@ -110,6 +112,10 @@ public class LoginActivity extends MVPBaseActivity<ILoginView, LoginPresenter> i
     @Override
     public void loginSuccess(UserEntity data) {
         ShowToast.Short(data.getMessage());
+
+        String str = JsonUtil.toJson(data);
+        PreferencesUtils.putString(this, "User", str);
+
         FYApplication.getContext().setUserEntity(data);
         if (!TextUtils.isEmpty(mFrom)) {
             EventBus.getDefault().post(new LoginResultEvent(mFrom));

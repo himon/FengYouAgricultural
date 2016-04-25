@@ -179,7 +179,6 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
 
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -220,6 +219,8 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
         mIvJpMore.setOnClickListener(this);
         mTvRxMore.setOnClickListener(this);
         mIvRxMore.setOnClickListener(this);
+        mTvTtMore.setOnClickListener(this);
+        mIvTtMore.setOnClickListener(this);
 
         mEtSearch.setOnKeyListener(new View.OnKeyListener() {//输入完后按键盘上的搜索键【回车键改为了搜索键】
 
@@ -396,19 +397,19 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
         mTvPrice2.setText("￥" + entity2.getSell_price());
         ImageLoadProxy.displayImage(entity2.getImg_url(), mIvImg2, mOptions);
 
-        ProductEntity.ResultEntity entity3 = mJpList.get(1);
+        ProductEntity.ResultEntity entity3 = mJpList.get(2);
         mTvName3.setText(entity3.getTitle());
         mTvDesc3.setText(entity3.getBrand());
         mTvPrice3.setText("￥" + entity3.getSell_price());
         ImageLoadProxy.displayImage(entity3.getImg_url(), mIvImg3, mOptions);
 
-        ProductEntity.ResultEntity entity4 = mJpList.get(1);
+        ProductEntity.ResultEntity entity4 = mJpList.get(3);
         mTvName4.setText(entity4.getTitle());
         mTvDesc4.setText(entity4.getBrand());
         mTvPrice4.setText("￥" + entity4.getSell_price());
         ImageLoadProxy.displayImage(entity4.getImg_url(), mIvImg4, mOptions);
 
-        ProductEntity.ResultEntity entity5 = mJpList.get(1);
+        ProductEntity.ResultEntity entity5 = mJpList.get(4);
         mTvName5.setText(entity5.getTitle());
         mTvDesc5.setText(entity5.getBrand());
         mTvPrice5.setText("￥" + entity5.getSell_price());
@@ -442,17 +443,17 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
         mTvOrderPrice1.setText("￥" + entity1.getSell_price());
         ImageLoadProxy.displayImage(entity1.getImg_url(), mIvOrderImg1, mOptions);
 
-        ProductEntity.ResultEntity entity2 = mRmList.get(0);
+        ProductEntity.ResultEntity entity2 = mRmList.get(1);
         mTvOrderName2.setText(entity2.getTitle());
         mTvOrderPrice2.setText("￥" + entity2.getSell_price());
         ImageLoadProxy.displayImage(entity2.getImg_url(), mIvOrderImg2, mOptions);
 
-        ProductEntity.ResultEntity entity3 = mRmList.get(0);
+        ProductEntity.ResultEntity entity3 = mRmList.get(2);
         mTvOrderName3.setText(entity3.getTitle());
         mTvOrderPrice3.setText("￥" + entity3.getSell_price());
         ImageLoadProxy.displayImage(entity3.getImg_url(), mIvOrderImg3, mOptions);
 
-        ProductEntity.ResultEntity entity4 = mRmList.get(0);
+        ProductEntity.ResultEntity entity4 = mRmList.get(3);
         mTvOrderName4.setText(entity4.getTitle());
         mTvOrderPrice4.setText("￥" + entity4.getSell_price());
         ImageLoadProxy.displayImage(entity4.getImg_url(), mIvOrderImg4, mOptions);

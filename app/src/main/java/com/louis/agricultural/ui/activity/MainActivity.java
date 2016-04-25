@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.louis.agricultural.R;
@@ -21,7 +22,12 @@ import com.louis.agricultural.ui.fragment.tab.ClassifyFragment;
 import com.louis.agricultural.ui.fragment.tab.HomeFragment;
 import com.louis.agricultural.ui.fragment.tab.MeFragment;
 import com.louis.agricultural.ui.fragment.tab.ShoppingCartFragment;
+import com.louis.agricultural.utils.JsonUtil;
+import com.louis.agricultural.utils.PreferencesUtils;
+import com.louis.agricultural.utils.TextUtil;
 import com.louis.agricultural.view.ChangeColorIconWithText;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 
@@ -130,6 +136,13 @@ public class MainActivity extends BasicActivity {
         bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_shopping_cart_selected));
         bitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_tab_me_selected));
 
+        String user = PreferencesUtils.getString(this, "User");
+        if (!TextUtils.isEmpty(user)) {
+            UserEntity userEntity = JsonUtil.fromJson(user, UserEntity.class);
+            if (userEntity != null) {
+                FYApplication.getContext().setUserEntity(userEntity);
+            }
+        }
     }
 
     @Override
@@ -232,12 +245,11 @@ public class MainActivity extends BasicActivity {
             mShoppingCartFragment.refresh();
         } else if ("classify".equals(event.getMsg())) {
             mViewPager.setCurrentItem(2, false);
-        }
-        else if ("Shopping".equals(event.getMsg())) {
+        } else if ("Shopping".equals(event.getMsg())) {
             mViewPager.setCurrentItem(3, false);
-        }else if("refresh_head_icon".equals(event.getMsg())){
+        } else if ("refresh_head_icon".equals(event.getMsg())) {
             mMeFragment.refresh();
-        }else if("logout".equals(event.getMsg())){
+        } else if ("logout".equals(event.getMsg())) {
             mViewPager.setCurrentItem(1, false);
         }
     }

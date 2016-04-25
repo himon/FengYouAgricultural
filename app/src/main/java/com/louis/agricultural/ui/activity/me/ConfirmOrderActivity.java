@@ -82,6 +82,7 @@ public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, Con
      * 是否是默认地址
      */
     private String mStatus;
+    private String mTotalPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,8 +122,9 @@ public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, Con
         Intent intent = getIntent();
         if (intent != null) {
             mList = intent.getParcelableArrayListExtra(Constants.MESSAGE_EXTRA_KEY);
-            String total = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY2);
-            mTvTotal.setText("还需支付：￥" + total.substring(total.indexOf("￥") + 1, total.length()));
+            String str = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY2);
+            mTotalPrice = str.substring(str.indexOf("￥") + 1, str.length());
+            mTvTotal.setText("还需支付：￥" + mTotalPrice);
             mAdapter = new ConfirmOrderAdapter(this, mList, R.layout.adapter_confirm_order);
             mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -180,6 +182,7 @@ public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, Con
 
     private void toPay() {
         Intent intent = new Intent(this, PayActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, mTotalPrice);
         startActivity(intent);
     }
 
@@ -219,7 +222,7 @@ public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, Con
     @Override
     public void setDefaultAddress(ShoppingAddressEntity data) {
         List<ShoppingAddressEntity.ResultEntity> result = data.getResult();
-        if(result == null || result.size() == 0){
+        if (result == null || result.size() == 0) {
             mTvAddress.setText("");
             return;
         }

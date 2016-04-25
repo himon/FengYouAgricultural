@@ -20,6 +20,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/ll_clear"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
@@ -36,9 +37,10 @@
                 android:textSize="@dimen/font_size_16" />
 
             <TextView
+                android:id="@+id/tv_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="413M"
+                android:text=""
                 android:textColor="@color/main_search_font_gray" />
 
         </LinearLayout>
