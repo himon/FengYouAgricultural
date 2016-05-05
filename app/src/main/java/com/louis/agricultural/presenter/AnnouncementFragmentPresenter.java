@@ -36,7 +36,7 @@ public class AnnouncementFragmentPresenter extends UserLosePresenter<IAnnounceme
     public void getNewsList(String category_id, int page) {
         if("56".equals(category_id)) {
             mAnnouncementFragmentMode.getNewsListAnnouncement(category_id, page, this);
-        }else if("57".equals(category_id)){
+        }else if("143".equals(category_id)){
             mAnnouncementFragmentMode.getNewsListNews(category_id, page, this);
         }else if("58".equals(category_id)){
             mAnnouncementFragmentMode.getNewsListDistribution(category_id, page, this);

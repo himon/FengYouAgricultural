@@ -86,7 +86,7 @@ public class MainActivity extends BasicActivity {
 
         mFengyouFragment = new WebViewFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.MESSAGE_EXTRA_KEY, "http://115.28.134.18:8087/web/activity_show.aspx?id=113");
+        bundle.putString(Constants.MESSAGE_EXTRA_KEY, "http://115.28.134.18:8087/web/activity_show.aspx?id=446");
         mFengyouFragment.setArguments(bundle);
         mHomeFragment = new HomeFragment();
         mClassifyFragment = new ClassifyFragment();

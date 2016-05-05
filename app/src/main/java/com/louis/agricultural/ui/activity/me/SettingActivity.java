@@ -58,6 +58,7 @@ public class SettingActivity extends BaseActivity {
             case R.id.btn_logout:
                 EventBus.getDefault().post(new LoginResultEvent("logout"));
                 FYApplication.getContext().setUserEntity(null);
+                ShowToast.Short("退出登录!");
                 back();
                 break;
             case R.id.ll_clear:

@@ -118,7 +118,7 @@ public class NewsFragment extends MVPBaseFragment<IAnnouncementView, Announcemen
     }
 
     private void getData() {
-        mPresenter.getNewsList("57", page);
+        mPresenter.getNewsList("143", page);
     }
 
     private void setData() {

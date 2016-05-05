@@ -53,7 +53,7 @@ public class MessageActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-        initTitle("");
+        initTitle("咨询");
 
         mAnnouncementFragment = new AnnouncementFragment();
         mNewsFragment = new NewsFragment();
