@@ -18,6 +18,7 @@ import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.OrderEntity;
+import com.louis.agricultural.model.entities.SaveOrderEntity;
 import com.louis.agricultural.model.entities.ShoppingAddressEntity;
 import com.louis.agricultural.model.entities.ShoppingCartEntity;
 import com.louis.agricultural.model.entities.UserEntity;
@@ -180,9 +181,10 @@ public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, Con
         startActivity(intent);
     }
 
-    private void toPay() {
+    private void toPay(String id) {
         Intent intent = new Intent(this, PayActivity.class);
         intent.putExtra(Constants.MESSAGE_EXTRA_KEY, mTotalPrice);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY2, id);
         startActivity(intent);
     }
 
@@ -214,9 +216,9 @@ public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, Con
 
 
     @Override
-    public void setCreateSuccess(BaseEntity data) {
+    public void setCreateSuccess(SaveOrderEntity data) {
         ShowToast.Short(data.getMessage());
-        toPay();
+        toPay(data.getResult().get(0).getId());
     }
 
     @Override

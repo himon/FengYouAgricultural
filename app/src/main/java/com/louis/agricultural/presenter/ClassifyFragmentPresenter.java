@@ -20,6 +20,7 @@ public class ClassifyFragmentPresenter extends UserLosePresenter<IClassifyView> 
 
     private IClassifyView mIClassifyView;
     private ClassifyFragmentMode mClassifyFragmentMode;
+    private String mId;
 
     public ClassifyFragmentPresenter(IClassifyView view) {
         mIClassifyView = view;
@@ -30,7 +31,11 @@ public class ClassifyFragmentPresenter extends UserLosePresenter<IClassifyView> 
     public void onSuccess(int event_tag, BaseEntity data) {
         switch (event_tag){
             case Constants.GET_CATEGORY_LISTENER:
-                mIClassifyView.setClassify((ClassifyEntity)data);
+                if("0".equals(mId)) {
+                    mIClassifyView.setClassify((ClassifyEntity) data);
+                }else{
+                    mIClassifyView.setSecondClassify((ClassifyEntity) data);
+                }
                 break;
             case Constants.GET_SEARCH_GOODS_LISTENER:
                 mIClassifyView.setProducts((ProductEntity)data);
@@ -39,6 +44,7 @@ public class ClassifyFragmentPresenter extends UserLosePresenter<IClassifyView> 
     }
 
     public void getCategory(String category_parentid) {
+        mId = category_parentid;
         mClassifyFragmentMode.getCategory(category_parentid, this);
     }
 

@@ -93,6 +93,7 @@ public class PayActivity extends BaseActivity {
     @Bind(R.id.btn_pay)
     Button mBtnPay;
     private String mPrice;
+    private String mNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +138,7 @@ public class PayActivity extends BaseActivity {
         Intent intent = getIntent();
         if (intent != null) {
             mPrice = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY);
+            mNo = intent.getStringExtra(Constants.MESSAGE_EXTRA_KEY2);
             mTvPrice.setText("还需支付：￥" + mPrice);
         }
     }
@@ -226,7 +228,7 @@ public class PayActivity extends BaseActivity {
         orderInfo += "&seller_id=" + "\"" + SELLER + "\"";
 
         // 商户网站唯一订单号
-        orderInfo += "&out_trade_no=" + "\"" + getOutTradeNo() + "\"";
+        orderInfo += "&out_trade_no=" + "\"" + mNo + "\"";
 
         // 商品名称
         orderInfo += "&subject=" + "\"" + subject + "\"";

@@ -20,6 +20,7 @@ import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.model.entities.FyttEntity;
 import com.louis.agricultural.model.entities.HomeAdImageEntity;
 import com.louis.agricultural.model.entities.ResultStringEntity;
+import com.louis.agricultural.model.entities.SaveOrderEntity;
 import com.louis.agricultural.model.entities.ShoppingAddressEntity;
 import com.louis.agricultural.model.entities.ShoppingCartEntity;
 import com.louis.agricultural.model.entities.SimpleEntity;
@@ -907,15 +908,15 @@ public class HttpManager {
      * @param activity
      */
     public void addOrder(final String user_id, final String adress_id, final String message, final String user_name, final ArrayList<ShoppingCartEntity.ResultEntity> list, final UserLoseMultiLoadedListener listener, Activity activity) {
-        GsonRequest<SimpleEntity> request = new GsonRequest<SimpleEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
-                SimpleEntity.class, null, new Response.Listener<SimpleEntity>() {
+        GsonRequest<SaveOrderEntity> request = new GsonRequest<SaveOrderEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
+                SaveOrderEntity.class, null, new Response.Listener<SaveOrderEntity>() {
 
             @Override
-            public void onResponse(SimpleEntity response) {
+            public void onResponse(SaveOrderEntity response) {
                 if (response.isSuccess()) {
                     listener.onSuccess(Constants.ADD_ORDER_LISTENER, response);
                 } else {
-                    listener.onError(response.getResult());
+                    listener.onError(response.getMessage());
                 }
             }
         }, new Response.ErrorListener() {

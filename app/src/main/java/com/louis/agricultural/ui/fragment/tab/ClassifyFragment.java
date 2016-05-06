@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.app.Constants;
@@ -25,6 +26,7 @@ import com.louis.agricultural.ui.activity.SearchActivity;
 import com.louis.agricultural.ui.adapter.ClassifyAdapter;
 import com.louis.agricultural.ui.adapter.ClassifyProductAdapter;
 import com.louis.agricultural.ui.view.IClassifyView;
+import com.louis.agricultural.view.FlowLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,12 +48,16 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
     @Bind(R.id.iv_search)
     ImageView mIvSearch;
 
+    @Bind(R.id.id_flowlayout)
+    FlowLayout mFlowLayout;
+
     private ClassifyFragmentPresenter mPresenter;
 
     private ClassifyAdapter mClassifyAdapter;
     private ClassifyProductAdapter mClassifyProductAdapter;
     private List<ClassifyEntity.ResultEntity> mClassifyList = new ArrayList<>();
     private List<ProductEntity.ResultEntity> mProductList = new ArrayList<>();
+    private LayoutInflater mInflater;
 
 
     public ClassifyFragment() {
@@ -119,6 +125,7 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
                     }
                 }
                 mClassifyAdapter.notifyDataSetChanged();
+                mPresenter.getCategory(entity.getId());
                 mPresenter.getSearchGoods(entity.getId(), "", "id");
             }
         });
@@ -136,6 +143,7 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
 
     @Override
     protected void initData() {
+        mInflater = LayoutInflater.from(getActivity());
         mPresenter.getCategory("0");
     }
 
@@ -159,11 +167,13 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
     @Override
     public void setClassify(ClassifyEntity data) {
         mClassifyList = data.getResult();
-        mClassifyList.get(0).setChecked(true);
+        ClassifyEntity.ResultEntity entity = mClassifyList.get(0);
+        entity.setChecked(true);
         mClassifyAdapter.setmDatas(mClassifyList);
         mClassifyAdapter.notifyDataSetChanged();
 
         mPresenter.getSearchGoods(mClassifyList.get(0).getId(), "", "id");
+        mPresenter.getCategory(entity.getId());
     }
 
     @Override
@@ -171,5 +181,25 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
         mProductList = data.getResult();
         mClassifyProductAdapter.setmDatas(mProductList);
         mClassifyProductAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void setSecondClassify(ClassifyEntity data) {
+        final List<ClassifyEntity.ResultEntity> result = data.getResult();
+        mFlowLayout.removeAllViews();
+        for (int i = 0; i < result.size(); i++)
+        {
+            final ClassifyEntity.ResultEntity entity = result.get(i);
+            TextView tv = (TextView) mInflater.inflate(R.layout.tv,
+                    mFlowLayout, false);
+            tv.setText(entity.getTitle());
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mPresenter.getSearchGoods(entity.getId(), "", "id");
+                }
+            });
+            mFlowLayout.addView(tv);
+        }
     }
 }

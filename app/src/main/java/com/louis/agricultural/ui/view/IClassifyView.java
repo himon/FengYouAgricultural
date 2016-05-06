@@ -10,4 +10,6 @@ public interface IClassifyView {
     void setClassify(ClassifyEntity data);
 
     void setProducts(ProductEntity data);
+
+    void setSecondClassify(ClassifyEntity data);
 }

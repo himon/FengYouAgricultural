@@ -6,6 +6,7 @@ import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.presenter.UserLosePresenter;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
 import com.louis.agricultural.model.entities.BaseEntity;
+import com.louis.agricultural.model.entities.SaveOrderEntity;
 import com.louis.agricultural.model.entities.ShoppingAddressEntity;
 import com.louis.agricultural.model.entities.ShoppingCartEntity;
 import com.louis.agricultural.model.mode.ConfirmOrderActivityMode;
@@ -32,7 +33,7 @@ public class ConfirmOrderActivityPresenter extends UserLosePresenter<IConfirmOrd
     public void onSuccess(int event_tag, BaseEntity data) {
         switch (event_tag){
             case Constants.ADD_ORDER_LISTENER:
-                mIConfirmOrderView.setCreateSuccess(data);
+                mIConfirmOrderView.setCreateSuccess((SaveOrderEntity)data);
                 break;
             case Constants.GET_DEFAULT_ADRESS_LISTENER:
                 mIConfirmOrderView.setDefaultAddress((ShoppingAddressEntity)data);

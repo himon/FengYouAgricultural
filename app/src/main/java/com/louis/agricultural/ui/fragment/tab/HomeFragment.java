@@ -167,6 +167,14 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
     TextView mTvOrderPrice4;
     @Bind(R.id.tv_order_old_price4)
     TextView mTvOrderOldPrice4;
+    @Bind(R.id.tv_specifications1)
+    TextView mTvSpecification1;
+    @Bind(R.id.tv_specifications2)
+    TextView mTvSpecification2;
+    @Bind(R.id.tv_specifications3)
+    TextView mTvSpecification3;
+    @Bind(R.id.tv_specifications4)
+    TextView mTvSpecification4;
 
     private HomePresenter mPresenter;
     private AdImageAdapter imageAdapter;
@@ -441,20 +449,24 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
         ProductEntity.ResultEntity entity1 = mRmList.get(0);
         mTvOrderName1.setText(entity1.getTitle());
         mTvOrderPrice1.setText("￥" + entity1.getSell_price());
+        mTvSpecification1.setText(entity1.getGoods_no());
         ImageLoadProxy.displayImage(entity1.getImg_url(), mIvOrderImg1, mOptions);
 
         ProductEntity.ResultEntity entity2 = mRmList.get(1);
         mTvOrderName2.setText(entity2.getTitle());
         mTvOrderPrice2.setText("￥" + entity2.getSell_price());
+        mTvSpecification2.setText(entity2.getGoods_no());
         ImageLoadProxy.displayImage(entity2.getImg_url(), mIvOrderImg2, mOptions);
 
         ProductEntity.ResultEntity entity3 = mRmList.get(2);
         mTvOrderName3.setText(entity3.getTitle());
+        mTvSpecification3.setText(entity3.getGoods_no());
         mTvOrderPrice3.setText("￥" + entity3.getSell_price());
         ImageLoadProxy.displayImage(entity3.getImg_url(), mIvOrderImg3, mOptions);
 
         ProductEntity.ResultEntity entity4 = mRmList.get(3);
         mTvOrderName4.setText(entity4.getTitle());
+        mTvSpecification4.setText(entity4.getGoods_no());
         mTvOrderPrice4.setText("￥" + entity4.getSell_price());
         ImageLoadProxy.displayImage(entity4.getImg_url(), mIvOrderImg4, mOptions);
     }
