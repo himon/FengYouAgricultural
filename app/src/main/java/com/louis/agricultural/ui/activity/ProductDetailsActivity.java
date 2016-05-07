@@ -112,6 +112,10 @@ public class ProductDetailsActivity extends MVPBaseActivity<IProductDetailsView,
         switch (view.getId()) {
             case R.id.btn_add_shoppingcart:
                 if (mUser != null) {
+                    if(mProductDetail.getGwc_sum() < 1){
+                        ShowToast.Short("该商品库存为0，不能添加购物车！");
+                        return;
+                    }
                     mPreseter.getAddGoodscart(mUser.getResult().get_id(), mId, 1);
                 } else {
                     toLogin();
@@ -135,6 +139,12 @@ public class ProductDetailsActivity extends MVPBaseActivity<IProductDetailsView,
     }
 
     private void toCreatOrder() {
+
+        if(mProductDetail.getGwc_sum() < 1){
+            ShowToast.Short("该商品库存为0，不能购买！");
+            return;
+        }
+
         ArrayList<ShoppingCartEntity.ResultEntity> list = new ArrayList<>();
         ShoppingCartEntity.ResultEntity item = new ShoppingCartEntity.ResultEntity();
         item.setSum("1");
