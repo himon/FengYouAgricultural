@@ -29,6 +29,6 @@ public class ClassifyProductAdapter extends CommonAdapter<ProductEntity.ResultEn
     public void convert(ViewHolder holder, ProductEntity.ResultEntity fytjEntity) {
         ImageView img = holder.getView(R.id.iv_img);
         ImageLoadProxy.displayImage(fytjEntity.getImg_url(), img, mOptions);
-        ((TextView)holder.getView(R.id.tv_desc)).setText(fytjEntity.getTitle());
+        holder.setText(R.id.tv_desc, fytjEntity.getTitle()).setText(R.id.tv_price, "￥" + fytjEntity.getSell_price());
     }
 }
