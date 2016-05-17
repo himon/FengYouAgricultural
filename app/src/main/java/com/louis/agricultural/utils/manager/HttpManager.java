@@ -543,6 +543,7 @@ public class HttpManager {
                 return params;
             }
         };
+        ;
         if (fragment != null) {
             RequestManager.addRequest(request, fragment);
         } else {
