@@ -24,7 +24,12 @@ public class ClassifyFragmentModeImpl extends BaseMode implements ClassifyFragme
     }
 
     @Override
-    public void getSearchGoods(String category_id, String search, String paixu, UserLoseMultiLoadedListener listener) {
-        mManager.getSearchGoods(category_id, search, paixu, listener, mFragment, null);
+    public void getSearchGoods(String category_id, String bankid, String search, String paixu, UserLoseMultiLoadedListener listener) {
+        mManager.getSearchGoods(category_id, bankid, search, paixu, listener, mFragment, null);
+    }
+
+    public void getGoodsbank(String paramString, UserLoseMultiLoadedListener listener)
+    {
+        this.mManager.getGoodsbank(paramString, listener, this.mFragment);
     }
 }

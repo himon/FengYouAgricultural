@@ -1,5 +1,6 @@
 package com.louis.agricultural.ui.view;
 
+import com.louis.agricultural.model.entities.BankEntity;
 import com.louis.agricultural.model.entities.ClassifyEntity;
 import com.louis.agricultural.model.entities.ProductEntity;
 
@@ -12,4 +13,6 @@ public interface IClassifyView {
     void setProducts(ProductEntity data);
 
     void setSecondClassify(ClassifyEntity data);
+
+    void setGoodsBank(BankEntity data);
 }

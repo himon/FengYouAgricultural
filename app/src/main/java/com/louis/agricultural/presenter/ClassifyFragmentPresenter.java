@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.presenter.UserLosePresenter;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
+import com.louis.agricultural.model.entities.BankEntity;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.ClassifyEntity;
 import com.louis.agricultural.model.entities.ProductEntity;
@@ -40,6 +41,9 @@ public class ClassifyFragmentPresenter extends UserLosePresenter<IClassifyView> 
             case Constants.GET_SEARCH_GOODS_LISTENER:
                 mIClassifyView.setProducts((ProductEntity)data);
                 break;
+            case Constants.GET_GOODSBANK_LISTENER:
+                mIClassifyView.setGoodsBank((BankEntity)data);
+                break;
         }
     }
 
@@ -48,7 +52,12 @@ public class ClassifyFragmentPresenter extends UserLosePresenter<IClassifyView> 
         mClassifyFragmentMode.getCategory(category_parentid, this);
     }
 
-    public void getSearchGoods(String category_id, String search, String paixu) {
-        mClassifyFragmentMode.getSearchGoods(category_id, search, paixu, this);
+    public void getSearchGoods(String category_id, String bankid, String search, String paixu) {
+        mClassifyFragmentMode.getSearchGoods(category_id, bankid, search, paixu, this);
+    }
+
+    public void getGoodsbank(String bankid)
+    {
+        mClassifyFragmentMode.getGoodsbank(bankid, this);
     }
 }

@@ -35,6 +35,6 @@ public class SearchActivityPresenter extends UserLosePresenter<ISearchView> impl
     }
 
     public void getSearchGoods(String category_id, String search, String paixu) {
-        mSearchActivityMode.getSearchGoods(category_id, search, paixu, this);
+        mSearchActivityMode.getSearchGoods(category_id, "0", search, paixu, this);
     }
 }

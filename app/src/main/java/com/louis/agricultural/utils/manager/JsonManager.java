@@ -164,10 +164,11 @@ public class JsonManager {
      * @param paixu
      * @return
      */
-    public static String getSearchGoods(String category_id, String search, String paixu) {
+    public static String getSearchGoods(String category_id, String bankid, String search, String paixu) {
         JSONObject object = new JSONObject();
         try {
             object.put("category_id", category_id);
+            object.put("bankid", bankid);
             object.put("search", search);
             object.put("paixu", paixu);
         } catch (JSONException e) {
@@ -470,5 +471,20 @@ public class JsonManager {
             e.printStackTrace();
         }
         return object.toString();
+    }
+
+    public static String getGoodsbank(String paramString)
+    {
+        JSONObject localJSONObject = new JSONObject();
+        try
+        {
+            localJSONObject.put("category_id", paramString);
+            return localJSONObject.toString();
+        }
+        catch (JSONException localJSONException)
+        {
+            while (true)
+                localJSONException.printStackTrace();
+        }
     }
 }

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.facebook.stetho.Stetho;
+import com.jude.utils.JUtils;
 import com.louis.agricultural.BuildConfig;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.utils.StrictModeUtil;
@@ -55,7 +56,7 @@ public class FYApplication extends Application {
         refWatcher = LeakCanary.install(this);
         mContext = this;
         ImageLoadProxy.initImageLoader(this);
-
+        JUtils.initialize(this);
 
         if (BuildConfig.DEBUG) {
             Logger.init().hideThreadInfo().setMethodCount(1).setLogLevel(LogLevel.FULL);

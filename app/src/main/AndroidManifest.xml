@@ -50,6 +50,7 @@
         <activity android:name=".ui.activity.me.PayActivity"></activity>
         <activity android:name=".ui.activity.SearchActivity"></activity>
         <activity android:name=".ui.activity.me.PicClipActivity"/>
+        <activity android:name=".ui.activity.GoodsDetailActivity"/>
 
         <!-- 图片选择 -->
         <activity

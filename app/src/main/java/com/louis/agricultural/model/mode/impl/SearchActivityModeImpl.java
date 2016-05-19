@@ -18,7 +18,7 @@ public class SearchActivityModeImpl extends BaseMode implements SearchActivityMo
     }
 
     @Override
-    public void getSearchGoods(String category_id, String search, String paixu, UserLoseMultiLoadedListener listener) {
-        mManager.getSearchGoods(category_id, search, paixu, listener, null, mActivity);
+    public void getSearchGoods(String category_id, String bankid, String search, String paixu, UserLoseMultiLoadedListener listener) {
+        mManager.getSearchGoods(category_id, bankid, search, paixu, listener, null, mActivity);
     }
 }

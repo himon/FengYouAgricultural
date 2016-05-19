@@ -31,6 +31,7 @@
     <color name="font_gray">#666666</color>
     <color name="home_tab_font_black">#333333</color>
     <color name="font_text_dialog_gray">#D4D4D4</color>
+    <color name="font_text_classify">#ff5bc4ed</color>
     <!-- clip -->
     <color name="clip_picture_gray">#905A5A5A</color>
 

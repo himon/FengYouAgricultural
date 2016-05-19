@@ -7,9 +7,11 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.jude.utils.JUtils;
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
 import com.louis.agricultural.model.entities.AnnouncementEntity;
+import com.louis.agricultural.model.entities.BankEntity;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.ClassifyEntity;
 import com.louis.agricultural.model.entities.DistributionEntity;
@@ -38,6 +40,14 @@ import java.util.Map;
  * Created by lc on 16/2/29.
  */
 public class HttpManager {
+    private boolean isNetwork(UserLoseMultiLoadedListener paramUserLoseMultiLoadedListener) {
+        if (!JUtils.isNetWorkAvilable()) {
+            paramUserLoseMultiLoadedListener.onError("当前手机没有网络!");
+            return true;
+        }
+        return false;
+    }
+
 
     /**
      * 获取首页轮播图
@@ -513,7 +523,7 @@ public class HttpManager {
      * @param fragment
      * @param activity
      */
-    public void getSearchGoods(final String category_id, final String search, final String paixu, final UserLoseMultiLoadedListener listener, Fragment fragment, Activity activity) {
+    public void getSearchGoods(final String category_id, final String bankid, final String search, final String paixu, final UserLoseMultiLoadedListener listener, Fragment fragment, Activity activity) {
         GsonRequest<ProductEntity> request = new GsonRequest<ProductEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ProductEntity.class, null, new Response.Listener<ProductEntity>() {
 
@@ -539,7 +549,7 @@ public class HttpManager {
 
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("methodName", Constants.GET_SEARCH_GOODS);
-                params.put("parames", JsonManager.getSearchGoods(category_id, search, paixu));
+                params.put("parames", JsonManager.getSearchGoods(category_id, bankid, search, paixu));
                 return params;
             }
         };
@@ -1293,5 +1303,34 @@ public class HttpManager {
             }
         };
         RequestManager.addRequest(request, activity);
+    }
+
+    public void getGoodsbank(final String bankid, final UserLoseMultiLoadedListener listener, Fragment paramFragment) {
+        if (isNetwork(listener))
+            return;
+        RequestManager.addRequest(new GsonRequest(1, StringUtil.preUrl(Constants.WEB_SERVICE_URL)
+                                          , BankEntity.class, null, new Response.Listener<BankEntity>() {
+                                      public void onResponse(BankEntity paramAnonymousBankEntity) {
+                                          if (paramAnonymousBankEntity.isSuccess()) {
+                                              listener.onSuccess(Constants.GET_GOODSBANK_LISTENER, paramAnonymousBankEntity);
+                                              return;
+                                          }
+                                          listener.onError(paramAnonymousBankEntity.getMessage());
+                                      }
+                                  }
+                                          , new Response.ErrorListener() {
+                                      public void onErrorResponse(VolleyError paramAnonymousVolleyError) {
+                                          listener.onException(paramAnonymousVolleyError.getMessage());
+                                      }
+                                  }) {
+                                      protected Map<String, String> getParams()
+                                              throws AuthFailureError {
+                                          HashMap localHashMap = new HashMap();
+                                          localHashMap.put("methodName", Constants.GET_GOODSBANK);
+                                          localHashMap.put("parames", JsonManager.getGoodsbank(bankid));
+                                          return localHashMap;
+                                      }
+                                  }
+                , paramFragment);
     }
 }

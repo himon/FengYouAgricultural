@@ -35,7 +35,7 @@
 
             </com.louis.agricultural.view.FlowLayout>
 
-            <GridView
+            <com.louis.agricultural.utils.HeaderGridView
                 android:layout_below="@+id/id_flowlayout"
                 android:id="@+id/gridview"
                 android:layout_width="match_parent"
@@ -43,9 +43,9 @@
                 android:background="@color/home_tab_gray_bg"
                 android:columnWidth="90dp"
                 android:horizontalSpacing="1dp"
-                android:numColumns="3"
+                android:numColumns="2"
                 android:stretchMode="columnWidth"
-                android:verticalSpacing="1dp"></GridView>
+                android:verticalSpacing="1dp"></com.louis.agricultural.utils.HeaderGridView>
 
         </RelativeLayout>
     </LinearLayout>
