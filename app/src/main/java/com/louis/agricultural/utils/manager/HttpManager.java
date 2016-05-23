@@ -57,6 +57,9 @@ public class HttpManager {
      * @param fragment
      */
     public void getIndexImage(final int top, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        if (isNetwork(listener)) {
+            return;
+        }
         GsonRequest<HomeAdImageEntity> request = new GsonRequest<HomeAdImageEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 HomeAdImageEntity.class, null, new Response.Listener<HomeAdImageEntity>() {
 
@@ -96,6 +99,9 @@ public class HttpManager {
      * @param fragment
      */
     public void getIndexFytt(final int top, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        if (isNetwork(listener)) {
+            return;
+        }
         GsonRequest<FyttEntity> request = new GsonRequest<FyttEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 FyttEntity.class, null, new Response.Listener<FyttEntity>() {
 
@@ -134,6 +140,9 @@ public class HttpManager {
      * @param fragment
      */
     public void getIndexFytj(final int top, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        if (isNetwork(listener)) {
+            return;
+        }
         GsonRequest<ProductEntity> request = new GsonRequest<ProductEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ProductEntity.class, null, new Response.Listener<ProductEntity>() {
 
@@ -172,7 +181,9 @@ public class HttpManager {
      * @param fragment
      */
     public void getIndexRmtj(final int top, final UserLoseMultiLoadedListener listener, Fragment fragment) {
-
+        if (isNetwork(listener)) {
+            return;
+        }
         GsonRequest<ProductEntity> request = new GsonRequest<ProductEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ProductEntity.class, null, new Response.Listener<ProductEntity>() {
 
@@ -211,6 +222,9 @@ public class HttpManager {
      * @param activity
      */
     public void existsMobile(final String username, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if (isNetwork(listener)) {
+            return;
+        }
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -250,6 +264,9 @@ public class HttpManager {
      * @param activity
      */
     public void login(final String user_name, final String user_pass, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if (isNetwork(listener)) {
+            return;
+        }
         GsonRequest<UserEntity> request = new GsonRequest<UserEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 UserEntity.class, null, new Response.Listener<UserEntity>() {
 
@@ -291,6 +308,9 @@ public class HttpManager {
      * @param activity
      */
     public void register(final String username, final String mobile, final String usertjr, final String password, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if (isNetwork(listener)) {
+            return;
+        }
         GsonRequest<UserEntity> request = new GsonRequest<UserEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 UserEntity.class, null, new Response.Listener<UserEntity>() {
 
@@ -332,6 +352,9 @@ public class HttpManager {
      * @param activity
      */
     public void userUpdatePass(final String user_id, final String user_pass, final String new_pass, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -370,7 +393,9 @@ public class HttpManager {
      * @param activity
      */
     public void getUserInfomation(final String user_id, final UserLoseMultiLoadedListener listener, Activity activity) {
-
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<UserEntity> request = new GsonRequest<UserEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 UserEntity.class, null, new Response.Listener<UserEntity>() {
 
@@ -409,6 +434,9 @@ public class HttpManager {
      * @param activity
      */
     public void getUserImg(final String user_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<ResultStringEntity> request = new GsonRequest<ResultStringEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ResultStringEntity.class, null, new Response.Listener<ResultStringEntity>() {
 
@@ -440,6 +468,9 @@ public class HttpManager {
     }
 
     public void uploadImg(final String user_id, final String images, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.UPLOAD_IMG),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -480,7 +511,9 @@ public class HttpManager {
      * @param fragment
      */
     public void getCategory(final String category_parentid, final UserLoseMultiLoadedListener listener, Fragment fragment) {
-
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<ClassifyEntity> request = new GsonRequest<ClassifyEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ClassifyEntity.class, null, new Response.Listener<ClassifyEntity>() {
 
@@ -524,6 +557,9 @@ public class HttpManager {
      * @param activity
      */
     public void getSearchGoods(final String category_id, final String bankid, final String search, final String paixu, final UserLoseMultiLoadedListener listener, Fragment fragment, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<ProductEntity> request = new GsonRequest<ProductEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ProductEntity.class, null, new Response.Listener<ProductEntity>() {
 
@@ -570,6 +606,9 @@ public class HttpManager {
      * @param activity
      */
     public void getGoodsShow(final String user_id, final String article_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<ProductDetailEntity> request = new GsonRequest<ProductDetailEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ProductDetailEntity.class, null, new Response.Listener<ProductDetailEntity>() {
 
@@ -612,6 +651,9 @@ public class HttpManager {
      * @param activity
      */
     public void getAddGoodscart(final String user_id, final String goods_id, final String sum, final UserLoseMultiLoadedListener listener, Activity activity, Fragment fragment) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -641,9 +683,9 @@ public class HttpManager {
                 return params;
             }
         };
-        if(activity  != null){
+        if (activity != null) {
             RequestManager.addRequest(request, activity);
-        }else{
+        } else {
             RequestManager.addRequest(request, fragment);
         }
 
@@ -657,7 +699,9 @@ public class HttpManager {
      * @param fragment
      */
     public void getGoodsCart(final String user_id, final UserLoseMultiLoadedListener listener, Fragment fragment) {
-
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<ShoppingCartEntity> request = new GsonRequest<ShoppingCartEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ShoppingCartEntity.class, null, new Response.Listener<ShoppingCartEntity>() {
 
@@ -706,7 +750,9 @@ public class HttpManager {
      * @param activity
      */
     public void getAddAddress(final String user_id, final String sheng, final String shi, final String qu, final String xiangxi, final String code, final String shr, final String phone, final String status, final UserLoseMultiLoadedListener listener, Activity activity) {
-
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -747,7 +793,9 @@ public class HttpManager {
      * @param activity
      */
     public void getAdress(final String user_id, final UserLoseMultiLoadedListener listener, Activity activity) {
-
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<ShoppingAddressEntity> request = new GsonRequest<ShoppingAddressEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ShoppingAddressEntity.class, null, new Response.Listener<ShoppingAddressEntity>() {
 
@@ -788,7 +836,9 @@ public class HttpManager {
      * @param activity
      */
     public void getAdressShow(final String adress_id, final UserLoseMultiLoadedListener listener, Activity activity) {
-
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<ShoppingAddressEntity> request = new GsonRequest<ShoppingAddressEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ShoppingAddressEntity.class, null, new Response.Listener<ShoppingAddressEntity>() {
 
@@ -838,7 +888,9 @@ public class HttpManager {
      * @param activity
      */
     public void updateAdress(final String adress_id, final String user_id, final String sheng, final String shi, final String qu, final String xiangxi, final String code, final String shr, final String phone, final String status, final UserLoseMultiLoadedListener listener, Activity activity) {
-
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -880,6 +932,9 @@ public class HttpManager {
      * @param fragment
      */
     public void getNewsListAnnouncement(final String category_id, final int page, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<AnnouncementEntity> request = new GsonRequest<AnnouncementEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 AnnouncementEntity.class, null, new Response.Listener<AnnouncementEntity>() {
 
@@ -924,6 +979,9 @@ public class HttpManager {
      * @param activity
      */
     public void addOrder(final String user_id, final String adress_id, final String message, final String user_name, final ArrayList<ShoppingCartEntity.ResultEntity> list, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<SaveOrderEntity> request = new GsonRequest<SaveOrderEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 SaveOrderEntity.class, null, new Response.Listener<SaveOrderEntity>() {
 
@@ -966,6 +1024,9 @@ public class HttpManager {
      * @param fragment
      */
     public void getOrderList(final String user_id, final int page, final String status, final String payment_status, final String express_status, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<OrderEntity> request = new GsonRequest<OrderEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 OrderEntity.class, null, new Response.Listener<OrderEntity>() {
 
@@ -1006,6 +1067,9 @@ public class HttpManager {
      * @param activity
      */
     public void getDefaultAdress(final String user_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<ShoppingAddressEntity> request = new GsonRequest<ShoppingAddressEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 ShoppingAddressEntity.class, null, new Response.Listener<ShoppingAddressEntity>() {
 
@@ -1047,6 +1111,9 @@ public class HttpManager {
      * @param fragment
      */
     public void getNewsListDistribution(final String category_id, final int page, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<DistributionEntity> request = new GsonRequest<DistributionEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 DistributionEntity.class, null, new Response.Listener<DistributionEntity>() {
 
@@ -1087,6 +1154,9 @@ public class HttpManager {
      * @param fragment
      */
     public void deleteGoodscart(final String car_id, final UserLoseMultiLoadedListener listener, Fragment fragment) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -1127,6 +1197,9 @@ public class HttpManager {
      * @param activity
      */
     public void deleteAdress(final String adress_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -1169,7 +1242,9 @@ public class HttpManager {
      * @param activity
      */
     public void updateOrder(final String order_id, final String strxgname, final String strzhi, final UserLoseMultiLoadedListener listener, Activity activity) {
-
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -1212,6 +1287,9 @@ public class HttpManager {
      * @param activity
      */
     public void userUpuserinformation(final String user_name, final String strxgname, final String strzhi, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -1245,6 +1323,9 @@ public class HttpManager {
     }
 
     public void addGoodsComment(final String goods_id, final String user_id, final String user_name, final String comment, final String order_goods_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<SimpleEntity> request = new GsonRequest<SimpleEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 SimpleEntity.class, null, new Response.Listener<SimpleEntity>() {
 
@@ -1278,6 +1359,9 @@ public class HttpManager {
     }
 
     public void getOrderShow(final String order_id, final UserLoseMultiLoadedListener listener, Activity activity) {
+        if(isNetwork(listener)){
+            return;
+        }
         GsonRequest<OrderDetailEntity> request = new GsonRequest<OrderDetailEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 OrderDetailEntity.class, null, new Response.Listener<OrderDetailEntity>() {
 

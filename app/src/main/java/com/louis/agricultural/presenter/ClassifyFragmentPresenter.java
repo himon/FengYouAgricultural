@@ -47,6 +47,11 @@ public class ClassifyFragmentPresenter extends UserLosePresenter<IClassifyView> 
         }
     }
 
+    @Override
+    public void onError(String msg) {
+
+    }
+
     public void getCategory(String category_parentid) {
         mId = category_parentid;
         mClassifyFragmentMode.getCategory(category_parentid, this);

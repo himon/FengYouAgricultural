@@ -21,7 +21,7 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/shape_shopping_cart_rect_stroke_gray"
         android:padding="10dp"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         android:src="@drawable/img_confirm_order_pic"/>
 
     <RelativeLayout

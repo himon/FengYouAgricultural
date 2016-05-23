@@ -237,6 +237,7 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
                 public void onClick(View v) {
                     mPresenter.getSearchGoods(entity.getId(), "0", "", "id");
                     mCId = entity.getId();
+                    System.out.print("CID: " + mCId);
                     clearFlowLayout();
                     clearBankLayout();
                     TextView tv = (TextView) v;
@@ -267,6 +268,7 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
             tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    System.out.print("CID: " + mCId);
                     mPresenter.getSearchGoods(mCId, entity.getBankid(), "", "id");
                     clearBankLayout();
                     TextView tv = (TextView) v;

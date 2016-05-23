@@ -185,7 +185,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     public void callPhone()
     {
         Intent intent = new Intent(Intent.ACTION_CALL);
-        Uri data = Uri.parse("tel:" + "10086");
+        Uri data = Uri.parse("tel:" + "03796232551");
         intent.setData(data);
         startActivity(intent);
     }
