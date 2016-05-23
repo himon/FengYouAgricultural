@@ -25,6 +25,6 @@ public class ProductDetailsActivityModeImpl extends BaseMode implements ProductD
 
     @Override
     public void getAddGoodscart(String user_id, String goods_id, int sum, UserLoseMultiLoadedListener listenter) {
-        mManager.getAddGoodscart(user_id, goods_id, sum, listenter, mActivity);
+        mManager.getAddGoodscart(user_id, goods_id, sum + "", listenter, mActivity, null);
     }
 }

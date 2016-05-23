@@ -143,7 +143,11 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
 
     @Override
     protected void initData() {
-
+        Intent intent = getIntent();
+        if (intent != null) {
+            int index = intent.getIntExtra(Constants.MESSAGE_EXTRA_KEY, 0);
+            mViewPager.setCurrentItem(index);
+        }
     }
 
     @Override
@@ -171,6 +175,8 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
 
         if ("pay".equals(event.getMsg())) {
             Intent intent = new Intent(this, PayActivity.class);
+            intent.putExtra(Constants.MESSAGE_EXTRA_KEY, event.getStatus());
+            intent.putExtra(Constants.MESSAGE_EXTRA_KEY2, event.getOrderId());
             startActivity(intent);
         } else if ("update".equals(event.getMsg())) {
             mPresenter.updateOrder(event.getOrderId(), "status", event.getStatus());
@@ -194,8 +200,11 @@ public class MyOrderActivity extends MVPBaseActivity<IMyOrderAView, MyOrderPrese
     @Override
     public void setUpdateOrderSuccess(BaseEntity data) {
         ShowToast.Short(data.getMessage());
-        int currentItem = mViewPager.getCurrentItem();
-        MyOrderFragment fragment = (MyOrderFragment) mFragments.get(currentItem);
-        fragment.refresh();
+//        int currentItem = mViewPager.getCurrentItem();
+//        MyOrderFragment fragment = (MyOrderFragment) mFragments.get(currentItem);
+//        fragment.refresh();
+        for (int i = 0; i < mFragments.size(); i++) {
+            ((MyOrderFragment) mFragments.get(i)).refresh();
+        }
     }
 }

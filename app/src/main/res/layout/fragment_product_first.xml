@@ -1,309 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
 <com.louis.agricultural.view.CustScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    tools:context="com.louis.agricultural.ui.fragment.product.ProductFirstFragment">
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="fill_parent"
+                                            android:background="@android:color/white">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="280dp">
+            android:layout_width="fill_parent"
+            android:layout_height="280.0dip">
 
             <ImageView
                 android:id="@+id/iv_product_imgs"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:scaleType="centerInside"/>
 
             <ImageView
                 android:id="@+id/iv_back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="40.0dip"
+                android:layout_height="40.0dip"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/img_product_back" />
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:src="@drawable/img_product_back"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/iv_share"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="40.0dip"
+                android:layout_height="40.0dip"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="20dp"
-                android:src="@drawable/img_share" />
-
+                android:layout_marginBottom="20.0dip"
+                android:layout_marginRight="20.0dip"
+                android:src="@drawable/img_share"/>
         </RelativeLayout>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray_line" />
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:background="@color/gray_line"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="8dp">
+            android:padding="8.0dip">
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_marginRight="8dp"
+                android:layout_width="40.0dip"
+                android:layout_height="20.0dip"
+                android:layout_marginRight="8.0dip"
                 android:background="@color/orange"
                 android:gravity="center"
                 android:text="自营"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"/>
 
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_width="0dp"
+                android:layout_width="0.0dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.0"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="鲁西 高塔尿基 40kg 复合肥料 总养分 >45%" />
+                android:text="鲁西 高塔尿基 40kg 复合肥料 总养分 >45%"/>
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/img_right_arrow" />
-
+                android:layout_width="15.0dip"
+                android:layout_height="15.0dip"
+                android:src="@drawable/img_right_arrow"/>
         </LinearLayout>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@color/gray_line" />
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:layout_marginLeft="8.0dip"
+            android:layout_marginRight="8.0dip"
+            android:background="@color/gray_line"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:orientation="horizontal"
-            android:padding="8dp">
+            android:padding="8.0dip">
 
             <TextView
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="10.0dip"
                 android:text="￥188.00"
                 android:textColor="@color/font_red"
-                android:textSize="@dimen/font_size_24" />
+                android:textSize="@dimen/font_size_24"/>
 
             <TextView
                 android:id="@+id/tv_old_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="￥299.00" />
-
+                android:text="￥299.00"/>
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="@color/product_gray_bg" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8.0dip">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="商品评价(5748)" />
+                android:layout_marginRight="10.0dip"
+                android:text="商品数量:"
+                android:textColor="@color/font_red"/>
 
             <ImageView
-                android:id="@+id/iv_commit"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/img_right_arrow" />
+                android:id="@+id/iv_minus"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:background="@drawable/shape_shopping_cart_rect_stroke_gray"
+                android:padding="6dp"
+                android:src="@drawable/img_product_minus"/>
 
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/img_product_star" />
+            <EditText
+                android:id="@+id/et_num"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="80.0dip"
+                android:layout_height="25dp"
+                android:background="@drawable/shape_rect_goods_num_bg"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="1"/>
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/img_product_star" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/img_product_star" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/img_product_star" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/img_product_star" />
-
+                android:id="@+id/iv_add"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:background="@drawable/shape_shopping_cart_rect_stroke_gray"
+                android:padding="6dp"
+                android:src="@drawable/img_product_add"/>
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="肥料超级好用的,我家的西葫芦都已经发芽了,价钱也很合适,下次还会再来呢,祝生意兴隆哦~" />
-
         <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@color/gray_line" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/img_product_star" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/img_product_star" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/img_product_star" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/img_product_star" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/img_product_empty_star" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="肥料超级好用的,我家的西葫芦都已经发芽了,价钱也很合适,下次还会再来呢,祝生意兴隆哦~" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="@color/product_gray_bg" />
+            android:layout_width="fill_parent"
+            android:layout_height="30.0dip"
+            android:background="@color/product_gray_bg"/>
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:id="@+id/rl_search"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:padding="8.0dip">
 
             <ImageView
+                android:id="@+id/iv_category"
+                android:layout_width="70.0dip"
+                android:layout_height="45.0dip"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20.0dip"
+                android:scaleType="centerInside"/>
+
+            <TextView
+                android:id="@+id/tv_category_name"
                 android:layout_width="wrap_content"
-                android:layout_height="45dp" />
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:layout_toRightOf="@+id/iv_category"/>
 
             <ImageView
                 android:id="@+id/iv_search"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="15.0dip"
+                android:layout_height="15.0dip"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/img_right_arrow" />
+                android:src="@drawable/img_right_arrow"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@+id/iv_search"
-                android:text="搜索" />
-
+                android:layout_marginRight="5.0dip"
+                android:layout_toLeftOf="@id/iv_search"
+                android:text="搜索"/>
         </RelativeLayout>
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/gray_line"/>
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="55.0dip"
             android:gravity="center_vertical"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
             android:orientation="horizontal"
-            android:background="@color/product_gray_bg">
+            android:padding="8.0dip">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/gray_line"/>
+            <Button
+                android:id="@+id/btn_buy"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="10.0dip"
+                android:layout_weight="1.0"
+                android:background="@drawable/shape_product_radius_yellow"
+                android:text="立即购买"
+                android:textColor="@android:color/white"/>
 
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/img_drag_icon"/>
+            <Button
+                android:id="@+id/btn_add_shoppingcart"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="10.0dip"
+                android:layout_weight="1.0"
+                android:background="@drawable/shape_product_radius_red"
+                android:text="加入购物车"
+                android:textColor="@android:color/white"/>
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="继续拖动,查看图文详情"/>
+                android:layout_height="fill_parent">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/gray_line"/>
+                <ImageView
+                    android:id="@+id/iv_shopping_cart"
+                    android:layout_width="30.0dip"
+                    android:layout_height="30.0dip"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/img_shopping_cart"/>
 
+                <TextView
+                    android:id="@+id/tv_shopping_cart_sum"
+                    android:layout_width="18.0dip"
+                    android:layout_height="18.0dip"
+                    android:layout_toRightOf="@id/iv_shopping_cart"
+                    android:background="@drawable/shape_product_ring_red"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="99"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/font_size_12"/>
+            </RelativeLayout>
         </LinearLayout>
-
     </LinearLayout>
-
-
 </com.louis.agricultural.view.CustScrollView>

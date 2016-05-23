@@ -29,7 +29,7 @@ import com.louis.agricultural.model.entities.HomeAdImageEntity;
 import com.louis.agricultural.model.event.LoginResultEvent;
 import com.louis.agricultural.presenter.HomePresenter;
 import com.louis.agricultural.ui.activity.MessageActivity;
-import com.louis.agricultural.ui.activity.ProductDetailsActivity;
+import com.louis.agricultural.ui.activity.GoodsDetailActivity;
 import com.louis.agricultural.ui.activity.SearchActivity;
 import com.louis.agricultural.ui.activity.account.LoginActivity;
 import com.louis.agricultural.ui.view.IHomeView;
@@ -358,7 +358,7 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
     }
 
     private void toGoodsDetail(String article_id) {
-        Intent intent = new Intent(getActivity(), ProductDetailsActivity.class);
+        Intent intent = new Intent(getActivity(), GoodsDetailActivity.class);
         intent.putExtra(Constants.MESSAGE_EXTRA_KEY, article_id);
         startActivity(intent);
     }

@@ -3,6 +3,8 @@ package com.louis.agricultural.utils.helper;
 import android.app.Activity;
 import android.content.Context;
 
+import com.louis.agricultural.base.app.FYApplication;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -59,7 +61,7 @@ public class OptionsWindowHelper {
             options2Items = new ArrayList<>();
             options3Items = new ArrayList();
 
-            final Map<String, Map<String, List<String>>> allCitys = AreaArrayDataHelper.getAll(context);
+            final Map<String, Map<String, List<String>>> allCitys = FYApplication.mAllArea;
             for (Map.Entry<String, Map<String, List<String>>> entry1 : allCitys.entrySet()) {
                 String key1 = entry1.getKey();
                 Map<String, List<String>> value1 = entry1.getValue();

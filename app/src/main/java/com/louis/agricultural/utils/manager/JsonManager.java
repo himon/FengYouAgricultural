@@ -203,7 +203,7 @@ public class JsonManager {
      * @param sum
      * @return
      */
-    public static String getAddGoodscart(String user_id, String goods_id, int sum) {
+    public static String getAddGoodscart(String user_id, String goods_id, String sum) {
         JSONObject object = new JSONObject();
         try {
             object.put("user_id", user_id);

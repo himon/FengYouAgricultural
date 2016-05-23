@@ -611,7 +611,7 @@ public class HttpManager {
      * @param listener
      * @param activity
      */
-    public void getAddGoodscart(final String user_id, final String goods_id, final int sum, final UserLoseMultiLoadedListener listener, Activity activity) {
+    public void getAddGoodscart(final String user_id, final String goods_id, final String sum, final UserLoseMultiLoadedListener listener, Activity activity, Fragment fragment) {
         GsonRequest<BaseEntity> request = new GsonRequest<BaseEntity>(Request.Method.POST, StringUtil.preUrl(Constants.WEB_SERVICE_URL),
                 BaseEntity.class, null, new Response.Listener<BaseEntity>() {
 
@@ -641,7 +641,12 @@ public class HttpManager {
                 return params;
             }
         };
-        RequestManager.addRequest(request, activity);
+        if(activity  != null){
+            RequestManager.addRequest(request, activity);
+        }else{
+            RequestManager.addRequest(request, fragment);
+        }
+
     }
 
     /**

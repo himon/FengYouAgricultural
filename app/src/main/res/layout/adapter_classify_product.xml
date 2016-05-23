@@ -18,13 +18,22 @@
         android:id="@+id/tv_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:lines="1"
+        android:lines="2"
         android:ellipsize="end"
         android:textSize="@dimen/font_size_12"
         android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:ellipsize="end"
+        android:textSize="@dimen/font_size_12"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/tv_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:lines="1"

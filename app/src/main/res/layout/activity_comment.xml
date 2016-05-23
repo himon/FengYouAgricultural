@@ -72,6 +72,7 @@
             android:background="@color/gray_line5" />
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/ll_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -151,6 +152,7 @@
             android:background="@color/home_tab_gray_bg" />
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/ll_comment_star"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

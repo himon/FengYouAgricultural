@@ -20,6 +20,7 @@ import com.louis.agricultural.alipay.PayResult;
 import com.louis.agricultural.alipay.SignUtils;
 import com.louis.agricultural.base.activity.BaseActivity;
 import com.louis.agricultural.base.app.Constants;
+import com.louis.agricultural.model.event.MyOrderEvent;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -30,6 +31,7 @@ import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 
 /**
  * 支付页面
@@ -63,6 +65,11 @@ public class PayActivity extends BaseActivity {
                     // 判断resultStatus 为“9000”则代表支付成功，具体状态码代表含义可参考接口文档
                     if (TextUtils.equals(resultStatus, "9000")) {
                         Toast.makeText(PayActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
+                        MyOrderEvent event = new MyOrderEvent("update_pay");
+                        event.setOrderId(mNo);
+                        event.setStatus("2");
+                        EventBus.getDefault().post(event);
+                        finish();
                     } else {
                         // 判断resultStatus 为非"9000"则代表可能支付失败
                         // "8000"代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
@@ -174,7 +181,7 @@ public class PayActivity extends BaseActivity {
                     }).show();
             return;
         }
-        String orderInfo = getOrderInfo("测试的商品", "该测试商品的详细描述", mPrice);
+        String orderInfo = getOrderInfo("订单号:" + mNo, "该测试商品的详细描述", mPrice);
 
         /**
          * 特别注意，这里的签名逻辑需要放在服务端，切勿将私钥泄露在代码中！

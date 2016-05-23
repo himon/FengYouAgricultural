@@ -242,7 +242,7 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:maxLines="1"
+                    android:maxLines="2"
                     android:text="掺混肥料"
                     android:textColor="@color/home_tab_red_bg" />
 
@@ -283,6 +283,7 @@
                             android:textSize="@dimen/font_size_10" />
 
                         <TextView
+                            android:visibility="invisible"
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
                             android:layout_weight="2"
@@ -341,7 +342,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
                         android:text="$188"
                         android:textColor="@color/home_tab_red_bg"
                         android:textSize="@dimen/font_size_10" />
@@ -404,7 +404,6 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
                         android:text="$188"
                         android:textColor="@color/home_tab_red_bg"
                         android:textSize="@dimen/font_size_10" />
@@ -459,7 +458,6 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
                         android:text="￥188"
                         android:textColor="@color/home_tab_red_bg"
                         android:textSize="@dimen/font_size_10" />
@@ -514,7 +512,6 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
                         android:text="$188"
                         android:textColor="@color/home_tab_red_bg"
                         android:textSize="@dimen/font_size_10" />
@@ -603,7 +600,7 @@
 
                         <View
                             android:layout_width="0.5dp"
-                            android:layout_height="120dp"
+                            android:layout_height="160dp"
                             android:layout_alignParentRight="true"
                             android:background="@color/home_tab_gray_bg" />
 
@@ -680,7 +677,7 @@
 
                         <View
                             android:layout_width="0.5dp"
-                            android:layout_height="120dp"
+                            android:layout_height="160dp"
                             android:layout_alignParentRight="true"
                             android:background="@color/home_tab_gray_bg" />
 
@@ -757,7 +754,7 @@
 
                         <View
                             android:layout_width="0.5dp"
-                            android:layout_height="120dp"
+                            android:layout_height="160dp"
                             android:layout_alignParentRight="true"
                             android:background="@color/home_tab_gray_bg" />
 
@@ -834,7 +831,7 @@
 
                         <View
                             android:layout_width="0.5dp"
-                            android:layout_height="120dp"
+                            android:layout_height="160dp"
                             android:layout_alignParentRight="true"
                             android:background="@color/home_tab_gray_bg" />
 

@@ -25,6 +25,7 @@ import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.event.ConfirmOrderEvent;
 import com.louis.agricultural.model.event.ShoppingAddressEvent;
 import com.louis.agricultural.presenter.ConfirmOrderActivityPresenter;
+import com.louis.agricultural.ui.activity.GoodsDetailActivity;
 import com.louis.agricultural.ui.activity.ProductDetailsActivity;
 import com.louis.agricultural.ui.adapter.ConfirmOrderAdapter;
 import com.louis.agricultural.ui.view.IConfirmOrderView;
@@ -189,7 +190,7 @@ public class ConfirmOrderActivity extends MVPBaseActivity<IConfirmOrderView, Con
     }
 
     private void toProductDetail(String goods_id) {
-        Intent intent = new Intent(this, ProductDetailsActivity.class);
+        Intent intent = new Intent(this, GoodsDetailActivity.class);
         intent.putExtra(Constants.MESSAGE_EXTRA_KEY, goods_id);
         startActivity(intent);
     }

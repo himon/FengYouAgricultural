@@ -20,7 +20,6 @@ import com.louis.agricultural.base.activity.MVPBaseActivity;
 import com.louis.agricultural.base.app.FYApplication;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.ProductDetailEntity;
-import com.louis.agricultural.model.entities.ProductDetailEntity.ResultEntity;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.event.ProductDetailEvent;
 import com.louis.agricultural.presenter.ProductDetailsPresenter;
@@ -37,7 +36,7 @@ public class GoodsDetailActivity extends MVPBaseActivity<IProductDetailsView, Pr
     FrameLayout mFrameLayout;
     private String mId;
     private ProductDetailsPresenter mPreseter;
-    private ProductDetailEntity.ResultEntity mProductDetail;
+    private ProductDetailEntity.ResultBean mProductDetail;
     private ProductFirstFragment mProductFirstFragment;
     private UserEntity mUser;
 
@@ -148,6 +147,7 @@ public class GoodsDetailActivity extends MVPBaseActivity<IProductDetailsView, Pr
     public void setDetail(ProductDetailEntity paramProductDetailEntity) {
         this.mWebView.loadUrl("http://115.28.134.18:8087/web/goods_show.aspx?id=" + this.mId + "&active=1");
         this.mProductDetail = paramProductDetailEntity.getResult();
+        initTitle(mProductDetail.getTitle());
         FragmentTransaction localFragmentTransaction = this.mFragmentManager.beginTransaction();
         if (this.mProductFirstFragment == null) {
             this.mProductFirstFragment = new ProductFirstFragment();

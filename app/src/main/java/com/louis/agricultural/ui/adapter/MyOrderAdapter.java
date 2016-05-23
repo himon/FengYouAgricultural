@@ -10,11 +10,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.louis.agricultural.R;
+import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.model.entities.OrderEntity;
 import com.louis.agricultural.base.adapter.CommonAdapter;
 import com.louis.agricultural.base.adapter.ViewHolder;
 import com.louis.agricultural.model.event.MyOrderEvent;
 import com.louis.agricultural.ui.activity.me.MyOrderActivity;
+import com.louis.agricultural.utils.manager.ImageLoadProxy;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 import java.util.List;
 
@@ -28,8 +31,11 @@ import de.greenrobot.event.EventBus;
  */
 public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
 
+    private DisplayImageOptions mOptions;
+
     public MyOrderAdapter(Context context, List<OrderEntity.ResultEntity> datas, int layoutId) {
         super(context, datas, layoutId);
+        mOptions = ImageLoadProxy.getOption4ExactlyType();
     }
 
     @Override
@@ -58,11 +64,14 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
             left.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //EventBus.getDefault().post(new MyOrderEvent("pay"));
-                    MyOrderEvent event = new MyOrderEvent("update_pay");
+                    MyOrderEvent event = new MyOrderEvent("pay");
+                    event.setStatus(orderEntity.getGoods_price());
                     event.setOrderId(orderEntity.getId());
-                    event.setStatus("2");
                     EventBus.getDefault().post(event);
+//                    MyOrderEvent event = new MyOrderEvent("update_pay");
+//                    event.setOrderId(orderEntity.getId());
+//                    event.setStatus("2");
+//                    EventBus.getDefault().post(event);
                 }
             });
         } else if ("2".equals(orderEntity.getStatus()) && "2".equals(orderEntity.getPayment_status())) {
@@ -106,6 +115,7 @@ public class MyOrderAdapter extends CommonAdapter<OrderEntity.ResultEntity> {
         }
         holder.setText(R.id.tv_order_no, "交易单" + orderEntity.getOrder_no())
                 .setText(R.id.tv_desc, "共 " + orderEntity.getRow_number() + " 件商品  合计:￥" + orderEntity.getOrder_amount() + "(含运费￥" + orderEntity.getReal_amount() + ")")
-        .setText(R.id.tv_num, "x" + orderEntity.getRow_number());
+        .setText(R.id.tv_num, "x" + orderEntity.getRow_number()).setText(R.id.tv_title, orderEntity.getGoods_title());
+        ImageLoadProxy.displayImage(Constants.HOST_URL + orderEntity.getImg_url(), imageView, mOptions);
     }
 }

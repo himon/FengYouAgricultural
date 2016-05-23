@@ -54,7 +54,7 @@ public class ProductDetailsActivity extends MVPBaseActivity<IProductDetailsView,
     private ProductDetailsPresenter mPreseter;
     private ProductFirstFragment mFirstFragment;
     private ProductSecondFragment mSecondFragment;
-    private ProductDetailEntity.ResultEntity mProductDetail;
+    private ProductDetailEntity.ResultBean mProductDetail;
     private UserEntity mUser;
     private String mId;
 

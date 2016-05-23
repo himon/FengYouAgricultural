@@ -173,7 +173,7 @@ public class SearchActivity extends MVPBaseActivity<ISearchView, SearchActivityP
     }
 
     private void toGoodsDetail(String article_id) {
-        Intent intent = new Intent(this, ProductDetailsActivity.class);
+        Intent intent = new Intent(this, GoodsDetailActivity.class);
         intent.putExtra(Constants.MESSAGE_EXTRA_KEY, article_id);
         startActivity(intent);
     }

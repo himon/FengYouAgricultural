@@ -26,6 +26,7 @@ import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.model.event.LoginResultEvent;
 import com.louis.agricultural.model.event.ShoppingCartEvent;
 import com.louis.agricultural.presenter.ShoppingCartFragmentPresenter;
+import com.louis.agricultural.ui.activity.GoodsDetailActivity;
 import com.louis.agricultural.ui.activity.ProductDetailsActivity;
 import com.louis.agricultural.ui.activity.me.ConfirmOrderActivity;
 import com.louis.agricultural.ui.adapter.ShoppingCartAdapter;
@@ -159,7 +160,7 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
     }
 
     private void toProductDetail(String goods_id) {
-        Intent intent = new Intent(getActivity(), ProductDetailsActivity.class);
+        Intent intent = new Intent(getActivity(), GoodsDetailActivity.class);
         intent.putExtra(Constants.MESSAGE_EXTRA_KEY, goods_id);
         startActivity(intent);
     }
@@ -258,6 +259,8 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
             }
         }
 
+
+
     }
 
     public void onEvent(ShoppingCartEvent event) {
@@ -292,6 +295,10 @@ public class ShoppingCartFragment extends MVPBaseFragment<IShoppingCartView, Sho
             }
         }
         mTvTotalPrice.setText("合计：￥" + total.setScale(2, BigDecimal.ROUND_HALF_UP).toString());
+
+        if(mList.size() == 0){
+            mCbAll.setChecked(false);
+        }
     }
 
     private void check() {

@@ -79,6 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="颜色分类：黑颗粒符合菌肥"
+                android:visibility="invisible"
                 android:textColor="@color/main_search_font_gray" />
         </LinearLayout>
 

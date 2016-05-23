@@ -42,6 +42,7 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        initTitle("设置");
         mBtnLogout.setOnClickListener(this);
         mLLClear.setOnClickListener(this);
     }

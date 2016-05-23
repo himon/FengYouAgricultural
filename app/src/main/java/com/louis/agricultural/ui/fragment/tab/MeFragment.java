@@ -1,15 +1,22 @@
 package com.louis.agricultural.ui.fragment.tab;
 
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.louis.agricultural.R;
@@ -22,6 +29,7 @@ import com.louis.agricultural.ui.activity.me.ConfirmOrderActivity;
 import com.louis.agricultural.ui.activity.me.MyOrderActivity;
 import com.louis.agricultural.ui.activity.me.SettingActivity;
 import com.louis.agricultural.ui.activity.me.UserInfoActivity;
+import com.louis.agricultural.ui.fragment.MyOrderFragment;
 import com.louis.agricultural.view.CircleTransform;
 
 import butterknife.Bind;
@@ -47,6 +55,10 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     RelativeLayout mRlObligations;//待付款
     @Bind(R.id.rl_comment)
     RelativeLayout mRlComment;
+    @Bind(R.id.rl_wait_get)
+    RelativeLayout mRlWaitGet;
+    @Bind(R.id.ll_call)
+    LinearLayout mLLCall;
 
     public MeFragment() {
     }
@@ -73,6 +85,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
         mTvOrder.setOnClickListener(this);
         mRlObligations.setOnClickListener(this);
         mRlComment.setOnClickListener(this);
+        mRlWaitGet.setOnClickListener(this);
+        mLLCall.setOnClickListener(this);
     }
 
     @Override
@@ -107,21 +121,36 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
             case R.id.rl_comment:
                 toComment();
                 break;
+            case R.id.rl_wait_get:
+                toWaitGet();
+                break;
+            case R.id.ll_call:
+                testCall();
+                break;
         }
     }
 
+    private void toWaitGet() {
+        Intent intent = new Intent(getActivity(), MyOrderActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, 2);
+        startActivity(intent);
+    }
+
     private void toComment() {
-        Intent intent = new Intent(getActivity(), CommentActivity.class);
+        Intent intent = new Intent(getActivity(), MyOrderActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, 3);
         startActivity(intent);
     }
 
     private void toConfirmOrder() {
-        Intent intent = new Intent(getActivity(), ConfirmOrderActivity.class);
+        Intent intent = new Intent(getActivity(), MyOrderActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, 1);
         startActivity(intent);
     }
 
     private void toSeeOrder() {
         Intent intent = new Intent(getActivity(), MyOrderActivity.class);
+        intent.putExtra(Constants.MESSAGE_EXTRA_KEY, 0);
         startActivity(intent);
     }
 
@@ -133,5 +162,50 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     private void toSetting() {
         Intent intent = new Intent(getActivity(), SettingActivity.class);
         startActivity(intent);
+    }
+
+    private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1;
+
+    public void testCall()
+    {
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED)
+        {
+
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.CALL_PHONE},
+                    MY_PERMISSIONS_REQUEST_CALL_PHONE);
+        } else
+        {
+            callPhone();
+        }
+    }
+
+    public void callPhone()
+    {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        Uri data = Uri.parse("tel:" + "10086");
+        intent.setData(data);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
+
+        if (requestCode == MY_PERMISSIONS_REQUEST_CALL_PHONE)
+        {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                callPhone();
+            } else
+            {
+                // Permission Denied
+                Toast.makeText(getActivity(), "Permission Denied", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

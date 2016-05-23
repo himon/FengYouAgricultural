@@ -8,12 +8,14 @@ import com.jude.utils.JUtils;
 import com.louis.agricultural.BuildConfig;
 import com.louis.agricultural.model.entities.UserEntity;
 import com.louis.agricultural.utils.StrictModeUtil;
+import com.louis.agricultural.utils.helper.AreaArrayDataHelper;
 import com.louis.agricultural.utils.logger.LogLevel;
 import com.louis.agricultural.utils.logger.Logger;
 import com.louis.agricultural.utils.manager.ImageLoadProxy;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +33,7 @@ public class FYApplication extends Application {
     private UserEntity mUserEntity;
 
     private RefWatcher refWatcher;
+    public static  Map<String, Map<String, List<String>>> mAllArea = new HashMap<>();
 
     public static FYApplication getContext() {
         return mContext;
@@ -57,6 +60,14 @@ public class FYApplication extends Application {
         mContext = this;
         ImageLoadProxy.initImageLoader(this);
         JUtils.initialize(this);
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mAllArea = AreaArrayDataHelper.getAll(mContext);
+            }
+        }).start();
 
         if (BuildConfig.DEBUG) {
             Logger.init().hideThreadInfo().setMethodCount(1).setLogLevel(LogLevel.FULL);
