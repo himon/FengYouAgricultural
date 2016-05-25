@@ -210,7 +210,6 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
         mClassifyAdapter.setmDatas(mClassifyList);
         mClassifyAdapter.notifyDataSetChanged();
 
-        mPresenter.getSearchGoods(mClassifyList.get(0).getId(), "0", "", "id");
         mPresenter.getGoodsbank(mClassifyList.get(0).getId());
         mPresenter.getCategory(entity.getId());
         mCId = entity.getId();
@@ -246,6 +245,7 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
             });
             mFlowLayout.addView(tv);
         }
+        mPresenter.getSearchGoods(mClassifyList.get(0).getId(), "0", "", "id");
     }
 
     private void clearFlowLayout() {
@@ -277,6 +277,7 @@ public class ClassifyFragment extends MVPBaseFragment<IClassifyView, ClassifyFra
             });
             mBankLayout.addView(tv);
         }
+
     }
 
     private void clearBankLayout() {

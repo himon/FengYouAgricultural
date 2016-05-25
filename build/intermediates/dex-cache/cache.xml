@@ -184,18 +184,18 @@
         <dex dex="E:\github\FengYouAgricultural\app\build\intermediates\pre-dexed\release\com.wang.avi-library-1.0.5_aed890e486e2ddce89a3b45fcc9a3c1bb5d1d592.jar" />
     </item>
     <item
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="E:\github\FengYouAgricultural\app\build\intermediates\pre-dexed\release\library-2.4.0_dd460f45d27a359687729c3c169358b1eda3100b.jar" />
-    </item>
-    <item
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="98476622f10715998eacf9240d6b479f12c66143">
         <dex dex="E:\github\FengYouAgricultural\app\build\intermediates\pre-dexed\release\okio-1.6.0_c410569bd3ae660f2a7eceb3af69efc833b46b70.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="E:\github\FengYouAgricultural\app\build\intermediates\pre-dexed\release\library-2.4.0_dd460f45d27a359687729c3c169358b1eda3100b.jar" />
     </item>
     <item
         jar="E:\github\FengYouAgricultural\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
