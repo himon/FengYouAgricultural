@@ -44,13 +44,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-<<<<<<< HEAD
-                    android:text="品牌"
-                    android:textColor="@color/font_gray"/>
-=======
                     android:text="品牌分类"
                     android:textColor="@color/font_gray" />
->>>>>>> origin/master
 
             </LinearLayout>
 
@@ -71,13 +66,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-<<<<<<< HEAD
-                    android:text="公告"
-                    android:textColor="@color/font_gray"/>
-=======
                     android:text="新闻公告"
                     android:textColor="@color/font_gray" />
->>>>>>> origin/master
 
             </LinearLayout>
 
@@ -98,13 +88,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-<<<<<<< HEAD
-                    android:text="新闻"
-                    android:textColor="@color/font_gray"/>
-=======
                     android:text="产品知识"
                     android:textColor="@color/font_gray" />
->>>>>>> origin/master
 
             </LinearLayout>
 
@@ -125,13 +110,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-<<<<<<< HEAD
-                    android:text="配送"
-                    android:textColor="@color/font_gray"/>
-=======
                     android:text="物流信息"
                     android:textColor="@color/font_gray" />
->>>>>>> origin/master
 
             </LinearLayout>
 
@@ -175,16 +155,11 @@
                 android:id="@+id/tv_tt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
-                android:singleLine="true"
-                android:text="这才是真正的文字跑马灯效果这才是真正的文字跑马灯效果"></com.louis.agricultural.utils.CustomMarqueeTextView>
-=======
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:textColor="@color/home_tab_font_black" />
->>>>>>> origin/master
 
             <TextView
                 android:id="@+id/tv_tt_more"
