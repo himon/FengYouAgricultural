@@ -3,6 +3,7 @@ package com.louis.agricultural.ui.fragment.product;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -106,7 +107,13 @@ public class ProductFirstFragment extends MVPBaseFragment<IProductFirstFragmentV
         if (b != null) {
             mProductDetail = b.getParcelable(Constants.MESSAGE_EXTRA_KEY);
             mTvTitle.setText(this.mProductDetail.getTitle());
-            mTvPrice.setText("￥" + this.mProductDetail.getSell_price());
+            if (mProductDetail.getShow_price() == 0) {
+                mTvPrice.setVisibility(View.GONE);
+            } else {
+                mTvPrice.setText("￥" + mProductDetail.getSell_price());
+            }
+
+
             mTvOldPrice.setText("");
             this.mTvCategoryName.setText(this.mProductDetail.getCategory_name());
             ImageLoadProxy.displayImage(this.mProductDetail.getCategory_imgurl(), this.mIvCategory, this.mOptions);
@@ -212,14 +219,14 @@ public class ProductFirstFragment extends MVPBaseFragment<IProductFirstFragmentV
                 }
                 break;
             case R.id.iv_shopping_cart:
-                if(mUser != null){
+                if (mUser != null) {
                     toShoppingCart();
                     return;
                 }
                 toLogin();
                 break;
             case R.id.btn_buy:
-                if(mUser != null){
+                if (mUser != null) {
                     toCreateOrder();
                     return;
                 }
@@ -229,9 +236,9 @@ public class ProductFirstFragment extends MVPBaseFragment<IProductFirstFragmentV
                 toSearch();
                 break;
             case R.id.iv_minus:
-                if(count <= 1){
+                if (count <= 1) {
                     return;
-                }else{
+                } else {
                     count -= 1;
                     mEtNum.setText(count + "");
                 }

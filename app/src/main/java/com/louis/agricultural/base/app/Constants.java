@@ -145,6 +145,8 @@ public interface Constants {
 
     String GET_GOODSBANK = "get_goodsbank";
 
+    String GET_GOODSBANK12 = "get_goodsbank_12";
+
 
     /** 获取数据成功回调的key **/
     /**
@@ -270,6 +272,8 @@ public interface Constants {
     int ADD_GOODS_COMMENT_LISTENER = 0x10030;
 
     int GET_GOODSBANK_LISTENER = 0x10031;
+
+    int GET_GOODSBANK12_LISTENER = 0x10032;
 
     String MESSAGE_EXTRA_KEY = "message_extra_key";
     String MESSAGE_EXTRA_KEY2 = "message_extra_key2";

@@ -1,6 +1,8 @@
 package com.louis.agricultural.ui.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,6 +31,13 @@ public class ClassifyProductAdapter extends CommonAdapter<ProductEntity.ResultEn
     public void convert(ViewHolder holder, ProductEntity.ResultEntity fytjEntity) {
         ImageView img = holder.getView(R.id.iv_img);
         ImageLoadProxy.displayImage(fytjEntity.getImg_url(), img, mOptions);
-        holder.setText(R.id.tv_desc, fytjEntity.getTitle()).setText(R.id.tv_price, "￥" + fytjEntity.getSell_price()).setText(R.id.tv_no, fytjEntity.getGoods_no());
+        TextView price = holder.getView(R.id.tv_price);
+
+        if (TextUtils.isEmpty(fytjEntity.getSell_price()) || "0".equals(fytjEntity.getSell_price()) || "0.00".equals(fytjEntity.getSell_price())) {
+            price.setVisibility(View.GONE);
+        } else {
+            price.setText("￥" + fytjEntity.getSell_price());
+        }
+        holder.setText(R.id.tv_desc, fytjEntity.getTitle()).setText(R.id.tv_no, fytjEntity.getGoods_no());
     }
 }

@@ -41,6 +41,7 @@ public class ProductDetailEntity extends BaseEntity {
         private String sell_price;
         private String stock_quantity;
         private String title;
+        private int show_price;
 
         public ResultBean() {
         }
@@ -59,6 +60,7 @@ public class ProductDetailEntity extends BaseEntity {
             this.commentpls = paramParcel.readString();
             this.album = paramParcel.createTypedArrayList(AlbumBean.CREATOR);
             this.comment = paramParcel.createTypedArrayList(CommentBean.CREATOR);
+            this.show_price = paramParcel.readInt();
         }
 
         public int describeContents() {
@@ -169,6 +171,14 @@ public class ProductDetailEntity extends BaseEntity {
             this.title = paramString;
         }
 
+        public int getShow_price() {
+            return show_price;
+        }
+
+        public void setShow_price(int show_price) {
+            this.show_price = show_price;
+        }
+
         public void writeToParcel(Parcel paramParcel, int paramInt) {
             paramParcel.writeString(this.title);
             paramParcel.writeString(this.sell_price);
@@ -183,6 +193,7 @@ public class ProductDetailEntity extends BaseEntity {
             paramParcel.writeString(this.commentpls);
             paramParcel.writeTypedList(this.album);
             paramParcel.writeTypedList(this.comment);
+            paramParcel.writeInt(this.show_price);
         }
 
         public static class AlbumBean

@@ -1,5 +1,6 @@
 package com.louis.agricultural.ui.view;
 
+import com.louis.agricultural.model.entities.HomeBankEntity;
 import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.model.entities.FyttEntity;
 import com.louis.agricultural.model.entities.HomeAdImageEntity;
@@ -32,4 +33,6 @@ public interface IHomeView {
      * @param data
      */
     void setRmtj(ProductEntity data);
+
+    void setGoodsBank(HomeBankEntity data);
 }

@@ -37,4 +37,9 @@ public class HomeFragmentModeImpl extends BaseMode implements HomeFragmentMode{
     public void getIndexRmtj(int top, UserLoseMultiLoadedListener listener) {
         mManager.getIndexRmtj(top, listener, mFragment);
     }
+
+    @Override
+    public void getGoodsbank(String category_id, UserLoseMultiLoadedListener listener) {
+        mManager.getGoodsbank12(category_id, listener, mFragment);
+    }
 }

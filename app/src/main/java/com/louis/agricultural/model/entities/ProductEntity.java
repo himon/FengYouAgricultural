@@ -33,6 +33,7 @@ public class ProductEntity extends BaseEntity {
         private String brand;
         private String goods_no;
         private int num;
+        private int show_price;
 
         public void setTitle(String title) {
             this.title = title;
@@ -88,6 +89,14 @@ public class ProductEntity extends BaseEntity {
 
         public void setGoods_no(String goods_no) {
             this.goods_no = goods_no;
+        }
+
+        public int getShow_price() {
+            return show_price;
+        }
+
+        public void setShow_price(int show_price) {
+            this.show_price = show_price;
         }
     }
 }

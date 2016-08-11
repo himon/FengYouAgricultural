@@ -15,6 +15,7 @@ import com.louis.agricultural.model.entities.BankEntity;
 import com.louis.agricultural.model.entities.BaseEntity;
 import com.louis.agricultural.model.entities.ClassifyEntity;
 import com.louis.agricultural.model.entities.DistributionEntity;
+import com.louis.agricultural.model.entities.HomeBankEntity;
 import com.louis.agricultural.model.entities.OrderDetailEntity;
 import com.louis.agricultural.model.entities.OrderEntity;
 import com.louis.agricultural.model.entities.ProductDetailEntity;
@@ -1417,6 +1418,35 @@ public class HttpManager {
                                           HashMap localHashMap = new HashMap();
                                           localHashMap.put("methodName", Constants.GET_GOODSBANK);
                                           localHashMap.put("parames", JsonManager.getGoodsbank(bankid));
+                                          return localHashMap;
+                                      }
+                                  }
+                , paramFragment);
+    }
+
+    public void getGoodsbank12(final String category_id, final UserLoseMultiLoadedListener listener, Fragment paramFragment) {
+        if (isNetwork(listener))
+            return;
+        RequestManager.addRequest(new GsonRequest(1, StringUtil.preUrl(Constants.WEB_SERVICE_URL)
+                                          , HomeBankEntity.class, null, new Response.Listener<HomeBankEntity>() {
+                                      public void onResponse(HomeBankEntity paramAnonymousBankEntity) {
+                                          if (paramAnonymousBankEntity.isSuccess()) {
+                                              listener.onSuccess(Constants.GET_GOODSBANK12_LISTENER, paramAnonymousBankEntity);
+                                              return;
+                                          }
+                                          listener.onError(paramAnonymousBankEntity.getMessage());
+                                      }
+                                  }
+                                          , new Response.ErrorListener() {
+                                      public void onErrorResponse(VolleyError paramAnonymousVolleyError) {
+                                          listener.onException(paramAnonymousVolleyError.getMessage());
+                                      }
+                                  }) {
+                                      protected Map<String, String> getParams()
+                                              throws AuthFailureError {
+                                          HashMap localHashMap = new HashMap();
+                                          localHashMap.put("methodName", Constants.GET_GOODSBANK12);
+                                          localHashMap.put("parames", JsonManager.getGoodsbank12(category_id));
                                           return localHashMap;
                                       }
                                   }

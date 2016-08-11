@@ -4,9 +4,11 @@ package com.louis.agricultural.ui.fragment.tab;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.style.StrikethroughSpan;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -23,6 +25,8 @@ import android.widget.TextView;
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.fragment.MVPBaseFragment;
+import com.louis.agricultural.model.entities.ClassifyEntity;
+import com.louis.agricultural.model.entities.HomeBankEntity;
 import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.model.entities.FyttEntity;
 import com.louis.agricultural.model.entities.HomeAdImageEntity;
@@ -34,7 +38,9 @@ import com.louis.agricultural.ui.activity.SearchActivity;
 import com.louis.agricultural.ui.activity.account.LoginActivity;
 import com.louis.agricultural.ui.view.IHomeView;
 import com.louis.agricultural.utils.SpanUtil;
+import com.louis.agricultural.utils.TextUtil;
 import com.louis.agricultural.utils.manager.ImageLoadProxy;
+import com.louis.agricultural.view.FlowLayout;
 import com.louis.agricultural.view.GuideGallery;
 import com.louis.agricultural.view.autoscrollviewpager.AdImageAdapter;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -175,6 +181,10 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
     TextView mTvSpecification3;
     @Bind(R.id.tv_specifications4)
     TextView mTvSpecification4;
+    @Bind(R.id.flowlayout)
+    FlowLayout mFlowLayout;
+    @Bind(R.id.ll_price1)
+    LinearLayout mLLPrice;
 
     private HomePresenter mPresenter;
     private AdImageAdapter imageAdapter;
@@ -252,13 +262,14 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
 
     @Override
     protected void initData() {
-
+        mInflater = LayoutInflater.from(getActivity());
         mOptions = ImageLoadProxy.getOption4ExactlyType();
 
         mPresenter.getIndexImage(3);
         mPresenter.getIndexFytt(3);
         mPresenter.getIndexFytj(5);
         mPresenter.getIndexFyrm(4);
+        mPresenter.getGoodsbank("0");
     }
 
     @Override
@@ -384,7 +395,12 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
     @Override
     public void setFytt(FyttEntity data) {
         if (data.getResult() != null) {
-            mTvTitle.setText(data.getResult().get(0).getTitle());
+            List<FyttEntity.ResultEntity> result = data.getResult();
+            StringBuffer sb = new StringBuffer();
+            for (FyttEntity.ResultEntity item : result) {
+                sb.append(item.getTitle() + " ");
+            }
+            mTvTitle.setText(sb.toString());
         }
     }
 
@@ -396,31 +412,52 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
         ProductEntity.ResultEntity entity1 = mJpList.get(0);
         mTvName1.setText(entity1.getTitle());
         mTvDesc1.setText(entity1.getBrand());
-        mTvPrice1.setText("￥" + entity1.getSell_price());
+        if (entity1.getShow_price() == 0) {
+            mTvPrice1.setVisibility(View.GONE);
+            mLLPrice.setVisibility(View.GONE);
+        } else {
+            mTvPrice1.setText("￥" + entity1.getSell_price());
+        }
         ImageLoadProxy.displayImage(entity1.getImg_url(), mIvImg1, mOptions);
 
         ProductEntity.ResultEntity entity2 = mJpList.get(1);
         mTvName2.setText(entity2.getTitle());
         mTvDesc2.setText(entity2.getBrand());
-        mTvPrice2.setText("￥" + entity2.getSell_price());
+        if (entity2.getShow_price() == 0) {
+            mTvPrice2.setVisibility(View.GONE);
+        } else {
+            mTvPrice2.setText("￥" + entity2.getSell_price());
+        }
         ImageLoadProxy.displayImage(entity2.getImg_url(), mIvImg2, mOptions);
 
         ProductEntity.ResultEntity entity3 = mJpList.get(2);
         mTvName3.setText(entity3.getTitle());
         mTvDesc3.setText(entity3.getBrand());
-        mTvPrice3.setText("￥" + entity3.getSell_price());
+        if (entity3.getShow_price() == 0) {
+            mTvPrice3.setVisibility(View.GONE);
+        } else {
+            mTvPrice3.setText("￥" + entity3.getSell_price());
+        }
         ImageLoadProxy.displayImage(entity3.getImg_url(), mIvImg3, mOptions);
 
         ProductEntity.ResultEntity entity4 = mJpList.get(3);
         mTvName4.setText(entity4.getTitle());
         mTvDesc4.setText(entity4.getBrand());
-        mTvPrice4.setText("￥" + entity4.getSell_price());
+        if (entity4.getShow_price() == 0) {
+            mTvPrice4.setVisibility(View.GONE);
+        } else {
+            mTvPrice4.setText("￥" + entity4.getSell_price());
+        }
         ImageLoadProxy.displayImage(entity4.getImg_url(), mIvImg4, mOptions);
 
         ProductEntity.ResultEntity entity5 = mJpList.get(4);
         mTvName5.setText(entity5.getTitle());
         mTvDesc5.setText(entity5.getBrand());
-        mTvPrice5.setText("￥" + entity5.getSell_price());
+        if (entity5.getShow_price() == 0) {
+            mTvPrice5.setVisibility(View.GONE);
+        } else {
+            mTvPrice5.setText("￥" + entity5.getSell_price());
+        }
         ImageLoadProxy.displayImage(entity5.getImg_url(), mIvImg5, mOptions);
     }
 
@@ -448,26 +485,56 @@ public class HomeFragment extends MVPBaseFragment<IHomeView, HomePresenter> impl
 
         ProductEntity.ResultEntity entity1 = mRmList.get(0);
         mTvOrderName1.setText(entity1.getTitle());
-        mTvOrderPrice1.setText("￥" + entity1.getSell_price());
+        if (entity1.getShow_price() == 0) {
+            mTvOrderPrice1.setVisibility(View.GONE);
+        } else {
+            mTvOrderPrice1.setText("￥" + entity1.getSell_price());
+        }
         mTvSpecification1.setText(entity1.getGoods_no());
         ImageLoadProxy.displayImage(entity1.getImg_url(), mIvOrderImg1, mOptions);
 
         ProductEntity.ResultEntity entity2 = mRmList.get(1);
         mTvOrderName2.setText(entity2.getTitle());
-        mTvOrderPrice2.setText("￥" + entity2.getSell_price());
+        if (entity2.getShow_price() == 0) {
+            mTvOrderPrice2.setVisibility(View.GONE);
+        } else {
+            mTvOrderPrice2.setText("￥" + entity2.getSell_price());
+        }
         mTvSpecification2.setText(entity2.getGoods_no());
         ImageLoadProxy.displayImage(entity2.getImg_url(), mIvOrderImg2, mOptions);
 
         ProductEntity.ResultEntity entity3 = mRmList.get(2);
         mTvOrderName3.setText(entity3.getTitle());
         mTvSpecification3.setText(entity3.getGoods_no());
-        mTvOrderPrice3.setText("￥" + entity3.getSell_price());
+        if (entity3.getShow_price() == 0) {
+            mTvOrderPrice3.setVisibility(View.GONE);
+        } else {
+            mTvOrderPrice3.setText("￥" + entity3.getSell_price());
+        }
         ImageLoadProxy.displayImage(entity3.getImg_url(), mIvOrderImg3, mOptions);
 
         ProductEntity.ResultEntity entity4 = mRmList.get(3);
         mTvOrderName4.setText(entity4.getTitle());
         mTvSpecification4.setText(entity4.getGoods_no());
-        mTvOrderPrice4.setText("￥" + entity4.getSell_price());
+        if (entity4.getShow_price() == 0) {
+            mTvOrderPrice4.setVisibility(View.GONE);
+        } else {
+            mTvOrderPrice4.setText("￥" + entity4.getSell_price());
+        }
         ImageLoadProxy.displayImage(entity4.getImg_url(), mIvOrderImg4, mOptions);
+    }
+
+    private LayoutInflater mInflater;
+
+    @Override
+    public void setGoodsBank(HomeBankEntity data) {
+        List<HomeBankEntity.ResultBean> result = data.getResult();
+        for (int i = 0; i < result.size(); i++) {
+            final HomeBankEntity.ResultBean entity = result.get(i);
+            TextView tv = (TextView) mInflater.inflate(R.layout.tv,
+                    mFlowLayout, false);
+            tv.setText(entity.getName());
+            mFlowLayout.addView(tv);
+        }
     }
 }

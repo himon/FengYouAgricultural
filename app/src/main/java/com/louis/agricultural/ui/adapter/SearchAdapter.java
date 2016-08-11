@@ -1,7 +1,10 @@
 package com.louis.agricultural.ui.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.adapter.CommonAdapter;
@@ -33,5 +36,11 @@ public class SearchAdapter extends CommonAdapter<ProductEntity.ResultEntity> {
 
         ImageView image = holder.getView(R.id.iv_img);
         ImageLoadProxy.displayImage(productEntity.getImg_url(), image, mOptions);
+        TextView tvPrice = holder.getView(R.id.tv_price);
+        if (TextUtils.isEmpty(productEntity.getSell_price()) || "0".equals(productEntity.getSell_price()) || "0.00".equals(productEntity.getSell_price())) {
+            tvPrice.setVisibility(View.GONE);
+        } else {
+            tvPrice.setText("￥" + productEntity.getSell_price());
+        }
     }
 }

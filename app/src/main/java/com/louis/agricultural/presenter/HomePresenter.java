@@ -7,6 +7,7 @@ import com.louis.agricultural.base.app.Constants;
 import com.louis.agricultural.base.presenter.UserLosePresenter;
 import com.louis.agricultural.callback.UserLoseMultiLoadedListener;
 import com.louis.agricultural.model.entities.BaseEntity;
+import com.louis.agricultural.model.entities.HomeBankEntity;
 import com.louis.agricultural.model.entities.ProductEntity;
 import com.louis.agricultural.model.entities.FyttEntity;
 import com.louis.agricultural.model.entities.HomeAdImageEntity;
@@ -24,7 +25,6 @@ public class HomePresenter extends UserLosePresenter<IHomeView> implements UserL
     private HomeFragmentMode mHomeFragmentMode;
 
 
-
     public HomePresenter(IHomeView view) {
         mIHomeView = view;
         mHomeFragmentMode = new HomeFragmentModeImpl((Fragment) view);
@@ -32,15 +32,16 @@ public class HomePresenter extends UserLosePresenter<IHomeView> implements UserL
 
     /**
      * 获取首页轮播图
+     *
      * @param top
      */
-    public void getIndexImage(int top){
+    public void getIndexImage(int top) {
         mHomeFragmentMode.getIndexImage(top, this);
     }
 
     @Override
     public void onSuccess(int event_tag, BaseEntity data) {
-        switch (event_tag){
+        switch (event_tag) {
             case Constants.GET_INDEX_IMG_LISTENER:
                 mIHomeView.setViewPagerAd((HomeAdImageEntity) data);
                 break;
@@ -51,13 +52,17 @@ public class HomePresenter extends UserLosePresenter<IHomeView> implements UserL
                 mIHomeView.setFytj((ProductEntity) data);
                 break;
             case Constants.GET_INDEX_RMTJ_LISTENER:
-                mIHomeView.setRmtj((ProductEntity)data);
+                mIHomeView.setRmtj((ProductEntity) data);
+                break;
+            case Constants.GET_GOODSBANK12_LISTENER:
+                mIHomeView.setGoodsBank((HomeBankEntity)data);
                 break;
         }
     }
 
     /**
      * 丰友头条
+     *
      * @param top
      */
     public void getIndexFytt(int top) {
@@ -66,6 +71,7 @@ public class HomePresenter extends UserLosePresenter<IHomeView> implements UserL
 
     /**
      * 精品推荐
+     *
      * @param top
      */
     public void getIndexFytj(int top) {
@@ -74,9 +80,14 @@ public class HomePresenter extends UserLosePresenter<IHomeView> implements UserL
 
     /**
      * 热门推荐
+     *
      * @param top
      */
     public void getIndexFyrm(int top) {
         mHomeFragmentMode.getIndexRmtj(top, this);
+    }
+
+    public void getGoodsbank(String category_id) {
+        mHomeFragmentMode.getGoodsbank(category_id, this);
     }
 }

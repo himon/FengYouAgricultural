@@ -487,4 +487,18 @@ public class JsonManager {
                 localJSONException.printStackTrace();
         }
     }
+
+    public static String getGoodsbank12(String category_id) {
+        JSONObject localJSONObject = new JSONObject();
+        try
+        {
+            localJSONObject.put("category_id", category_id);
+            return localJSONObject.toString();
+        }
+        catch (JSONException localJSONException)
+        {
+            while (true)
+                localJSONException.printStackTrace();
+        }
+    }
 }

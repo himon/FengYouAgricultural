@@ -14,4 +14,6 @@ public interface HomeFragmentMode {
     void getIndexFytj(int top, UserLoseMultiLoadedListener listener);
 
     void getIndexRmtj(int top, UserLoseMultiLoadedListener listener);
+
+    void getGoodsbank(String category_id, UserLoseMultiLoadedListener listener);
 }
