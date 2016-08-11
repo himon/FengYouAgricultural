@@ -5,7 +5,7 @@
         jar="E:\github\FengYouAgricultural\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="377117612fe83224e13dd79d2fe48df95fdf45e0">
+        sha1="6272c17d16a5ec5b771b48e92379bdf5cc2b9963">
         <dex dex="E:\github\FengYouAgricultural\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_0b64391b2a26376e553110e081948ebdf73f3681.jar" />
     </item>
     <item
@@ -124,7 +124,7 @@
         jar="E:\github\FengYouAgricultural\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="85c1a3327925e12a563fd8e93808fa49a3636b5e">
+        sha1="f05439844af6a04827f996544902c5234490b6e1">
         <dex dex="E:\github\FengYouAgricultural\app\build\intermediates\pre-dexed\debug\instant-run_a9e8304a2e3471b22eb1f1f72c6a94b3492b8826.jar" />
     </item>
     <item

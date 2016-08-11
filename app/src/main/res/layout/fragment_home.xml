@@ -156,8 +156,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ellipsize="end"
-                android:lines="1"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
                 android:textColor="@color/home_tab_font_black" />
 
             <TextView
