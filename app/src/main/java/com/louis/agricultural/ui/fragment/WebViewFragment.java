@@ -10,6 +10,9 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.louis.agricultural.R;
 import com.louis.agricultural.base.app.Constants;
@@ -21,8 +24,14 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WebViewFragment extends BaseFragment {
+public class WebViewFragment extends BaseFragment implements View.OnClickListener {
 
+    @Bind(R.id.iv_nav_left)
+    protected ImageView mNavLeft;
+    @Bind(R.id.rl_nav_left)
+    protected RelativeLayout mRlLeft;
+    @Bind(R.id.tv_nav_right)
+    protected TextView mTvNavRight;
     @Bind(R.id.webview)
     WebView mWebView;
 
@@ -52,6 +61,9 @@ public class WebViewFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+
+        mTvNavRight.setText("丰友农资");
+
         mWebView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
@@ -87,7 +99,8 @@ public class WebViewFragment extends BaseFragment {
         setting.setLoadWithOverviewMode(true);
         setting.setUseWideViewPort(true);
 
-
+        mNavLeft.setOnClickListener(this);
+        mRlLeft.setOnClickListener(this);
     }
 
     @Override
@@ -114,6 +127,18 @@ public class WebViewFragment extends BaseFragment {
         super.onPause();
         if (mWebView != null) {
             mWebView.onPause();
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.rl_nav_left:
+            case R.id.iv_nav_left:
+                if(mWebView.canGoBack()) {
+                    mWebView.goBack();
+                }
+                break;
         }
     }
 }

@@ -44,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="品牌"
+                    android:text="品牌分类"
                     android:textColor="@color/font_gray" />
 
             </LinearLayout>
@@ -66,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="公告"
+                    android:text="新闻公告"
                     android:textColor="@color/font_gray" />
 
             </LinearLayout>
@@ -88,7 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="新闻"
+                    android:text="产品知识"
                     android:textColor="@color/font_gray" />
 
             </LinearLayout>
@@ -110,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="配送"
+                    android:text="物流信息"
                     android:textColor="@color/font_gray" />
 
             </LinearLayout>
