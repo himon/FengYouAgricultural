@@ -9,6 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="072fa423-6212-4d8f-a909-a5521af50a45" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/HomeBankEntity.java" />
@@ -382,6 +383,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/library.iml" afterPath="$PROJECT_DIR$/library/library.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
+=======
+    <list default="true" id="24b02f2f-0013-44d0-8353-6e824bc6454b" name="Default" comment="" />
+>>>>>>> origin/master
     <ignored path="FengYouAgricultural.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -400,12 +404,44 @@
     <favorites_list name="FengYouAgricultural" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="MeFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/MeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.33288947">
               <caret line="166" column="4" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="67" />
+=======
+    <leaf>
+      <file leaf-file-name="HomeFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/HomeFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.5">
+              <caret line="192" column="56" selection-start-line="192" selection-start-column="56" selection-end-line="192" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_home.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.2696079">
+              <caret line="779" column="51" selection-start-line="779" selection-start-column="51" selection-end-line="779" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomePresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/HomePresenter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="47" column="34" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="34" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -4270,17 +4306,30 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/adapter/SearchAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/ProductEntity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/HomeFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/model/entities/ProductDetailEntity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/product/ProductFirstFragment.java" />
+=======
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_web_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/WebViewFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
+>>>>>>> origin/master
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="width" value="1440" />
     <option name="height" value="900" />
+=======
+    <option name="x" value="380" />
+    <option name="y" value="1" />
+    <option name="width" value="1521" />
+    <option name="height" value="1040" />
+>>>>>>> origin/master
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -4307,9 +4356,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
+=======
+      <pane id="PackagesPane" />
+>>>>>>> origin/master
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -4628,7 +4681,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
+              <option name="myItemId" value="fragment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -4670,11 +4723,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
+              <option name="myItemId" value="fragment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="account" />
+              <option name="myItemId" value="tab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FengYouAgricultural" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FengYouAgricultural" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agricultural" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4708,6 +4799,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+<<<<<<< HEAD
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="FengYouAgricultural" />
@@ -4826,6 +4918,19 @@
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
     <property name="FullScreen" value="true" />
+=======
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="device.picker.selection" value="c8efee32" />
+>>>>>>> origin/master
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -4862,6 +4967,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -4895,6 +5001,8 @@
       </Profilers>
       <method />
     </configuration>
+=======
+>>>>>>> origin/master
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -5096,14 +5204,22 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="072fa423-6212-4d8f-a909-a5521af50a45" name="Default" comment="" />
       <created>1468937963966</created>
       <option name="number" value="Default" />
       <updated>1468937963966</updated>
+=======
+      <changelist id="24b02f2f-0013-44d0-8353-6e824bc6454b" name="Default" comment="" />
+      <created>1470909127905</created>
+      <option name="number" value="Default" />
+      <updated>1470909127905</updated>
+>>>>>>> origin/master
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
@@ -5115,9 +5231,24 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38913363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+    <frame x="380" y="1" width="1521" height="1040" extended-state="1" />
+    <editor active="false" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+>>>>>>> origin/master
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -5127,6 +5258,17 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39941263" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26009583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39955848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+>>>>>>> origin/master
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -5150,11 +5292,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+<<<<<<< HEAD
+=======
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/HomeFragment.java</url>
+          <line>385</line>
+          <properties />
+        </line-breakpoint>
+      </breakpoints>
+>>>>>>> origin/master
       <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/me/ConfirmOrderActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -5356,10 +5509,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="419" column="9" selection-start-line="414" selection-start-column="8" selection-end-line="419" selection-end-column="9" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="18" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/SearchActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -5372,6 +5532,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="37" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="37" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_title_bar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
@@ -5379,6 +5545,7 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/widget/ListView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33290488">
@@ -5390,6 +5557,103 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="37" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="37" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_web_view.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5245903">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/activity/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4013683">
+          <caret line="34" column="33" selection-start-line="25" selection-start-column="3" selection-end-line="34" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/activity/MVPBaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25085518">
+          <caret line="12" column="84" selection-start-line="12" selection-start-column="84" selection-end-line="12" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/SearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/base/fragment/BaseFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25085518">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/activity/WebViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9532497">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-23/android.jar!/android/webkit/WebView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35566384">
+          <caret line="182" column="16" selection-start-line="182" selection-start-column="16" selection-end-line="182" selection-end-column="16" />
+          <folding>
+            <element signature="e#5645#5646#0" expanded="true" />
+            <element signature="e#5696#5697#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/WebViewFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8687392">
+          <caret line="126" column="24" selection-start-line="126" selection-start-column="24" selection-end-line="126" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/presenter/HomePresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="34" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/louis/agricultural/ui/fragment/tab/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.5">
+          <caret line="192" column="56" selection-start-line="192" selection-start-column="56" selection-end-line="192" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-nodpi/img_home_goods2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2696079">
+          <caret line="779" column="51" selection-start-line="779" selection-start-column="51" selection-end-line="779" selection-end-column="51" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
